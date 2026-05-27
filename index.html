@@ -1,111 +1,332 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Porto saya</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-</head>
-<body>
-    <!-- Navbar -->
-     <div class="container-navbar">
-        <ul class="ul-navbar">
-            <li class="li-navbar">
-                <a href="#home" class="a-content">Home</a>
-            </li>
-            <li class="li-navbar">
-                <a href="#about" class="a-content">About</a>
-            </li>
-            <li class="li-navbar">
-                <a href="#project" class="a-content">Projects</a>
-            </li>
-            <li class="li-navbar">
-                <a href="#contact" class="a-content">Contact me</a>
-            </li>
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fadli — Frontend Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ═══════════ NAVBAR ═══════════ -->
+    <header id="navbar">
+      <nav class="nav-inner">
+        <a href="#home" class="nav-logo">FADLI<span>.PORTFOLIO</span></a>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#home" class="nav-link">Beranda</a></li>
+          <li><a href="#about" class="nav-link">Tentang</a></li>
+          <li><a href="#projects" class="nav-link">Proyek</a></li>
+          <li><a href="#contact" class="nav-link">Kontak</a></li>
         </ul>
-     </div>
-     </div>
 
-    <!-- Navbar End -->
-    
-    <!-- Konten -->
-      <div id="home" class="container-content">
-        <h1>HOME</h1>
-        <div class="home-content">
-            <div class="text-content">
-            <h2>Saya FADLI HABIBI LUBIS</h2>
-            <p>Saya adalah mahasiswa semester 6 di UNIVERSITAS POTENSI UTAMA.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sequi neque in sint architecto tenetur at maiores assumenda velit vel, incidunt quasi officiis voluptatum animi doloremque quis, voluptas, ab consequatur!</p>
-                </div>
-            <img src="assets/images/me.jpeg" alt="placeholder" class="img-content">
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Buka navigasi"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ═══════════ HERO ═══════════ -->
+      <section id="home" class="hero">
+        <div class="hero-text reveal">
+          <p class="hero-kicker">Frontend Developer</p>
+          <h1 class="hero-heading">
+            Halo, saya<br />
+            <em>Fadli</em>
+          </h1>
+          <p class="hero-body">
+            Mahasiswa Ilmu Komputer yang berfokus pada pengembangan antarmuka
+            yang cepat, aksesibel, dan dirancang dengan presisi. Saya percaya
+            bahwa kode yang baik adalah kode yang bekerja dengan indah.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="cta-primary">Lihat Proyek</a>
+            <a href="#contact" class="cta-ghost">Hubungi Saya</a>
+          </div>
         </div>
-     </div>
 
-     <div id="about" class="container-content">
-        <h1>About</h1>
-        <div class="about-content">
-        <img src="assets/images/saya.jpeg" alt="placeholder" class="img-content">
-        <div class="text-content">
+        <div class="hero-photo reveal reveal--late">
+          <div class="photo-frame">
+            <img
+              src="assets/images/me.jpeg"
+              alt="Foto Fadli — Frontend Developer"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ TENTANG ═══════════ -->
+      <section id="about" class="about">
+        <div class="container">
+          <header class="section-head reveal">
+            <span class="eyebrow">01 / Tentang Saya</span>
+            <h2 class="section-title">Siapa Saya</h2>
+          </header>
+
+          <div class="about-body">
+            <div class="about-text reveal">
               <p>
-                    Halo! Saya <b>Fadli Habibi Lubis</b>, seorang mahasiswa di bidang Teknologi Informasi 
-                    yang memiliki minat besar dalam pengembangan aplikasi dan website.
-                </p>
-
-                <p>
-                    Saya senang mempelajari hal baru, terutama dalam dunia pemrograman seperti 
-                    HTML, CSS, dan Java. Saya juga sedang mengembangkan beberapa project seperti 
-                    aplikasi Android dan website sederhana.
-                </p>
-                 <p>
-                    Tujuan saya adalah menjadi seorang developer yang mampu menciptakan 
-                    aplikasi yang bermanfaat dan user-friendly.
-
-                <h3>Saya disini menguasai HTML dan CSS</h3>
-        </div>
-        </div>
-            <div class="img-skill-content">
-            <img src="assets/images/html.png" alt="placeholder" class="img-skil">
-            <img src="assets/images/css.png" alt="placeholder" class="img-skil">
+                Saya adalah mahasiswa Ilmu Komputer yang memiliki ketertarikan
+                mendalam pada pertemuan antara rekayasa perangkat lunak dan
+                desain visual. Setiap baris kode yang saya tulis bersifat
+                disengaja — dibangun untuk berkinerja tinggi dan bertahan lama.
+              </p>
+              <p>
+                Di luar kelas, saya menjelajahi teknologi modern, berkontribusi
+                pada proyek open-source, dan percaya bahwa perangkat lunak yang
+                hebat harus cepat, aksesibel, dan indah secara diam-diam.
+              </p>
             </div>
-     </div>
 
-     <div id="project" class="container-content">
-        <h1>Project</h1>
-        <div class="container-project">
-            <p>Proyek ini merupakan aplikasi To-Do List berbasis web yang digunakan untuk membantu pengguna dalam mencatat dan mengelola tugas sehari-hari. Aplikasi ini memiliki tampilan sederhana dengan bagian judul, deskripsi, serta beberapa contoh tampilan fitur yang tersedia.</p>
-            <p>Pengguna dapat menambahkan tugas dengan mengisi nama kegiatan dan tanggal yang harus diselesaikan melalui form yang disediakan. Setelah itu, tugas akan masuk ke dalam daftar yang harus dilakukan sehingga pengguna dapat melihat apa saja pekerjaan yang belum selesai.</p>
-            <p>Selain itu, aplikasi ini juga menyediakan fitur untuk menandai tugas sebagai selesai dan memindahkannya ke bagian yang sudah dilakukan. Pengguna juga dapat menghapus tugas jika sudah tidak diperlukan. Dengan fitur-fitur tersebut, aplikasi ini membantu pengguna agar lebih terorganisir dan produktif dalam menyelesaikan pekerjaan.</p>
+            <div class="about-skills reveal reveal--late">
+              <p class="skills-label">Teknologi Utama</p>
+              <ul class="skills-list">
+                <li class="skill-item">
+                  <img
+                    src="assets/images/html.png"
+                    alt="HTML5"
+                    class="skill-icon"
+                  />
+                  <span>HTML5</span>
+                </li>
+                <li class="skill-item">
+                  <img
+                    src="assets/images/css.png"
+                    alt="CSS3"
+                    class="skill-icon"
+                  />
+                  <span>CSS3</span>
+                </li>
+                <li class="skill-item">
+                  <div class="skill-glyph">JS</div>
+                  <span>JavaScript</span>
+                </li>
+                <li class="skill-item">
+                  <div class="skill-glyph">Fig</div>
+                  <span>Figma</span>
+                </li>
+                <li class="skill-item">
+                  <div class="skill-glyph">Cv</div>
+                  <span>Canva</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="container-image">
-            <img src="assets/images/projek/1.png" alt="placeholder" class="img-skil">
-            <img src="assets/images/projek/2.png" alt="placeholder" class="img-skil">
-            <img src="assets/images/projek/3.png" alt="placeholder" class="img-skil">
-            <img src="assets/images/projek/1.png" alt="placeholder" class="img-skil">
+      </section>
+
+      <!-- ═══════════ PROYEK ═══════════ -->
+      <section id="projects" class="projects">
+        <div class="container">
+          <header class="section-head reveal">
+            <span class="eyebrow">02 / Karya Terpilih</span>
+            <h2 class="section-title">Proyek</h2>
+          </header>
+
+          <div class="projects-grid">
+            <!-- Proyek 1 -->
+            <article class="project-card reveal">
+              <div class="card-media">
+                <img
+                  src="assets/images/projek/1.png"
+                  alt="Bookshelf App"
+                  loading="lazy"
+                />
+                <a href="#" class="card-visit" aria-label="Lihat Bookshelf App"
+                  >↗</a
+                >
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-index">01</span>
+                  <div class="card-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JS</span>
+                  </div>
+                </div>
+                <h3 class="card-title">Bookshelf App</h3>
+                <p class="card-desc">
+                  Bookshelf App merupakan website sederhana bertema buku dan
+                  literasi yang memungkinkan pengguna untuk menambahkan,
+                  memindahkan, dan menghapus buku dari rak digital mereka.
+                  Website ini dibangun menggunakan HTML, CSS, dan JavaScript
+                  murni tanpa framework tambahan.
+                </p>
+              </div>
+            </article>
+
+            <!-- Proyek 2 -->
+            <article class="project-card reveal reveal--mid">
+              <div class="card-media">
+                <img
+                  src="assets/images/projek/2.png"
+                  alt="Password Generator"
+                  loading="lazy"
+                />
+                <a
+                  href="#"
+                  class="card-visit"
+                  aria-label="Lihat Password Generator"
+                  >↗</a
+                >
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-index">02</span>
+                  <div class="card-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JS</span>
+                  </div>
+                </div>
+                <h3 class="card-title">Password Generator</h3>
+                <p class="card-desc">
+                  Website generator password interaktif yang memungkinkan
+                  pengguna membuat kata sandi acak yang kuat dengan berbagai
+                  pilihan karakter, panjang password yang dapat disesuaikan,
+                  serta fitur salin ke clipboard dengan satu klik.
+                </p>
+              </div>
+            </article>
+
+            <!-- Proyek 3 -->
+            <article class="project-card reveal reveal--late">
+              <div class="card-media">
+                <img
+                  src="assets/images/projek/3.png"
+                  alt="Porto Pertama"
+                  loading="lazy"
+                />
+                <a href="#" class="card-visit" aria-label="Lihat Porto Pertama"
+                  >↗</a
+                >
+              </div>
+              <div class="card-body">
+                <div class="card-meta">
+                  <span class="card-index">03</span>
+                  <div class="card-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JS</span>
+                  </div>
+                </div>
+                <h3 class="card-title">Porto Pertama</h3>
+                <p class="card-desc">
+                  Website portofolio pribadi bertema monokrom minimalis yang
+                  dibangun menggunakan HTML, CSS, dan JavaScript murni tanpa
+                  framework. Menampilkan proyek, keahlian, dan informasi kontak
+                  dengan tampilan bersih dan profesional.
+                </p>
+              </div>
+            </article>
+          </div>
         </div>
-     </div>
+      </section>
 
-     <div id="contact" class="container-content">
-        <h1>Contact Me</h1>
-     </div>
-     <div class="container-form">
-    <form>
-        <label for="">Nama</label>
-        <input type="text" name="" id="" placeholder="Nama anda">
-    </form>
-    <form action="">
-        <label for="">Email</label>
-        <input type="text" name="" id="" placeholder="Masukkan Email">
-    </form>
-    <button type="submit">Submit</button>
-    </div>
-    <!-- Konten end -->
+      <!-- ═══════════ KONTAK ═══════════ -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <header class="section-head reveal">
+            <span class="eyebrow">03 / Hubungi Saya</span>
+            <h2 class="section-title">Mari Bicara</h2>
+          </header>
 
-    <!-- Footer -->
-     <div class="container-footer">
-        <h1 class="h1-footer">Portofolio dev</h1>
-     </div>
-    <!-- Footer -->
+          <div class="contact-layout">
+            <div class="contact-copy reveal">
+              <p>
+                Terbuka untuk proyek freelance, kolaborasi, dan peluang magang.
+                Kirimkan pesan kepada saya dan saya akan segera merespons dengan
+                senang hati.
+              </p>
+              <dl class="contact-details">
+                <div>
+                  <dt>Email</dt>
+                  <dd>
+                    <a href="mailto:fadli@example.com">fadli@example.com</a>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Status</dt>
+                  <dd class="status-available">
+                    <span class="status-dot"></span>Tersedia untuk bekerja
+                  </dd>
+                </div>
+              </dl>
+            </div>
 
+            <form
+              id="contact-form"
+              class="contact-form reveal reveal--late"
+              novalidate
+            >
+              <div class="field">
+                <label for="name">Nama</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Nama lengkap Anda"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="email@anda.com"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="message">Pesan</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Ceritakan tentang proyek Anda…"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="cta-primary">
+                Kirim Pesan <span class="arrow">→</span>
+              </button>
+              <p class="form-ok" id="form-ok">
+                Pesan terkirim — saya akan segera menghubungi Anda.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-</body>
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer>
+      <div class="footer-inner">
+        <span class="footer-logo">FADLI<em>.PORTFOLIO</em></span>
+        <p class="footer-copy">© 2024 Fadli. Dibuat dengan presisi.</p>
+        <nav class="footer-nav">
+          <a href="https://github.com/FdliHabibiLubis" class="footer-link">GitHub</a>
+          <a href="mailto:fadli@example.com" class="footer-link">Email</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
 </html>
