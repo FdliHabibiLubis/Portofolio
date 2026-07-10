@@ -1,332 +1,684 @@
-<!doctype html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fadli — Frontend Developer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <!-- ═══════════ NAVBAR ═══════════ -->
-    <header id="navbar">
-      <nav class="nav-inner">
-        <a href="#home" class="nav-logo">FADLI<span>.PORTFOLIO</span></a>
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="id">
 
-        <ul class="nav-links" id="nav-links">
-          <li><a href="#home" class="nav-link">Beranda</a></li>
-          <li><a href="#about" class="nav-link">Tentang</a></li>
-          <li><a href="#projects" class="nav-link">Proyek</a></li>
-          <li><a href="#contact" class="nav-link">Kontak</a></li>
-        </ul>
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Fadli — Frontend Developer</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#eabf90",
+            "on-primary-fixed": "#002204",
+            "primary-fixed": "#70ff78",
+            "primary-fixed-dim": "#14e54a",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#151e13",
+            "error": "#ba1a1a",
+            "on-primary-fixed-variant": "#005314",
+            "secondary-fixed": "#94f990",
+            "on-background": "#151e13",
+            "surface": "#f2fdeb",
+            "on-primary-container": "#006f1e",
+            "outline-variant": "#bacbb4",
+            "tertiary": "#795832",
+            "secondary-fixed-dim": "#78dc77",
+            "on-secondary-fixed": "#002204",
+            "surface-bright": "#f2fdeb",
+            "outline": "#6c7b68",
+            "on-secondary-container": "#00731e",
+            "on-error": "#ffffff",
+            "surface-container": "#e6f1e0",
+            "on-tertiary-container": "#7a5932",
+            "inverse-on-surface": "#e9f4e3",
+            "surface-container-highest": "#dbe6d5",
+            "background": "#f2fdeb",
+            "tertiary-container": "#ffd2a2",
+            "on-error-container": "#93000a",
+            "surface-container-low": "#ecf7e5",
+            "on-tertiary-fixed-variant": "#5e411d",
+            "on-tertiary": "#ffffff",
+            "surface-tint": "#006e1d",
+            "primary": "#006e1d",
+            "on-secondary-fixed-variant": "#005313",
+            "on-tertiary-fixed": "#2b1700",
+            "primary-container": "#3dfa5c",
+            "on-secondary": "#ffffff",
+            "inverse-primary": "#14e54a",
+            "secondary": "#006e1c",
+            "on-surface-variant": "#3c4b39",
+            "error-container": "#ffdad6",
+            "surface-variant": "#dbe6d5",
+            "tertiary-fixed": "#ffddba",
+            "surface-container-high": "#e0ecda",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#293327",
+            "surface-dim": "#d2ddcc",
+            "secondary-container": "#91f78e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "container-max": "1200px",
+            "margin-mobile": "20px",
+            "gutter": "24px",
+            "stack-sm": "16px",
+            "unit": "8px",
+            "stack-md": "32px",
+            "stack-lg": "64px",
+            "section-padding": "120px"
+          },
+          "fontFamily": {
+            "headline-lg-mobile": ["Outfit"],
+            "display-lg": ["Outfit"],
+            "label-md": ["Inter"],
+            "headline-md": ["Outfit"],
+            "headline-lg": ["Outfit"],
+            "display-lg-mobile": ["Outfit"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+            "headline-lg": ["40px", { "lineHeight": "1.2", "fontWeight": "700" }],
+            "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
 
-        <button
-          class="hamburger"
-          id="hamburger"
-          aria-label="Buka navigasi"
-          aria-expanded="false"
-        >
-          <span></span>
-          <span></span>
-        </button>
-      </nav>
-    </header>
+    body {
+      background-color: #f2fdeb;
+      color: #151e13;
+    }
 
-    <main>
-      <!-- ═══════════ HERO ═══════════ -->
-      <section id="home" class="hero">
-        <div class="hero-text reveal">
-          <p class="hero-kicker">Frontend Developer</p>
-          <h1 class="hero-heading">
-            Halo, saya<br />
-            <em>Fadli</em>
-          </h1>
-          <p class="hero-body">
-            Mahasiswa Ilmu Komputer yang berfokus pada pengembangan antarmuka
-            yang cepat, aksesibel, dan dirancang dengan presisi. Saya percaya
-            bahwa kode yang baik adalah kode yang bekerja dengan indah.
-          </p>
-          <div class="hero-actions">
-            <a href="#projects" class="cta-primary">Lihat Proyek</a>
-            <a href="#contact" class="cta-ghost">Hubungi Saya</a>
-          </div>
-        </div>
+    /* Custom underline for hero */
+    .hero-highlight {
+      position: relative;
+      z-index: 1;
+    }
 
-        <div class="hero-photo reveal reveal--late">
-          <div class="photo-frame">
-            <img
-              src="assets/images/me.jpeg"
-              alt="Foto Fadli — Frontend Developer"
-              loading="eager"
-            />
-          </div>
-        </div>
-      </section>
+    .hero-highlight::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 4px;
+      width: 100%;
+      height: 12px;
+      background-color: #3DFA5C;
+      z-index: -1;
+    }
 
-      <!-- ═══════════ TENTANG ═══════════ -->
-      <section id="about" class="about">
-        <div class="container">
-          <header class="section-head reveal">
-            <span class="eyebrow">01 / Tentang Saya</span>
-            <h2 class="section-title">Siapa Saya</h2>
-          </header>
+    /* Hide scrollbar but keep functionality */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
 
-          <div class="about-body">
-            <div class="about-text reveal">
-              <p>
-                Saya adalah mahasiswa Ilmu Komputer yang memiliki ketertarikan
-                mendalam pada pertemuan antara rekayasa perangkat lunak dan
-                desain visual. Setiap baris kode yang saya tulis bersifat
-                disengaja — dibangun untuk berkinerja tinggi dan bertahan lama.
-              </p>
-              <p>
-                Di luar kelas, saya menjelajahi teknologi modern, berkontribusi
-                pada proyek open-source, dan percaya bahwa perangkat lunak yang
-                hebat harus cepat, aksesibel, dan indah secara diam-diam.
-              </p>
-            </div>
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
 
-            <div class="about-skills reveal reveal--late">
-              <p class="skills-label">Teknologi Utama</p>
-              <ul class="skills-list">
-                <li class="skill-item">
-                  <img
-                    src="assets/images/html.png"
-                    alt="HTML5"
-                    class="skill-icon"
-                  />
-                  <span>HTML5</span>
-                </li>
-                <li class="skill-item">
-                  <img
-                    src="assets/images/css.png"
-                    alt="CSS3"
-                    class="skill-icon"
-                  />
-                  <span>CSS3</span>
-                </li>
-                <li class="skill-item">
-                  <div class="skill-glyph">JS</div>
-                  <span>JavaScript</span>
-                </li>
-                <li class="skill-item">
-                  <div class="skill-glyph">Fig</div>
-                  <span>Figma</span>
-                </li>
-                <li class="skill-item">
-                  <div class="skill-glyph">Cv</div>
-                  <span>Canva</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+    /* Custom Entrance Animations */
+    .animate-fade-up {
+      opacity: 0;
+      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
 
-      <!-- ═══════════ PROYEK ═══════════ -->
-      <section id="projects" class="projects">
-        <div class="container">
-          <header class="section-head reveal">
-            <span class="eyebrow">02 / Karya Terpilih</span>
-            <h2 class="section-title">Proyek</h2>
-          </header>
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
 
-          <div class="projects-grid">
-            <!-- Proyek 1 -->
-            <article class="project-card reveal">
-              <div class="card-media">
-                <img
-                  src="assets/images/projek/1.png"
-                  alt="Bookshelf App"
-                  loading="lazy"
-                />
-                <a href="#" class="card-visit" aria-label="Lihat Bookshelf App"
-                  >↗</a
-                >
-              </div>
-              <div class="card-body">
-                <div class="card-meta">
-                  <span class="card-index">01</span>
-                  <div class="card-tags">
-                    <span class="tag">HTML</span>
-                    <span class="tag">CSS</span>
-                    <span class="tag">JS</span>
-                  </div>
-                </div>
-                <h3 class="card-title">Bookshelf App</h3>
-                <p class="card-desc">
-                  Bookshelf App merupakan website sederhana bertema buku dan
-                  literasi yang memungkinkan pengguna untuk menambahkan,
-                  memindahkan, dan menghapus buku dari rak digital mereka.
-                  Website ini dibangun menggunakan HTML, CSS, dan JavaScript
-                  murni tanpa framework tambahan.
-                </p>
-              </div>
-            </article>
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-            <!-- Proyek 2 -->
-            <article class="project-card reveal reveal--mid">
-              <div class="card-media">
-                <img
-                  src="assets/images/projek/2.png"
-                  alt="Password Generator"
-                  loading="lazy"
-                />
-                <a
-                  href="#"
-                  class="card-visit"
-                  aria-label="Lihat Password Generator"
-                  >↗</a
-                >
-              </div>
-              <div class="card-body">
-                <div class="card-meta">
-                  <span class="card-index">02</span>
-                  <div class="card-tags">
-                    <span class="tag">HTML</span>
-                    <span class="tag">CSS</span>
-                    <span class="tag">JS</span>
-                  </div>
-                </div>
-                <h3 class="card-title">Password Generator</h3>
-                <p class="card-desc">
-                  Website generator password interaktif yang memungkinkan
-                  pengguna membuat kata sandi acak yang kuat dengan berbagai
-                  pilihan karakter, panjang password yang dapat disesuaikan,
-                  serta fitur salin ke clipboard dengan satu klik.
-                </p>
-              </div>
-            </article>
+    .animate-spin-slow {
+      animation: spinSlow 20s linear infinite;
+    }
 
-            <!-- Proyek 3 -->
-            <article class="project-card reveal reveal--late">
-              <div class="card-media">
-                <img
-                  src="assets/images/projek/3.png"
-                  alt="Porto Pertama"
-                  loading="lazy"
-                />
-                <a href="#" class="card-visit" aria-label="Lihat Porto Pertama"
-                  >↗</a
-                >
-              </div>
-              <div class="card-body">
-                <div class="card-meta">
-                  <span class="card-index">03</span>
-                  <div class="card-tags">
-                    <span class="tag">HTML</span>
-                    <span class="tag">CSS</span>
-                    <span class="tag">JS</span>
-                  </div>
-                </div>
-                <h3 class="card-title">Porto Pertama</h3>
-                <p class="card-desc">
-                  Website portofolio pribadi bertema monokrom minimalis yang
-                  dibangun menggunakan HTML, CSS, dan JavaScript murni tanpa
-                  framework. Menampilkan proyek, keahlian, dan informasi kontak
-                  dengan tampilan bersih dan profesional.
-                </p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
+    @keyframes spinSlow {
+      from {
+        transform: rotate(0deg);
+      }
 
-      <!-- ═══════════ KONTAK ═══════════ -->
-      <section id="contact" class="contact">
-        <div class="container">
-          <header class="section-head reveal">
-            <span class="eyebrow">03 / Hubungi Saya</span>
-            <h2 class="section-title">Mari Bicara</h2>
-          </header>
+      to {
+        transform: rotate(360deg);
+      }
+    }
 
-          <div class="contact-layout">
-            <div class="contact-copy reveal">
-              <p>
-                Terbuka untuk proyek freelance, kolaborasi, dan peluang magang.
-                Kirimkan pesan kepada saya dan saya akan segera merespons dengan
-                senang hati.
-              </p>
-              <dl class="contact-details">
-                <div>
-                  <dt>Email</dt>
-                  <dd>
-                    <a href="mailto:fadli@example.com">fadli@example.com</a>
-                  </dd>
-                </div>
-                <div>
-                  <dt>Status</dt>
-                  <dd class="status-available">
-                    <span class="status-dot"></span>Tersedia untuk bekerja
-                  </dd>
-                </div>
-              </dl>
-            </div>
+    .animate-bounce-slow {
+      animation: bounceSlow 6s ease-in-out infinite;
+    }
 
-            <form
-              id="contact-form"
-              class="contact-form reveal reveal--late"
-              novalidate
-            >
-              <div class="field">
-                <label for="name">Nama</label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  placeholder="Nama lengkap Anda"
-                  required
-                />
-              </div>
-              <div class="field">
-                <label for="email">Email</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="email@anda.com"
-                  required
-                />
-              </div>
-              <div class="field">
-                <label for="message">Pesan</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  placeholder="Ceritakan tentang proyek Anda…"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" class="cta-primary">
-                Kirim Pesan <span class="arrow">→</span>
-              </button>
-              <p class="form-ok" id="form-ok">
-                Pesan terkirim — saya akan segera menghubungi Anda.
-              </p>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
+    @keyframes bounceSlow {
 
-    <!-- ═══════════ FOOTER ═══════════ -->
-    <footer>
-      <div class="footer-inner">
-        <span class="footer-logo">FADLI<em>.PORTFOLIO</em></span>
-        <p class="footer-copy">© 2024 Fadli. Dibuat dengan presisi.</p>
-        <nav class="footer-nav">
-          <a href="https://github.com/FdliHabibiLubis" class="footer-link">GitHub</a>
-          <a href="mailto:fadli@example.com" class="footer-link">Email</a>
-        </nav>
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+  </style>
+</head>
+
+<body class="font-body-md text-on-background selection:bg-primary-container selection:text-on-primary-container">
+
+  <!-- TopNavBar -->
+  <header
+    class="sticky top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md border-b border-outline-variant/30">
+    <nav class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-gutter h-20">
+      <div class="text-headline-md font-headline-lg font-black tracking-tighter text-on-surface">
+        FADLI<span class="text-primary">.PORTFOLIO</span>
       </div>
-    </footer>
+      <div class="hidden md:flex items-center gap-unit">
+        <a class="text-on-surface-variant bg-secondary-fixed-dim/30 rounded-lg px-4 py-1.5 transition-all text-label-md font-label-md animate-link"
+          href="#beranda">Beranda</a>
+        <a class="text-on-surface-variant hover:text-primary px-4 py-1.5 transition-colors text-label-md font-label-md animate-link"
+          href="#tentang">Tentang</a>
+        <a class="text-on-surface-variant hover:text-primary px-4 py-1.5 transition-colors text-label-md font-label-md animate-link"
+          href="#proyek">Proyek</a>
+        <a class="text-on-surface-variant hover:text-primary px-4 py-1.5 transition-colors text-label-md font-label-md animate-link"
+          href="#keahlian">Keahlian</a>
+        <a class="text-on-surface-variant hover:text-primary px-4 py-1.5 transition-colors text-label-md font-label-md animate-link"
+          href="#kontak">Kontak</a>
+      </div>
+      <button id="hamburger-btn" class="md:hidden p-2 text-on-surface" aria-label="Buka menu navigasi mobile">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </nav>
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu"
+      class="hidden md:hidden absolute top-20 left-0 w-full bg-surface border-b border-outline-variant/30 flex flex-col p-4 gap-2 z-40 transition-all">
+      <a class="text-on-surface-variant hover:text-primary px-4 py-2.5 transition-colors text-label-md font-label-md rounded-lg hover:bg-secondary-fixed-dim/10"
+        href="#beranda">Beranda</a>
+      <a class="text-on-surface-variant hover:text-primary px-4 py-2.5 transition-colors text-label-md font-label-md rounded-lg hover:bg-secondary-fixed-dim/10"
+        href="#tentang">Tentang</a>
+      <a class="text-on-surface-variant hover:text-primary px-4 py-2.5 transition-colors text-label-md font-label-md rounded-lg hover:bg-secondary-fixed-dim/10"
+        href="#proyek">Proyek</a>
+      <a class="text-on-surface-variant hover:text-primary px-4 py-2.5 transition-colors text-label-md font-label-md rounded-lg hover:bg-secondary-fixed-dim/10"
+        href="#keahlian">Keahlian</a>
+      <a class="text-on-surface-variant hover:text-primary px-4 py-2.5 transition-colors text-label-md font-label-md rounded-lg hover:bg-secondary-fixed-dim/10"
+        href="#kontak">Kontak</a>
+    </div>
+  </header>
 
-    <script src="js/script.js"></script>
-  </body>
+  <main>
+    <!-- Hero Section -->
+    <section class="py-stack-lg md:py-section-padding overflow-hidden relative" id="beranda">
+      <!-- Floating Abstract Background Shapes -->
+      <div class="absolute top-1/4 left-8 w-8 h-8 text-[#006e1d]/15 pointer-events-none animate-spin-slow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polygon points="12 2 22 8.5 22 19.5 12 22 2 19.5 2 8.5"></polygon>
+        </svg>
+      </div>
+      <div class="absolute bottom-1/4 right-1/3 w-10 h-10 text-[#795832]/10 pointer-events-none animate-bounce-slow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="16"></line>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg>
+      </div>
+      <div class="absolute top-1/3 right-12 w-20 h-20 text-[#006e1d]/5 pointer-events-none">
+        <svg viewBox="0 0 100 100" fill="currentColor">
+          <circle cx="10" cy="10" r="3" />
+          <circle cx="30" cy="10" r="3" />
+          <circle cx="50" cy="10" r="3" />
+          <circle cx="70" cy="10" r="3" />
+          <circle cx="90" cy="10" r="3" />
+          <circle cx="10" cy="30" r="3" />
+          <circle cx="30" cy="30" r="3" />
+          <circle cx="50" cy="30" r="3" />
+          <circle cx="70" cy="30" r="3" />
+          <circle cx="90" cy="30" r="3" />
+          <circle cx="10" cy="50" r="3" />
+          <circle cx="30" cy="50" r="3" />
+          <circle cx="50" cy="50" r="3" />
+          <circle cx="70" cy="50" r="3" />
+          <circle cx="90" cy="50" r="3" />
+          <circle cx="10" cy="70" r="3" />
+          <circle cx="30" cy="70" r="3" />
+          <circle cx="50" cy="70" r="3" />
+          <circle cx="70" cy="70" r="3" />
+          <circle cx="90" cy="70" r="3" />
+          <circle cx="10" cy="90" r="3" />
+          <circle cx="30" cy="90" r="3" />
+          <circle cx="50" cy="90" r="3" />
+          <circle cx="70" cy="90" r="3" />
+          <circle cx="90" cy="90" r="3" />
+        </svg>
+      </div>
+
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter relative z-10">
+        <div class="flex flex-col md:flex-row items-center gap-stack-lg">
+          <div class="flex-1 space-y-stack-md relative z-10">
+            <div
+              class="inline-block bg-primary-container/30 px-4 py-1 rounded-full text-primary font-label-md text-label-md animate-fade-up"
+              style="animation-delay: 100ms;">
+              DEVELOPER FLUTTER &amp; WEB
+            </div>
+            <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight animate-fade-up"
+              style="animation-delay: 250ms;">
+              Membangun Aplikasi &amp; Web yang <span class="hero-highlight">Fungsional</span>
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl animate-fade-up"
+              style="animation-delay: 400ms;">
+              Mahasiswa Ilmu Komputer yang berfokus pada pengembangan antarmuka yang cepat, aksesibel, dan dirancang
+              dengan presisi.
+            </p>
+            <div class="flex flex-wrap gap-stack-sm pt-4 animate-fade-up" style="animation-delay: 550ms;">
+              <a class="bg-primary-container text-on-primary-fixed px-stack-md py-4 rounded-lg font-label-md text-label-md flex items-center gap-2 hover:bg-[#4CAF50] transition-all active:scale-95 duration-150"
+                href="#proyek">
+                Lihat Proyek Saya <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+              <a class="border-2 border-primary text-primary px-stack-md py-4 rounded-lg font-label-md text-label-md hover:bg-primary/5 transition-all active:scale-95 duration-150"
+                href="#kontak">
+                Hubungi Saya
+              </a>
+            </div>
+          </div>
+          <div class="flex-shrink-0 w-full md:w-auto flex justify-center animate-fade-up"
+            style="animation-delay: 300ms;">
+            <div class="group relative w-[280px] h-[280px] md:w-[340px] md:h-[340px]">
+              <!-- Abstract offset background shadow card -->
+              <div
+                class="absolute inset-0 bg-[#3DFA5C] border-4 border-[#151e13] rounded-3xl transform translate-x-4 translate-y-4 transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2">
+              </div>
+              <!-- Main image card -->
+              <div
+                class="absolute inset-0 bg-surface border-4 border-[#151e13] rounded-3xl overflow-hidden transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1">
+                <img
+                  class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105"
+                  alt="Foto Fadli" src="assets/images/me.jpeg" />
+              </div>
+              <!-- Small overlapping floating badges for abstract accent -->
+              <div
+                class="absolute -top-4 -left-4 bg-[#70ff78] border-2 border-[#151e13] text-[#151e13] font-bold text-xs px-3 py-1 rounded-full transform -rotate-12">
+                IT STUDENT
+              </div>
+              <div
+                class="absolute -bottom-2 -right-4 bg-tertiary-container border-2 border-[#151e13] text-[#151e13] font-bold text-xs px-3 py-1 rounded-full transform rotate-6">
+                CREATIVE
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-section-padding bg-surface-container-low" id="tentang">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+        <div class="flex flex-col gap-stack-sm mb-stack-lg">
+          <div class="flex items-center gap-4 text-primary font-label-md text-label-md">
+            <span class="w-12 h-[2px] bg-primary"></span> 01 / SIAPA SAYA
+          </div>
+          <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg">Tentang Saya</h2>
+          <p class="text-on-surface-variant max-w-xl font-body-md text-body-md">Informasi singkat mengenai latar
+            belakang, minat teknologi, dan keahlian yang saya miliki.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-stack-lg items-start">
+          <div class="md:col-span-5 border-l-4 border-primary pl-stack-md">
+            <blockquote class="font-headline-md text-headline-md italic leading-relaxed text-on-surface">
+              "Mendedikasikan setiap baris kode untuk menciptakan antarmuka yang cepat, fungsional, dan menyenangkan."
+            </blockquote>
+          </div>
+          <div class="md:col-span-7 space-y-stack-sm text-on-surface-variant font-body-lg text-body-lg">
+            <p>Saya adalah mahasiswa Ilmu Komputer yang menggabungkan rekayasa perangkat lunak dengan estetika visual.
+              Fokus saya adalah menulis kode bersih untuk menciptakan aplikasi web dan mobile yang cepat, aksesibel,
+              serta menyenangkan untuk digunakan.</p>
+            <p>Di luar kelas, saya aktif menjelajahi teknologi modern, berkontribusi pada proyek open-source, dan
+              percaya bahwa produk digital yang hebat haruslah efisien serta memiliki desain yang ramah bagi pengguna.
+            </p>
+            <div class="pt-4 space-y-2">
+              <span class="block text-primary font-label-md text-label-md">Keahlian Utama:</span>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">HTML5</span>
+                <span
+                  class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">CSS3</span>
+                <span
+                  class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">JavaScript</span>
+                <span
+                  class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">Figma</span>
+                <span
+                  class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">Canva</span>
+                <span
+                  class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">Flutter</span>
+                <span
+                  class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">Git</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="py-section-padding" id="proyek">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+        <div class="flex flex-col gap-stack-sm mb-stack-lg">
+          <div class="flex items-center gap-4 text-primary font-label-md text-label-md">
+            <span class="w-12 h-[2px] bg-primary"></span> 02 / HASIL KARYA
+          </div>
+          <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg">Proyek Pilihan</h2>
+          <p class="text-on-surface-variant max-w-xl font-body-md text-body-md">Kumpulan proyek yang telah saya
+            selesaikan menggunakan teknologi web dan mobile terkini.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-stack-md">
+          <!-- Project 1 -->
+          <div
+            class="group bg-surface-container-high rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300">
+            <div class="aspect-[4/3] bg-white overflow-hidden flex items-center justify-center">
+              <img class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                alt="Buku Kita" src="assets/images/projek/1.png" />
+            </div>
+            <div class="p-stack-md space-y-2">
+              <span class="text-primary font-label-md text-label-md px-2 py-0.5 bg-primary/10 rounded">Web App</span>
+              <h3 class="font-headline-md text-headline-md">Buku Kita</h3>
+              <p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
+                Platform toko buku online berbasis web yang dilengkapi dengan panel admin, fitur pencarian buku, dan
+                integrasi Google Books.
+              </p>
+            </div>
+          </div>
+          <!-- Project 2 -->
+          <div
+            class="group bg-secondary-container/50 rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300">
+            <div class="aspect-[4/3] bg-surface-container-highest overflow-hidden">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                alt="Password Generator" src="assets/images/projek/2.png" />
+            </div>
+            <div class="p-stack-md space-y-2">
+              <span class="text-primary font-label-md text-label-md px-2 py-0.5 bg-primary/10 rounded">Frontend</span>
+              <h3 class="font-headline-md text-headline-md">Password Generator</h3>
+              <p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
+                Website generator password interaktif yang memungkinkan pengguna membuat kata sandi acak yang kuat
+                dengan satu klik.
+              </p>
+            </div>
+          </div>
+          <!-- Project 3 -->
+          <div
+            class="group bg-tertiary-container/30 rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300">
+            <div class="aspect-[4/3] bg-[#0a121e] overflow-hidden flex items-center justify-center">
+              <img class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                alt="TaskFlow" src="assets/images/projek/3.png" />
+            </div>
+            <div class="p-stack-md space-y-2">
+              <span class="text-primary font-label-md text-label-md px-2 py-0.5 bg-primary/10 rounded">Web App</span>
+              <h3 class="font-headline-md text-headline-md">TaskFlow</h3>
+              <p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
+                Aplikasi pengelolaan tugas harian (To-Do List) berbasis web dengan tampilan modern bergaya
+                Glassmorphism.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-section-padding bg-secondary-container/20" id="keahlian">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+        <div class="flex flex-col gap-stack-sm mb-stack-lg">
+          <div class="flex items-center gap-4 text-primary font-label-md text-label-md">
+            <span class="w-12 h-[2px] bg-primary"></span> 03 / PENGUASAAN TEKNOLOGI
+          </div>
+          <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg">Keahlian Saya</h2>
+          <p class="text-on-surface-variant max-w-xl font-body-md text-body-md">Tingkat penguasaan saya dalam beberapa
+            teknologi inti pemrograman dan alat bantu pengembangan.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-stack-md">
+          <!-- HTML/CSS -->
+          <div class="bg-surface p-stack-md rounded-xl space-y-4 border border-outline-variant/30">
+            <h4 class="font-headline-md text-headline-md">HTML5 / CSS3</h4>
+            <div class="relative pt-4">
+              <div class="flex items-center justify-end mb-2">
+                <span class="bg-primary text-on-primary text-xs px-2 py-1 rounded">90%</span>
+              </div>
+              <div class="overflow-hidden h-3 mb-4 text-xs flex rounded bg-primary/10">
+                <div
+                  class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary rounded"
+                  style="width:90%"></div>
+              </div>
+            </div>
+          </div>
+          <!-- JavaScript -->
+          <div class="bg-surface p-stack-md rounded-xl space-y-4 border border-outline-variant/30">
+            <h4 class="font-headline-md text-headline-md">JavaScript</h4>
+            <div class="relative pt-4">
+              <div class="flex items-center justify-end mb-2">
+                <span class="bg-primary text-on-primary text-xs px-2 py-1 rounded">70%</span>
+              </div>
+              <div class="overflow-hidden h-3 mb-4 text-xs flex rounded bg-primary/10">
+                <div
+                  class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary rounded"
+                  style="width:80%"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Figma -->
+          <div class="bg-surface p-stack-md rounded-xl space-y-4 border border-outline-variant/30">
+            <h4 class="font-headline-md text-headline-md">Figma &amp; Canva</h4>
+            <div class="relative pt-4">
+              <div class="flex items-center justify-end mb-2">
+                <span class="bg-primary text-on-primary text-xs px-2 py-1 rounded">70%</span>
+              </div>
+              <div class="overflow-hidden h-3 mb-4 text-xs flex rounded bg-primary/10">
+                <div
+                  class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary rounded"
+                  style="width:85%"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Flutter -->
+          <div class="bg-surface p-stack-md rounded-xl space-y-4 border border-outline-variant/30">
+            <h4 class="font-headline-md text-headline-md">Flutter &amp; Dart</h4>
+            <div class="relative pt-4">
+              <div class="flex items-center justify-end mb-2">
+                <span class="bg-primary text-on-primary text-xs px-2 py-1 rounded">50%</span>
+              </div>
+              <div class="overflow-hidden h-3 mb-4 text-xs flex rounded bg-primary/10">
+                <div
+                  class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary rounded"
+                  style="width:70%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-section-padding" id="kontak">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-stack-lg">
+          <!-- Left: Info -->
+          <div class="lg:col-span-5 space-y-stack-md">
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg">Mari Berkolaborasi</h2>
+            <p class="text-on-surface-variant font-body-lg text-body-lg">Hubungi saya untuk mendiskusikan peluang kerja,
+              proyek, atau sekadar bertanya kabar.</p>
+            <p class="text-on-surface-variant font-body-md text-body-md">Terbuka untuk proyek freelance, kolaborasi, dan
+              peluang magang. Kirimkan pesan kepada saya dan saya akan segera merespons dengan senang hati.</p>
+            <div class="space-y-stack-sm pt-4">
+              <div class="flex items-center gap-4 p-4 bg-primary-container/20 rounded-xl border border-primary/10">
+                <div class="w-12 h-12 bg-surface rounded-lg flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined">mail</span>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-primary uppercase tracking-wider">EMAIL SAYA</div>
+                  <div class="font-headline-md text-headline-sm">fadli@example.com</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 p-4 bg-primary-container/20 rounded-xl border border-primary/10">
+                <div class="w-12 h-12 bg-surface rounded-lg flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined">location_on</span>
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-primary uppercase tracking-wider">LOKASI SAAT INI</div>
+                  <div class="font-headline-md text-headline-sm">Medan, Indonesia</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Right: Form -->
+          <div class="lg:col-span-7">
+            <div class="bg-primary-container/30 p-stack-md md:p-stack-lg rounded-3xl">
+              <form id="contact-form" class="grid grid-cols-1 gap-stack-sm">
+                <div class="space-y-2">
+                  <label class="font-bold text-primary text-xs uppercase tracking-wider">NAMA LENGKAP</label>
+                  <input
+                    class="w-full bg-surface border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary outline-none text-on-surface font-body-md"
+                    placeholder="Nama lengkap Anda" type="text" required />
+                </div>
+                <div class="space-y-2">
+                  <label class="font-bold text-primary text-xs uppercase tracking-wider">ALAMAT EMAIL</label>
+                  <input
+                    class="w-full bg-surface border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary outline-none text-on-surface font-body-md"
+                    placeholder="email@anda.com" type="email" required />
+                </div>
+                <div class="space-y-2">
+                  <label class="font-bold text-primary text-xs uppercase tracking-wider">PESAN ANDA</label>
+                  <textarea
+                    class="w-full bg-surface border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary outline-none text-on-surface font-body-md resize-none"
+                    placeholder="Tuliskan pesan atau detail proyek Anda..." rows="4" required></textarea>
+                </div>
+                <p id="form-status"
+                  class="hidden text-center bg-primary/10 border border-primary text-primary py-3 rounded-lg font-bold text-label-md">
+                  Pesan berhasil terkirim! Terima kasih telah menghubungi saya.
+                </p>
+                <button
+                  class="w-full bg-primary text-on-primary py-4 rounded-lg font-bold text-label-md hover:bg-[#4CAF50] transition-all mt-4"
+                  type="submit">Kirim Pesan Sekarang</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-surface-container-highest py-stack-lg border-t border-outline-variant/30">
+    <div
+      class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex flex-col md:flex-row justify-between items-center gap-stack-sm">
+      <div class="text-headline-md font-headline-md font-bold text-on-surface">
+        FADLI<span class="text-primary">.PORTFOLIO</span>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface-variant">
+        © 2024 Fadli. Dibuat dengan presisi.
+      </p>
+      <div class="flex gap-stack-sm">
+        <a class="text-on-surface-variant hover:text-primary hover:scale-110 transition-all font-label-md text-label-md"
+          href="https://github.com/FdliHabibiLubis" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="text-on-surface-variant hover:text-primary hover:scale-110 transition-all font-label-md text-label-md"
+          href="mailto:fadli@example.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll spy for active navigation state
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.animate-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - 120)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('bg-secondary-fixed-dim/30');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('bg-secondary-fixed-dim/30');
+        }
+      });
+    });
+
+    // Mobile Hamburger Toggle
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (hamburgerBtn && mobileMenu) {
+      hamburgerBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('#hamburger-btn') && !e.target.closest('#mobile-menu')) {
+          mobileMenu.classList.add('hidden');
+        }
+      });
+    }
+
+    // Contact Form Logic
+    const form = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Mengirim...';
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+          form.reset();
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+          if (formStatus) {
+            formStatus.classList.remove('hidden');
+            setTimeout(() => {
+              formStatus.classList.add('hidden');
+            }, 5000);
+          }
+        }, 1200);
+      });
+    }
+  </script>
+</body>
+
 </html>
