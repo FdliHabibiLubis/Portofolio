@@ -189,6 +189,25 @@
         transform: translateY(-12px);
       }
     }
+
+    /* Scanning animation for SAKU */
+    @keyframes scan {
+      0% {
+        top: 0%;
+      }
+
+      50% {
+        top: 100%;
+      }
+
+      100% {
+        top: 0%;
+      }
+    }
+
+    .animate-scan {
+      animation: scan 2.5s ease-in-out infinite;
+    }
   </style>
 </head>
 
@@ -395,55 +414,270 @@
           <p class="text-on-surface-variant max-w-xl font-body-md text-body-md">Kumpulan proyek yang telah saya
             selesaikan menggunakan teknologi web dan mobile terkini.</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-stack-md">
-          <!-- Project 1 -->
-          <div
-            class="group bg-surface-container-high rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300">
-            <div class="aspect-[4/3] bg-white overflow-hidden flex items-center justify-center">
-              <img class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                alt="Buku Kita" src="assets/images/projek/1.png" />
+        <!-- Unified Project Slideshow (All 5 Projects) -->
+        <div
+          class="relative w-full overflow-hidden rounded-3xl shadow-2xl border border-outline-variant/30 bg-slate-900">
+
+          <!-- Slider Row -->
+          <div id="project-slider" class="flex transition-transform duration-500 ease-in-out" style="width:500%">
+            <!-- ========== SLIDE 1: SAKU ========== -->
+            <div class="flex-shrink-0 relative overflow-hidden flex flex-col min-h-[300px] md:min-h-[400px] bg-gradient-to-br from-[#14532d] via-[#0d3b1f] to-[#0b2f18]" style="width:20%">
+              <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,rgba(52,211,153,0.12),transparent_60%)]"></div>
+              <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none"></div>
+              <div class="relative z-10 flex flex-col md:flex-row gap-4 md:gap-6 w-full h-full p-4 md:p-6">
+                <!-- Left: Info -->
+                <div class="flex flex-col gap-2 md:gap-4 md:w-2/5 text-white">
+                  <div class="flex flex-col gap-1 md:gap-2">
+                    <div class="flex items-center gap-2 text-emerald-300 font-bold text-[10px] uppercase tracking-widest">
+                      <span class="w-6 md:w-8 h-[2px] bg-emerald-400"></span> FEATURED MOBILE APP
+                    </div>
+                    <h3 class="font-display-lg text-2xl md:text-3xl font-extrabold leading-tight">SAKU</h3>
+                    <p class="text-white/80 text-[11px] md:text-xs leading-relaxed line-clamp-3 md:line-clamp-none">Sistem Aplikasi Keuangan Usaha — solusi cerdas untuk mengelola keuangan bisnis secara efisien, transparan, dan real-time.</p>
+                    <div class="flex flex-wrap gap-1 mt-1">
+                      <span class="bg-white/10 text-emerald-200 border border-white/15 px-2 py-0.5 rounded-full text-[9px] font-semibold">Fintech</span>
+                      <span class="bg-white/10 text-emerald-200 border border-white/15 px-2 py-0.5 rounded-full text-[9px] font-semibold">Mobile App</span>
+                      <span class="bg-white/10 text-emerald-200 border border-white/15 px-2 py-0.5 rounded-full text-[9px] font-semibold">SaaS</span>
+                    </div>
+                  </div>
+                  <!-- Feature pills: hidden on mobile to save space -->
+                  <div class="hidden md:flex flex-col gap-1 mt-auto">
+                    <div class="flex items-center gap-2 bg-white/10 rounded-lg px-2.5 py-1.5 border border-white/10">
+                      <span class="material-symbols-outlined text-emerald-400 text-sm">account_balance_wallet</span>
+                      <span class="text-white/85 text-[11px] font-semibold">Manajemen Keuangan</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white/10 rounded-lg px-2.5 py-1.5 border border-white/10">
+                      <span class="material-symbols-outlined text-emerald-400 text-sm">bar_chart</span>
+                      <span class="text-white/85 text-[11px] font-semibold">Analitik Real-time</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Right: Browser Mockup -->
+                <div class="flex-grow flex items-center justify-center md:w-3/5">
+                  <div class="w-full max-w-xl bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                    <div class="bg-white/10 px-4 py-2.5 flex items-center gap-2 border-b border-white/10">
+                      <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                      <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                      <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                      <div class="flex-1 mx-2 bg-white/10 rounded-full px-3 py-0.5 text-white/40 text-[9px]">saku.app</div>
+                    </div>
+                    <div class="p-3 md:p-4">
+                      <img class="w-full h-auto rounded-lg shadow-lg object-contain max-h-48 md:max-h-[260px]" alt="SAKU" src="assets/images/projek/saku.png" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="p-stack-md space-y-2">
-              <span class="text-primary font-label-md text-label-md px-2 py-0.5 bg-primary/10 rounded">Web App</span>
-              <h3 class="font-headline-md text-headline-md">Buku Kita</h3>
-              <p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
-                Platform toko buku online berbasis web yang dilengkapi dengan panel admin, fitur pencarian buku, dan
-                integrasi Google Books.
-              </p>
+
+            <!-- ========== SLIDE 2: CIAKAD ========== -->
+            <div class="flex-shrink-0 relative overflow-hidden flex flex-col min-h-[300px] md:min-h-[400px] bg-gradient-to-br from-[#0c162f] via-[#101d3f] to-[#070d1e]" style="width:20%">
+              <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_bottom_left,rgba(96,165,250,0.10),transparent_60%)]"></div>
+              <div class="absolute -top-24 -right-24 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl pointer-events-none"></div>
+              <div class="relative z-10 flex flex-col md:flex-row gap-4 md:gap-6 w-full h-full p-4 md:p-6">
+                <!-- Left: Info -->
+                <div class="flex flex-col gap-2 md:gap-4 md:w-2/5 text-white">
+                  <div class="flex flex-col gap-1 md:gap-2">
+                    <div class="flex items-center gap-2 text-blue-300 font-bold text-[10px] uppercase tracking-widest">
+                      <span class="w-6 md:w-8 h-[2px] bg-blue-400"></span> FEATURED CASE STUDY
+                    </div>
+                    <h3 class="font-display-lg text-2xl md:text-3xl font-extrabold leading-tight">CIAKAD</h3>
+                    <p class="text-white/80 text-[11px] md:text-xs leading-relaxed line-clamp-3 md:line-clamp-none">Platform terintegrasi untuk mengelola ekosistem akademik dengan efisiensi tinggi dan antarmuka administrator yang intuitif.</p>
+                    <div class="flex flex-wrap gap-1 mt-1">
+                      <span class="bg-white/10 text-blue-200 border border-white/15 px-2 py-0.5 rounded-full text-[9px] font-semibold">Academic Mgmt</span>
+                      <span class="bg-white/10 text-blue-200 border border-white/15 px-2 py-0.5 rounded-full text-[9px] font-semibold">Web Admin</span>
+                      <span class="bg-white/10 text-blue-200 border border-white/15 px-2 py-0.5 rounded-full text-[9px] font-semibold">Cloud DB</span>
+                    </div>
+                  </div>
+                  <!-- Feature pills: hidden on mobile -->
+                  <div class="hidden md:flex flex-col gap-1 mt-auto">
+                    <div class="flex items-center gap-2 bg-white/10 rounded-lg px-2.5 py-1.5 border border-white/10">
+                      <span class="material-symbols-outlined text-blue-400 text-sm">school</span>
+                      <span class="text-white/85 text-[11px] font-semibold">Manajemen Akademik</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white/10 rounded-lg px-2.5 py-1.5 border border-white/10">
+                      <span class="material-symbols-outlined text-blue-400 text-sm">dashboard</span>
+                      <span class="text-white/85 text-[11px] font-semibold">Dashboard Admin</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Right: Browser Mockup -->
+                <div class="flex-grow flex items-center justify-center md:w-3/5">
+                  <div class="w-full max-w-xl bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                    <div class="bg-white/10 px-4 py-2.5 flex items-center gap-2 border-b border-white/10">
+                      <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                      <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                      <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                      <div class="flex-1 mx-2 bg-white/10 rounded-full px-3 py-0.5 text-white/40 text-[9px]">ciakad.app</div>
+                    </div>
+                    <div class="p-3 md:p-4">
+                      <img class="w-full h-auto rounded-lg shadow-lg object-contain max-h-48 md:max-h-[260px]" alt="CIAKAD" src="assets/images/projek/ciakad.png" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <!-- ========== SLIDE 3: BUKU KITA ========== -->
+            <div class="flex-shrink-0 relative overflow-hidden flex flex-col min-h-[300px] md:min-h-[400px] bg-gradient-to-br from-[#1a3c1a] via-[#0f2b10] to-[#0a1a0b]" style="width:20%">
+              <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,rgba(163,230,53,0.10),transparent_60%)]"></div>
+              <div class="relative z-10 flex flex-col md:flex-row gap-4 md:gap-6 w-full h-full p-4 md:p-6">
+                <!-- Left: Info -->
+                <div class="flex flex-col gap-2 md:gap-4 md:w-2/5 text-white">
+                  <div class="flex flex-col gap-1 md:gap-2">
+                    <div class="flex items-center gap-2 text-lime-300 font-bold text-[10px] uppercase tracking-widest">
+                      <span class="w-6 md:w-8 h-[2px] bg-lime-400"></span> WEB APP
+                    </div>
+                    <h3 class="font-display-lg text-2xl md:text-3xl font-extrabold leading-tight">Buku Kita</h3>
+                    <p class="text-white/80 text-[11px] md:text-xs leading-relaxed line-clamp-3 md:line-clamp-none">Platform toko buku online berbasis web dengan panel admin, fitur pencarian cerdas, dan integrasi Google Books API.</p>
+                    <div class="flex flex-wrap gap-1 mt-1">
+                      <span class="bg-white/10 text-lime-200 border border-white/15 px-2 py-0.5 rounded-full text-[9px] font-semibold">E-Commerce</span>
+                      <span class="bg-white/10 text-lime-200 border border-white/15 px-2 py-0.5 rounded-full text-[9px] font-semibold">Google Books</span>
+                    </div>
+                  </div>
+                  <div class="hidden md:flex flex-col gap-1 mt-auto">
+                    <div class="flex items-center gap-2 bg-white/10 rounded-lg px-2.5 py-1.5 border border-white/10">
+                      <span class="material-symbols-outlined text-lime-400 text-sm">storefront</span>
+                      <span class="text-white/85 text-[11px] font-semibold">Online Bookstore</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white/10 rounded-lg px-2.5 py-1.5 border border-white/10">
+                      <span class="material-symbols-outlined text-lime-400 text-sm">search</span>
+                      <span class="text-white/85 text-[11px] font-semibold">Pencarian Cerdas</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Right: Browser Mockup -->
+                <div class="flex-grow flex items-center justify-center md:w-3/5">
+                  <div class="w-full max-w-xl bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                    <div class="bg-white/10 px-4 py-2.5 flex items-center gap-2 border-b border-white/10">
+                      <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                      <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                      <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                      <div class="flex-1 mx-2 bg-white/10 rounded-full px-3 py-0.5 text-white/40 text-[9px]">bukukita.app</div>
+                    </div>
+                    <div class="p-3 md:p-4">
+                      <img class="w-full h-auto rounded-lg shadow-lg object-contain max-h-48 md:max-h-[260px]" alt="Buku Kita" src="assets/images/projek/1.png" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ========== SLIDE 4: PASSWORD GENERATOR ========== -->
+            <div class="flex-shrink-0 relative overflow-hidden flex flex-col min-h-[300px] md:min-h-[400px] bg-gradient-to-br from-[#1e1040] via-[#140b30] to-[#0a0520]" style="width:20%">
+              <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top_left,rgba(168,85,247,0.12),transparent_60%)]"></div>
+              <div class="relative z-10 flex flex-col md:flex-row gap-4 md:gap-6 w-full h-full p-4 md:p-6">
+                <!-- Left: Info -->
+                <div class="flex flex-col gap-2 md:gap-4 md:w-2/5 text-white">
+                  <div class="flex flex-col gap-1 md:gap-2">
+                    <div class="flex items-center gap-2 text-purple-300 font-bold text-[10px] uppercase tracking-widest">
+                      <span class="w-6 md:w-8 h-[2px] bg-purple-400"></span> FRONTEND TOOL
+                    </div>
+                    <h3 class="font-display-lg text-2xl md:text-3xl font-extrabold leading-tight">Password Generator</h3>
+                    <p class="text-white/80 text-[11px] md:text-xs leading-relaxed line-clamp-3 md:line-clamp-none">Generator password interaktif yang membuat kata sandi acak kuat dan aman dengan konfigurasi karakter fleksibel.</p>
+                    <div class="flex flex-wrap gap-1 mt-1">
+                      <span class="bg-white/10 text-purple-200 border border-white/15 px-2 py-0.5 rounded-full text-[9px] font-semibold">Security Tool</span>
+                      <span class="bg-white/10 text-purple-200 border border-white/15 px-2 py-0.5 rounded-full text-[9px] font-semibold">Vanilla JS</span>
+                    </div>
+                  </div>
+                  <div class="hidden md:flex flex-col gap-1 mt-auto">
+                    <div class="flex items-center gap-2 bg-white/10 rounded-lg px-2.5 py-1.5 border border-white/10">
+                      <span class="material-symbols-outlined text-purple-400 text-sm">lock</span>
+                      <span class="text-white/85 text-[11px] font-semibold">Password Kuat</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white/10 rounded-lg px-2.5 py-1.5 border border-white/10">
+                      <span class="material-symbols-outlined text-purple-400 text-sm">tune</span>
+                      <span class="text-white/85 text-[11px] font-semibold">Konfigurasi Fleksibel</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Right: Browser Mockup -->
+                <div class="flex-grow flex items-center justify-center md:w-3/5">
+                  <div class="w-full max-w-xl bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                    <div class="bg-white/10 px-4 py-2.5 flex items-center gap-2 border-b border-white/10">
+                      <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                      <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                      <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                      <div class="flex-1 mx-2 bg-white/10 rounded-full px-3 py-0.5 text-white/40 text-[9px]">password-generator.app</div>
+                    </div>
+                    <div class="p-3 md:p-4">
+                      <img class="w-full h-auto rounded-lg shadow-lg object-cover max-h-48 md:max-h-[260px]" alt="Password Generator" src="assets/images/projek/2.png" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ========== SLIDE 5: TASKFLOW ========== -->
+            <div class="flex-shrink-0 relative overflow-hidden flex flex-col min-h-[300px] md:min-h-[400px] bg-gradient-to-br from-[#0a1628] via-[#0d1f3c] to-[#060e1a]" style="width:20%">
+              <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_bottom_right,rgba(56,189,248,0.10),transparent_60%)]"></div>
+              <div class="relative z-10 flex flex-col md:flex-row gap-4 md:gap-6 w-full h-full p-4 md:p-6">
+                <!-- Left: Info -->
+                <div class="flex flex-col gap-2 md:gap-4 md:w-2/5 text-white">
+                  <div class="flex flex-col gap-1 md:gap-2">
+                    <div class="flex items-center gap-2 text-sky-300 font-bold text-[10px] uppercase tracking-widest">
+                      <span class="w-6 md:w-8 h-[2px] bg-sky-400"></span> WEB APP
+                    </div>
+                    <h3 class="font-display-lg text-2xl md:text-3xl font-extrabold leading-tight">TaskFlow</h3>
+                    <p class="text-white/80 text-[11px] md:text-xs leading-relaxed line-clamp-3 md:line-clamp-none">Aplikasi To-Do List modern bergaya Glassmorphism untuk produktivitas maksimal dengan antarmuka yang bersih dan intuitif.</p>
+                    <div class="flex flex-wrap gap-1 mt-1">
+                      <span class="bg-white/10 text-sky-200 border border-white/15 px-2 py-0.5 rounded-full text-[9px] font-semibold">Productivity</span>
+                      <span class="bg-white/10 text-sky-200 border border-white/15 px-2 py-0.5 rounded-full text-[9px] font-semibold">Glassmorphism</span>
+                    </div>
+                  </div>
+                  <div class="hidden md:flex flex-col gap-1 mt-auto">
+                    <div class="flex items-center gap-2 bg-white/10 rounded-lg px-2.5 py-1.5 border border-white/10">
+                      <span class="material-symbols-outlined text-sky-400 text-sm">check_circle</span>
+                      <span class="text-white/85 text-[11px] font-semibold">Task Management</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Right: Browser Mockup -->
+                <div class="flex-grow flex items-center justify-center md:w-3/5">
+                  <div class="w-full max-w-xl bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                    <div class="bg-white/10 px-4 py-2.5 flex items-center gap-2 border-b border-white/10">
+                      <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                      <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                      <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                      <div class="flex-1 mx-2 bg-white/10 rounded-full px-3 py-0.5 text-white/40 text-[9px]">taskflow.app</div>
+                    </div>
+                    <div class="p-3 md:p-4 bg-[#0a121e]">
+                      <img class="w-full h-auto rounded-lg shadow-lg object-contain max-h-48 md:max-h-[260px]" alt="TaskFlow" src="assets/images/projek/3.png" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
-          <!-- Project 2 -->
-          <div
-            class="group bg-secondary-container/50 rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300">
-            <div class="aspect-[4/3] bg-surface-container-highest overflow-hidden">
-              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                alt="Password Generator" src="assets/images/projek/2.png" />
-            </div>
-            <div class="p-stack-md space-y-2">
-              <span class="text-primary font-label-md text-label-md px-2 py-0.5 bg-primary/10 rounded">Frontend</span>
-              <h3 class="font-headline-md text-headline-md">Password Generator</h3>
-              <p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
-                Website generator password interaktif yang memungkinkan pengguna membuat kata sandi acak yang kuat
-                dengan satu klik.
-              </p>
-            </div>
+
+
+          <!-- Navigation Arrows -->
+          <button id="prev-slide-btn"
+            class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all active:scale-90 z-20 shadow-lg">
+            <span class="material-symbols-outlined text-xl">chevron_left</span>
+          </button>
+          <button id="next-slide-btn"
+            class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all active:scale-90 z-20 shadow-lg">
+            <span class="material-symbols-outlined text-xl">chevron_right</span>
+          </button>
+
+          <!-- Slide Indicators (5 dots) -->
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+            <button class="w-6 h-2 rounded-full bg-white transition-all duration-300" id="indicator-0"
+              aria-label="Slide SAKU"></button>
+            <button class="w-2 h-2 rounded-full bg-white/40 transition-all duration-300" id="indicator-1"
+              aria-label="Slide CIAKAD"></button>
+            <button class="w-2 h-2 rounded-full bg-white/40 transition-all duration-300" id="indicator-2"
+              aria-label="Slide Buku Kita"></button>
+            <button class="w-2 h-2 rounded-full bg-white/40 transition-all duration-300" id="indicator-3"
+              aria-label="Slide Password Generator"></button>
+            <button class="w-2 h-2 rounded-full bg-white/40 transition-all duration-300" id="indicator-4"
+              aria-label="Slide TaskFlow"></button>
           </div>
-          <!-- Project 3 -->
+
+          <!-- Slide Counter -->
           <div
-            class="group bg-tertiary-container/30 rounded-xl overflow-hidden hover:scale-[1.02] transition-all duration-300">
-            <div class="aspect-[4/3] bg-[#0a121e] overflow-hidden flex items-center justify-center">
-              <img class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                alt="TaskFlow" src="assets/images/projek/3.png" />
-            </div>
-            <div class="p-stack-md space-y-2">
-              <span class="text-primary font-label-md text-label-md px-2 py-0.5 bg-primary/10 rounded">Web App</span>
-              <h3 class="font-headline-md text-headline-md">TaskFlow</h3>
-              <p class="text-on-surface-variant font-body-md text-body-md line-clamp-2">
-                Aplikasi pengelolaan tugas harian (To-Do List) berbasis web dengan tampilan modern bergaya
-                Glassmorphism.
-              </p>
-            </div>
-          </div>
+            class="absolute top-4 right-16 z-20 bg-black/30 backdrop-blur-sm rounded-full px-3 py-1 text-white/70 text-xs font-semibold"
+            id="slide-counter">1 / 5</div>
         </div>
       </div>
     </section>
@@ -538,7 +772,7 @@
                 </div>
                 <div>
                   <div class="text-xs font-bold text-primary uppercase tracking-wider">EMAIL SAYA</div>
-                  <div class="font-headline-md text-headline-sm">fadli@example.com</div>
+                  <div class="font-headline-md text-headline-sm">habibifadli682@gmail.com</div>
                 </div>
               </div>
               <div class="flex items-center gap-4 p-4 bg-primary-container/20 rounded-xl border border-primary/10">
@@ -630,6 +864,64 @@
         }
       });
     });
+
+    // Slideshow Logic — All 5 Projects
+    const projectSlider = document.getElementById('project-slider');
+    const prevSlideBtn = document.getElementById('prev-slide-btn');
+    const nextSlideBtn = document.getElementById('next-slide-btn');
+    const slideCounter = document.getElementById('slide-counter');
+    const TOTAL_SLIDES = 5;
+    let currentSlide = 0;
+
+    function updateSlideshow() {
+      // Move slider: each slide occupies 100%/5 = 20% of the 500% wide track
+      const offset = -(currentSlide * (100 / TOTAL_SLIDES));
+      projectSlider.style.transform = `translateX(${offset}%)`;
+
+      // Update indicators
+      for (let i = 0; i < TOTAL_SLIDES; i++) {
+        const dot = document.getElementById(`indicator-${i}`);
+        if (!dot) continue;
+        if (i === currentSlide) {
+          dot.classList.add('bg-white');
+          dot.classList.remove('bg-white/40');
+          dot.style.width = '24px';  // active dot wider
+        } else {
+          dot.classList.remove('bg-white');
+          dot.classList.add('bg-white/40');
+          dot.style.width = '8px';
+        }
+      }
+
+      // Update counter
+      if (slideCounter) slideCounter.textContent = `${currentSlide + 1} / ${TOTAL_SLIDES}`;
+    }
+
+    if (prevSlideBtn && nextSlideBtn && projectSlider) {
+      prevSlideBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + TOTAL_SLIDES) % TOTAL_SLIDES;
+        updateSlideshow();
+      });
+      nextSlideBtn.addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % TOTAL_SLIDES;
+        updateSlideshow();
+      });
+
+      // Dot indicator clicks
+      for (let i = 0; i < TOTAL_SLIDES; i++) {
+        const dot = document.getElementById(`indicator-${i}`);
+        if (dot) {
+          const idx = i;
+          dot.addEventListener('click', () => {
+            currentSlide = idx;
+            updateSlideshow();
+          });
+        }
+      }
+
+      // Initialize first state
+      updateSlideshow();
+    }
 
     // Mobile Hamburger Toggle
     const hamburgerBtn = document.getElementById('hamburger-btn');
