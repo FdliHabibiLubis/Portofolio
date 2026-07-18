@@ -110,6 +110,24 @@
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
 
+    @keyframes float-logo {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .tech-logo-float {
+      animation: float-logo 3.5s ease-in-out infinite;
+    }
+    .tech-logo-float:nth-child(1) { animation-delay: 0s; }
+    .tech-logo-float:nth-child(2) { animation-delay: 0.2s; }
+    .tech-logo-float:nth-child(3) { animation-delay: 0.4s; }
+    .tech-logo-float:nth-child(4) { animation-delay: 0.6s; }
+    .tech-logo-float:nth-child(5) { animation-delay: 0.8s; }
+    .tech-logo-float:nth-child(6) { animation-delay: 1.0s; }
+    .tech-logo-float:nth-child(7) { animation-delay: 1.2s; }
+    .tech-logo-float:nth-child(8) { animation-delay: 1.4s; }
+    .tech-logo-float:nth-child(9) { animation-delay: 1.6s; }
+    .tech-logo-float:nth-child(10) { animation-delay: 1.8s; }
+
     body {
       background-color: #f2fdeb;
       color: #151e13;
@@ -304,16 +322,15 @@
             <div
               class="inline-block bg-primary-container/30 px-4 py-1 rounded-full text-primary font-label-md text-label-md animate-fade-up"
               style="animation-delay: 100ms;">
-              DEVELOPER FLUTTER &amp; WEB
+              FRONTEND WEB DEVELOPER
             </div>
             <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight animate-fade-up"
               style="animation-delay: 250ms;">
-              Membangun Aplikasi &amp; Web yang <span class="hero-highlight">Fungsional</span>
+              Membangun Website &amp; Aplikasi Web yang <span class="hero-highlight">Fungsional</span>
             </h1>
             <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl animate-fade-up"
               style="animation-delay: 400ms;">
-              Mahasiswa Ilmu Komputer yang berfokus pada pengembangan antarmuka yang cepat, aksesibel, dan dirancang
-              dengan presisi.
+              Mahasiswa Ilmu Komputer yang berfokus pada pengembangan frontend web yang cepat, responsif, aksesibel, dan dirancang dengan presisi.
             </p>
             <div class="flex flex-wrap gap-stack-sm pt-4 animate-fade-up" style="animation-delay: 550ms;">
               <a class="bg-primary-container text-on-primary-fixed px-stack-md py-4 rounded-lg font-label-md text-label-md flex items-center gap-2 hover:bg-[#4CAF50] transition-all active:scale-95 duration-150"
@@ -343,7 +360,7 @@
               <!-- Small overlapping floating badges for abstract accent -->
               <div
                 class="absolute -top-4 -left-4 bg-[#70ff78] border-2 border-[#151e13] text-[#151e13] font-bold text-xs px-3 py-1 rounded-full transform -rotate-12">
-                IT STUDENT
+                FRONTEND DEV
               </div>
               <div
                 class="absolute -bottom-2 -right-4 bg-tertiary-container border-2 border-[#151e13] text-[#151e13] font-bold text-xs px-3 py-1 rounded-full transform rotate-6">
@@ -369,16 +386,11 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-stack-lg items-start">
           <div class="md:col-span-5 border-l-4 border-primary pl-stack-md">
             <blockquote class="font-headline-md text-headline-md italic leading-relaxed text-on-surface">
-              "Mendedikasikan setiap baris kode untuk menciptakan antarmuka yang cepat, fungsional, dan menyenangkan."
+              "Mendedikasikan setiap baris kode untuk menciptakan antarmuka web yang cepat, responsif, fungsional, dan menyenangkan bagi pengguna."
             </blockquote>
           </div>
           <div class="md:col-span-7 space-y-stack-sm text-on-surface-variant font-body-lg text-body-lg">
-            <p>Saya adalah mahasiswa Ilmu Komputer yang menggabungkan rekayasa perangkat lunak dengan estetika visual.
-              Fokus saya adalah menulis kode bersih untuk menciptakan aplikasi web dan mobile yang cepat, aksesibel,
-              serta menyenangkan untuk digunakan.</p>
-            <p>Di luar kelas, saya aktif menjelajahi teknologi modern, berkontribusi pada proyek open-source, dan
-              percaya bahwa produk digital yang hebat haruslah efisien serta memiliki desain yang ramah bagi pengguna.
-            </p>
+            <p>Saya adalah mahasiswa Ilmu Komputer yang berfokus sebagai Frontend Web Developer. Saya senang membangun antarmuka website dan aplikasi web yang cepat, responsif, berkinerja tinggi, serta memiliki desain yang ramah bagi pengguna.</p>
             <div class="pt-4 space-y-2">
               <span class="block text-primary font-label-md text-label-md">Keahlian Utama:</span>
               <div class="flex flex-wrap gap-2">
@@ -393,7 +405,7 @@
                 <span
                   class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">Canva</span>
                 <span
-                  class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">Flutter</span>
+                  class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">Tailwind CSS</span>
                 <span
                   class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">Git</span>
               </div>
@@ -461,7 +473,9 @@
                       <div class="flex-1 mx-2 bg-white/10 rounded-full px-3 py-0.5 text-white/40 text-[9px]">saku.app</div>
                     </div>
                     <div class="p-3 md:p-4">
-                      <img class="w-full h-auto rounded-lg shadow-lg object-contain max-h-48 md:max-h-[260px]" alt="SAKU" src="assets/images/projek/saku.png" />
+                      <a href="https://github.com/FdliHabibiLubis/Saku-flutter" target="_blank" rel="noopener noreferrer" class="block cursor-pointer hover:scale-[1.02] transition-transform duration-300">
+                        <img class="w-full h-auto rounded-lg shadow-lg object-contain max-h-48 md:max-h-[260px]" alt="SAKU" src="assets/images/projek/saku.png" />
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -509,7 +523,9 @@
                       <div class="flex-1 mx-2 bg-white/10 rounded-full px-3 py-0.5 text-white/40 text-[9px]">ciakad.app</div>
                     </div>
                     <div class="p-3 md:p-4">
-                      <img class="w-full h-auto rounded-lg shadow-lg object-contain max-h-48 md:max-h-[260px]" alt="CIAKAD" src="assets/images/projek/ciakad.png" />
+                      <a href="https://github.com/FdliHabibiLubis/siakad-flutter" target="_blank" rel="noopener noreferrer" class="block cursor-pointer hover:scale-[1.02] transition-transform duration-300">
+                        <img class="w-full h-auto rounded-lg shadow-lg object-contain max-h-48 md:max-h-[260px]" alt="CIAKAD" src="assets/images/projek/ciakad.png" />
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -554,7 +570,9 @@
                       <div class="flex-1 mx-2 bg-white/10 rounded-full px-3 py-0.5 text-white/40 text-[9px]">bukukita.app</div>
                     </div>
                     <div class="p-3 md:p-4">
-                      <img class="w-full h-auto rounded-lg shadow-lg object-contain max-h-48 md:max-h-[260px]" alt="Buku Kita" src="assets/images/projek/1.png" />
+                      <a href="https://github.com/FdliHabibiLubis/Buku-kita-nextjs" target="_blank" rel="noopener noreferrer" class="block cursor-pointer hover:scale-[1.02] transition-transform duration-300">
+                        <img class="w-full h-auto rounded-lg shadow-lg object-contain max-h-48 md:max-h-[260px]" alt="Buku Kita" src="assets/images/projek/1.png" />
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -599,7 +617,9 @@
                       <div class="flex-1 mx-2 bg-white/10 rounded-full px-3 py-0.5 text-white/40 text-[9px]">password-generator.app</div>
                     </div>
                     <div class="p-3 md:p-4">
-                      <img class="w-full h-auto rounded-lg shadow-lg object-cover max-h-48 md:max-h-[260px]" alt="Password Generator" src="assets/images/projek/2.png" />
+                      <a href="https://github.com/FdliHabibiLubis/PasswordGenerator" target="_blank" rel="noopener noreferrer" class="block cursor-pointer hover:scale-[1.02] transition-transform duration-300">
+                        <img class="w-full h-auto rounded-lg shadow-lg object-cover max-h-48 md:max-h-[260px]" alt="Password Generator" src="assets/images/projek/2.png" />
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -640,7 +660,9 @@
                       <div class="flex-1 mx-2 bg-white/10 rounded-full px-3 py-0.5 text-white/40 text-[9px]">taskflow.app</div>
                     </div>
                     <div class="p-3 md:p-4 bg-[#0a121e]">
-                      <img class="w-full h-auto rounded-lg shadow-lg object-contain max-h-48 md:max-h-[260px]" alt="TaskFlow" src="assets/images/projek/3.png" />
+                      <a href="https://github.com/FdliHabibiLubis/TodoList" target="_blank" rel="noopener noreferrer" class="block cursor-pointer hover:scale-[1.02] transition-transform duration-300">
+                        <img class="w-full h-auto rounded-lg shadow-lg object-contain max-h-48 md:max-h-[260px]" alt="TaskFlow" src="assets/images/projek/3.png" />
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -693,62 +715,85 @@
           <p class="text-on-surface-variant max-w-xl font-body-md text-body-md">Tingkat penguasaan saya dalam beberapa
             teknologi inti pemrograman dan alat bantu pengembangan.</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-stack-md">
-          <!-- HTML/CSS -->
-          <div class="bg-surface p-stack-md rounded-xl space-y-4 border border-outline-variant/30">
-            <h4 class="font-headline-md text-headline-md">HTML5 / CSS3</h4>
-            <div class="relative pt-4">
-              <div class="flex items-center justify-end mb-2">
-                <span class="bg-primary text-on-primary text-xs px-2 py-1 rounded">90%</span>
-              </div>
-              <div class="overflow-hidden h-3 mb-4 text-xs flex rounded bg-primary/10">
-                <div
-                  class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary rounded"
-                  style="width:90%"></div>
-              </div>
+        <div class="grid grid-cols-3 md:grid-cols-5 gap-6 md:gap-8 max-w-5xl mx-auto py-8">
+          <!-- HTML5 -->
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
+            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="assets/images/html.png" alt="HTML5" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
             </div>
+            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">HTML5</h4>
           </div>
+
+          <!-- CSS3 -->
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
+            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="assets/images/css.png" alt="CSS3" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
+            </div>
+            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">CSS3</h4>
+          </div>
+          
           <!-- JavaScript -->
-          <div class="bg-surface p-stack-md rounded-xl space-y-4 border border-outline-variant/30">
-            <h4 class="font-headline-md text-headline-md">JavaScript</h4>
-            <div class="relative pt-4">
-              <div class="flex items-center justify-end mb-2">
-                <span class="bg-primary text-on-primary text-xs px-2 py-1 rounded">70%</span>
-              </div>
-              <div class="overflow-hidden h-3 mb-4 text-xs flex rounded bg-primary/10">
-                <div
-                  class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary rounded"
-                  style="width:80%"></div>
-              </div>
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
+            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
             </div>
+            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">JavaScript</h4>
           </div>
+
+          <!-- PHP -->
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
+            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
+            </div>
+            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">PHP</h4>
+          </div>
+
+          <!-- Java -->
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
+            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
+            </div>
+            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">Java</h4>
+          </div>
+
           <!-- Figma -->
-          <div class="bg-surface p-stack-md rounded-xl space-y-4 border border-outline-variant/30">
-            <h4 class="font-headline-md text-headline-md">Figma &amp; Canva</h4>
-            <div class="relative pt-4">
-              <div class="flex items-center justify-end mb-2">
-                <span class="bg-primary text-on-primary text-xs px-2 py-1 rounded">70%</span>
-              </div>
-              <div class="overflow-hidden h-3 mb-4 text-xs flex rounded bg-primary/10">
-                <div
-                  class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary rounded"
-                  style="width:85%"></div>
-              </div>
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
+            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
             </div>
+            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">Figma</h4>
           </div>
-          <!-- Flutter -->
-          <div class="bg-surface p-stack-md rounded-xl space-y-4 border border-outline-variant/30">
-            <h4 class="font-headline-md text-headline-md">Flutter &amp; Dart</h4>
-            <div class="relative pt-4">
-              <div class="flex items-center justify-end mb-2">
-                <span class="bg-primary text-on-primary text-xs px-2 py-1 rounded">50%</span>
-              </div>
-              <div class="overflow-hidden h-3 mb-4 text-xs flex rounded bg-primary/10">
-                <div
-                  class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary rounded"
-                  style="width:70%"></div>
-              </div>
+
+          <!-- Canva -->
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
+            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="https://www.vectorlogo.zone/logos/canva/canva-icon.svg" alt="Canva" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
             </div>
+            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">Canva</h4>
+          </div>
+
+          <!-- Flutter -->
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
+            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
+            </div>
+            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">Flutter</h4>
+          </div>
+
+          <!-- Dart -->
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
+            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
+            </div>
+            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">Dart</h4>
+          </div>
+
+          <!-- PostgreSQL -->
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
+            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
+            </div>
+            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">PostgreSQL</h4>
           </div>
         </div>
       </div>
