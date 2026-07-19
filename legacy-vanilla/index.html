@@ -17,53 +17,35 @@
       theme: {
         extend: {
           "colors": {
-            "tertiary-fixed-dim": "#eabf90",
-            "on-primary-fixed": "#002204",
-            "primary-fixed": "#70ff78",
-            "primary-fixed-dim": "#14e54a",
-            "surface-container-lowest": "#ffffff",
-            "on-surface": "#151e13",
-            "error": "#ba1a1a",
-            "on-primary-fixed-variant": "#005314",
-            "secondary-fixed": "#94f990",
-            "on-background": "#151e13",
-            "surface": "#f2fdeb",
-            "on-primary-container": "#006f1e",
-            "outline-variant": "#bacbb4",
-            "tertiary": "#795832",
-            "secondary-fixed-dim": "#78dc77",
-            "on-secondary-fixed": "#002204",
-            "surface-bright": "#f2fdeb",
-            "outline": "#6c7b68",
-            "on-secondary-container": "#00731e",
-            "on-error": "#ffffff",
-            "surface-container": "#e6f1e0",
-            "on-tertiary-container": "#7a5932",
-            "inverse-on-surface": "#e9f4e3",
-            "surface-container-highest": "#dbe6d5",
-            "background": "#f2fdeb",
-            "tertiary-container": "#ffd2a2",
-            "on-error-container": "#93000a",
-            "surface-container-low": "#ecf7e5",
-            "on-tertiary-fixed-variant": "#5e411d",
-            "on-tertiary": "#ffffff",
-            "surface-tint": "#006e1d",
-            "primary": "#006e1d",
-            "on-secondary-fixed-variant": "#005313",
-            "on-tertiary-fixed": "#2b1700",
-            "primary-container": "#3dfa5c",
-            "on-secondary": "#ffffff",
-            "inverse-primary": "#14e54a",
-            "secondary": "#006e1c",
-            "on-surface-variant": "#3c4b39",
-            "error-container": "#ffdad6",
-            "surface-variant": "#dbe6d5",
-            "tertiary-fixed": "#ffddba",
-            "surface-container-high": "#e0ecda",
-            "on-primary": "#ffffff",
-            "inverse-surface": "#293327",
-            "surface-dim": "#d2ddcc",
-            "secondary-container": "#91f78e"
+            // Twilight Iris Palette
+            "indigo-blue": "#5F6BB7",       /* Primary */
+            "deep-navy": "#424B80",         /* Primary Dark */
+            "royal-purple": "#7C58B7",      /* Accent */
+            "sky-teal": "#58A0B7",          /* Secondary */
+            "deep-teal": "#3E7080",         /* Secondary Dark */
+
+            // Theme colors (remapped)
+            "primary": "#5F6BB7",
+            "primary-dark": "#424B80",
+            "accent": "#7C58B7",
+            "secondary": "#58A0B7",
+            "secondary-dark": "#3E7080",
+            "bg-base": "#F7F8FC",
+            "surface": "#FFFFFF",
+            "text": "#232338",
+            "text-muted": "#6B7280",
+
+            // Backward Compatibility for existing template styles
+            "on-background": "#232338",
+            "on-surface": "#232338",
+            "on-surface-variant": "#6B7280",
+            "outline-variant": "#D1D5DB",
+            "primary-container": "#7C58B7",
+            "on-primary-fixed": "#FFFFFF",
+            "secondary-fixed-dim": "#58A0B7",
+            "surface-container-low": "#FFFFFF",
+            "secondary-container": "#F7F8FC",
+            "surface-container-highest": "#424B80"
           },
           "borderRadius": {
             "DEFAULT": "0.25rem",
@@ -106,6 +88,19 @@
     }
   </script>
   <style>
+    :root {
+      --color-primary: #5F6BB7;      /* Indigo Blue */
+      --color-primary-dark: #424B80; /* Deep Navy */
+      --color-accent: #7C58B7;       /* Royal Purple */
+      --color-secondary: #58A0B7;    /* Sky Teal */
+      --color-secondary-dark: #3E7080; /* Deep Teal */
+
+      --color-bg: #F7F8FC;
+      --color-surface: #FFFFFF;
+      --color-text: #232338;
+      --color-text-muted: #6B7280;
+    }
+
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
@@ -129,8 +124,8 @@
     .tech-logo-float:nth-child(10) { animation-delay: 1.8s; }
 
     body {
-      background-color: #f2fdeb;
-      color: #151e13;
+      background-color: var(--color-bg);
+      color: var(--color-text);
     }
 
     /* Custom underline for hero */
@@ -146,7 +141,7 @@
       bottom: 4px;
       width: 100%;
       height: 12px;
-      background-color: #3DFA5C;
+      background-color: var(--color-secondary);
       z-index: -1;
     }
 
@@ -229,64 +224,64 @@
   </style>
 </head>
 
-<body class="font-body-md text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<body class="font-body-md text-text selection:bg-secondary/30 selection:text-secondary-dark">
 
   <!-- TopNavBar -->
   <header
-    class="sticky top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-md border-b border-outline-variant/30">
+    class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/50">
     <nav class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-gutter h-20">
-      <div class="text-headline-md font-headline-lg font-black tracking-tighter text-on-surface">
+      <div class="text-headline-md font-headline-lg font-black tracking-tighter text-text">
         FADLI<span class="text-primary">.PORTFOLIO</span>
       </div>
       <div class="hidden md:flex items-center gap-unit">
-        <a class="text-on-surface-variant bg-secondary-fixed-dim/30 rounded-lg px-4 py-1.5 transition-all text-label-md font-label-md animate-link"
+        <a class="text-primary bg-secondary/15 rounded-lg px-4 py-1.5 transition-all text-label-md font-label-md animate-link"
           href="#beranda">Beranda</a>
-        <a class="text-on-surface-variant hover:text-primary px-4 py-1.5 transition-colors text-label-md font-label-md animate-link"
+        <a class="text-text-muted hover:text-primary px-4 py-1.5 transition-colors text-label-md font-label-md animate-link"
           href="#tentang">Tentang</a>
-        <a class="text-on-surface-variant hover:text-primary px-4 py-1.5 transition-colors text-label-md font-label-md animate-link"
+        <a class="text-text-muted hover:text-primary px-4 py-1.5 transition-colors text-label-md font-label-md animate-link"
           href="#proyek">Proyek</a>
-        <a class="text-on-surface-variant hover:text-primary px-4 py-1.5 transition-colors text-label-md font-label-md animate-link"
+        <a class="text-text-muted hover:text-primary px-4 py-1.5 transition-colors text-label-md font-label-md animate-link"
           href="#keahlian">Keahlian</a>
-        <a class="text-on-surface-variant hover:text-primary px-4 py-1.5 transition-colors text-label-md font-label-md animate-link"
+        <a class="text-text-muted hover:text-primary px-4 py-1.5 transition-colors text-label-md font-label-md animate-link"
           href="#kontak">Kontak</a>
       </div>
-      <button id="hamburger-btn" class="md:hidden p-2 text-on-surface" aria-label="Buka menu navigasi mobile">
+      <button id="hamburger-btn" class="md:hidden p-2 text-text" aria-label="Buka menu navigasi mobile">
         <span class="material-symbols-outlined">menu</span>
       </button>
     </nav>
     <!-- Mobile Navigation Drawer -->
     <div id="mobile-menu"
-      class="hidden md:hidden absolute top-20 left-0 w-full bg-surface border-b border-outline-variant/30 flex flex-col p-4 gap-2 z-40 transition-all">
-      <a class="text-on-surface-variant hover:text-primary px-4 py-2.5 transition-colors text-label-md font-label-md rounded-lg hover:bg-secondary-fixed-dim/10"
+      class="hidden md:hidden absolute top-20 left-0 w-full bg-surface border-b border-outline-variant/50 flex flex-col p-4 gap-2 z-40 transition-all">
+      <a class="text-text hover:text-primary px-4 py-2.5 transition-colors text-label-md font-label-md rounded-lg hover:bg-secondary/10"
         href="#beranda">Beranda</a>
-      <a class="text-on-surface-variant hover:text-primary px-4 py-2.5 transition-colors text-label-md font-label-md rounded-lg hover:bg-secondary-fixed-dim/10"
+      <a class="text-text hover:text-primary px-4 py-2.5 transition-colors text-label-md font-label-md rounded-lg hover:bg-secondary/10"
         href="#tentang">Tentang</a>
-      <a class="text-on-surface-variant hover:text-primary px-4 py-2.5 transition-colors text-label-md font-label-md rounded-lg hover:bg-secondary-fixed-dim/10"
+      <a class="text-text hover:text-primary px-4 py-2.5 transition-colors text-label-md font-label-md rounded-lg hover:bg-secondary/10"
         href="#proyek">Proyek</a>
-      <a class="text-on-surface-variant hover:text-primary px-4 py-2.5 transition-colors text-label-md font-label-md rounded-lg hover:bg-secondary-fixed-dim/10"
+      <a class="text-text hover:text-primary px-4 py-2.5 transition-colors text-label-md font-label-md rounded-lg hover:bg-secondary/10"
         href="#keahlian">Keahlian</a>
-      <a class="text-on-surface-variant hover:text-primary px-4 py-2.5 transition-colors text-label-md font-label-md rounded-lg hover:bg-secondary-fixed-dim/10"
+      <a class="text-text hover:text-primary px-4 py-2.5 transition-colors text-label-md font-label-md rounded-lg hover:bg-secondary/10"
         href="#kontak">Kontak</a>
     </div>
   </header>
 
   <main>
     <!-- Hero Section -->
-    <section class="py-stack-lg md:py-section-padding overflow-hidden relative" id="beranda">
+    <section class="py-stack-lg md:py-section-padding overflow-hidden relative bg-gradient-to-br from-primary to-accent text-white" id="beranda">
       <!-- Floating Abstract Background Shapes -->
-      <div class="absolute top-1/4 left-8 w-8 h-8 text-[#006e1d]/15 pointer-events-none animate-spin-slow">
+      <div class="absolute top-1/4 left-8 w-8 h-8 text-white/10 pointer-events-none animate-spin-slow">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <polygon points="12 2 22 8.5 22 19.5 12 22 2 19.5 2 8.5"></polygon>
         </svg>
       </div>
-      <div class="absolute bottom-1/4 right-1/3 w-10 h-10 text-[#795832]/10 pointer-events-none animate-bounce-slow">
+      <div class="absolute bottom-1/4 right-1/3 w-10 h-10 text-white/5 pointer-events-none animate-bounce-slow">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="12" r="10"></circle>
           <line x1="12" y1="8" x2="12" y2="16"></line>
           <line x1="8" y1="12" x2="16" y2="12"></line>
         </svg>
       </div>
-      <div class="absolute top-1/3 right-12 w-20 h-20 text-[#006e1d]/5 pointer-events-none">
+      <div class="absolute top-1/3 right-12 w-20 h-20 text-white/5 pointer-events-none">
         <svg viewBox="0 0 100 100" fill="currentColor">
           <circle cx="10" cy="10" r="3" />
           <circle cx="30" cy="10" r="3" />
@@ -320,24 +315,24 @@
         <div class="flex flex-col md:flex-row items-center gap-stack-lg">
           <div class="flex-1 space-y-stack-md relative z-10">
             <div
-              class="inline-block bg-primary-container/30 px-4 py-1 rounded-full text-primary font-label-md text-label-md animate-fade-up"
+              class="inline-block bg-white/15 border border-white/20 px-4 py-1 rounded-full text-secondary font-label-md text-label-md animate-fade-up"
               style="animation-delay: 100ms;">
               FRONTEND WEB DEVELOPER
             </div>
-            <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight animate-fade-up"
+            <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight animate-fade-up text-white"
               style="animation-delay: 250ms;">
               Membangun Website &amp; Aplikasi Web yang <span class="hero-highlight">Fungsional</span>
             </h1>
-            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl animate-fade-up"
+            <p class="font-body-lg text-body-lg text-white/80 max-w-2xl animate-fade-up"
               style="animation-delay: 400ms;">
               Mahasiswa Ilmu Komputer yang berfokus pada pengembangan frontend web yang cepat, responsif, aksesibel, dan dirancang dengan presisi.
             </p>
             <div class="flex flex-wrap gap-stack-sm pt-4 animate-fade-up" style="animation-delay: 550ms;">
-              <a class="bg-primary-container text-on-primary-fixed px-stack-md py-4 rounded-lg font-label-md text-label-md flex items-center gap-2 hover:bg-[#4CAF50] transition-all active:scale-95 duration-150"
+              <a class="bg-accent text-white px-stack-md py-4 rounded-xl font-label-md text-label-md flex items-center gap-2 hover:bg-primary-dark transition-all duration-300 active:scale-95"
                 href="#proyek">
                 Lihat Proyek Saya <span class="material-symbols-outlined">arrow_forward</span>
               </a>
-              <a class="border-2 border-primary text-primary px-stack-md py-4 rounded-lg font-label-md text-label-md hover:bg-primary/5 transition-all active:scale-95 duration-150"
+              <a class="border-2 border-white text-white px-stack-md py-4 rounded-xl font-label-md text-label-md hover:bg-white hover:text-text transition-all duration-300 active:scale-95"
                 href="#kontak">
                 Hubungi Saya
               </a>
@@ -346,24 +341,19 @@
           <div class="flex-shrink-0 w-full md:w-auto flex justify-center animate-fade-up"
             style="animation-delay: 300ms;">
             <div class="group relative w-[280px] h-[280px] md:w-[340px] md:h-[340px]">
-              <!-- Abstract offset background shadow card -->
-              <div
-                class="absolute inset-0 bg-[#3DFA5C] border-4 border-[#151e13] rounded-3xl transform translate-x-4 translate-y-4 transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2">
-              </div>
-              <!-- Main image card -->
-              <div
-                class="absolute inset-0 bg-surface border-4 border-[#151e13] rounded-3xl overflow-hidden transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1">
+              <!-- Flat Image frame -->
+              <div class="relative w-[280px] h-[280px] md:w-[340px] md:h-[340px] rounded-3xl overflow-hidden bg-surface border-4 border-white/20">
                 <img
                   class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105"
                   alt="Foto Fadli" src="assets/images/me.jpeg" />
               </div>
               <!-- Small overlapping floating badges for abstract accent -->
               <div
-                class="absolute -top-4 -left-4 bg-[#70ff78] border-2 border-[#151e13] text-[#151e13] font-bold text-xs px-3 py-1 rounded-full transform -rotate-12">
+                class="absolute -top-4 -left-4 bg-accent text-white font-bold text-xs px-3 py-1 rounded-full transform -rotate-12 shadow-sm">
                 FRONTEND DEV
               </div>
               <div
-                class="absolute -bottom-2 -right-4 bg-tertiary-container border-2 border-[#151e13] text-[#151e13] font-bold text-xs px-3 py-1 rounded-full transform rotate-6">
+                class="absolute -bottom-2 -right-4 bg-secondary-dark text-white font-bold text-xs px-3 py-1 rounded-full transform rotate-6 shadow-sm">
                 CREATIVE
               </div>
             </div>
@@ -373,62 +363,58 @@
     </section>
 
     <!-- About Section -->
-    <section class="py-section-padding bg-surface-container-low" id="tentang">
+    <section class="py-section-padding bg-surface" id="tentang">
       <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
         <div class="flex flex-col gap-stack-sm mb-stack-lg">
           <div class="flex items-center gap-4 text-primary font-label-md text-label-md">
             <span class="w-12 h-[2px] bg-primary"></span> 01 / SIAPA SAYA
           </div>
-          <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg">Tentang Saya</h2>
-          <p class="text-on-surface-variant max-w-xl font-body-md text-body-md">Informasi singkat mengenai latar
-            belakang, minat teknologi, dan keahlian yang saya miliki.</p>
+          <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-text">Tentang Saya</h2>
+          <p class="text-text-muted max-w-xl font-body-md text-body-md">Informasi singkat mengenai latar belakang, minat teknologi, dan keahlian yang saya miliki.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-12 gap-stack-lg items-start">
-          <div class="md:col-span-5 border-l-4 border-primary pl-stack-md">
-            <blockquote class="font-headline-md text-headline-md italic leading-relaxed text-on-surface">
+          <div class="md:col-span-5 border-l-4 border-accent pl-stack-md">
+            <blockquote class="font-headline-md text-headline-md italic leading-relaxed text-text">
               "Mendedikasikan setiap baris kode untuk menciptakan antarmuka web yang cepat, responsif, fungsional, dan menyenangkan bagi pengguna."
             </blockquote>
           </div>
-          <div class="md:col-span-7 space-y-stack-sm text-on-surface-variant font-body-lg text-body-lg">
+          <div class="md:col-span-7 space-y-stack-sm text-text-muted font-body-lg text-body-lg">
             <p>Saya adalah mahasiswa Ilmu Komputer yang berfokus sebagai Frontend Web Developer. Saya senang membangun antarmuka website dan aplikasi web yang cepat, responsif, berkinerja tinggi, serta memiliki desain yang ramah bagi pengguna.</p>
-            <div class="pt-4 space-y-2">
+            <div class="pt-4 space-y-3">
               <span class="block text-primary font-label-md text-label-md">Keahlian Utama:</span>
               <div class="flex flex-wrap gap-2">
                 <span
-                  class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">HTML5</span>
+                  class="px-3 py-1 rounded border border-accent/20 text-body-md font-semibold" style="background: rgba(124,88,183,0.12); color:#7C58B7;">HTML5</span>
                 <span
-                  class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">CSS3</span>
+                  class="px-3 py-1 rounded border border-secondary/20 text-body-md font-semibold" style="background: rgba(88,160,183,0.12); color:#58A0B7;">CSS3</span>
                 <span
-                  class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">JavaScript</span>
+                  class="px-3 py-1 rounded border border-primary/20 text-body-md font-semibold" style="background: rgba(95,107,183,0.12); color:#5F6BB7;">JavaScript</span>
                 <span
-                  class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">Figma</span>
+                  class="px-3 py-1 rounded border border-accent/20 text-body-md font-semibold" style="background: rgba(124,88,183,0.12); color:#7C58B7;">Figma</span>
                 <span
-                  class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">Canva</span>
+                  class="px-3 py-1 rounded border border-secondary/20 text-body-md font-semibold" style="background: rgba(88,160,183,0.12); color:#58A0B7;">Canva</span>
                 <span
-                  class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">Tailwind CSS</span>
+                  class="px-3 py-1 rounded border border-primary/20 text-body-md font-semibold" style="background: rgba(95,107,183,0.12); color:#5F6BB7;">Tailwind CSS</span>
                 <span
-                  class="bg-surface px-3 py-1 rounded border border-outline-variant/30 text-body-md font-medium">Git</span>
+                  class="px-3 py-1 rounded border border-accent/20 text-body-md font-semibold" style="background: rgba(124,88,183,0.12); color:#7C58B7;">Git</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="py-section-padding" id="proyek">
+    </section>    <!-- Projects Section -->
+    <section class="py-section-padding bg-bg-base" id="proyek">
       <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
         <div class="flex flex-col gap-stack-sm mb-stack-lg">
           <div class="flex items-center gap-4 text-primary font-label-md text-label-md">
             <span class="w-12 h-[2px] bg-primary"></span> 02 / HASIL KARYA
           </div>
-          <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg">Proyek Pilihan</h2>
-          <p class="text-on-surface-variant max-w-xl font-body-md text-body-md">Kumpulan proyek yang telah saya
-            selesaikan menggunakan teknologi web dan mobile terkini.</p>
+          <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-text">Proyek Pilihan</h2>
+          <p class="text-text-muted max-w-xl font-body-md text-body-md">Kumpulan proyek yang telah saya selesaikan menggunakan teknologi web dan mobile terkini.</p>
         </div>
         <!-- Unified Project Slideshow (All 5 Projects) -->
         <div
-          class="relative w-full overflow-hidden rounded-3xl shadow-2xl border border-outline-variant/30 bg-slate-900">
+          class="relative w-full overflow-hidden rounded-3xl border border-outline-variant/30 bg-slate-900">
 
           <!-- Slider Row -->
           <div id="project-slider" class="flex transition-transform duration-500 ease-in-out" style="width:500%">
@@ -465,7 +451,7 @@
                 </div>
                 <!-- Right: Browser Mockup -->
                 <div class="flex-grow flex items-center justify-center md:w-3/5">
-                  <div class="w-full max-w-xl bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                  <div class="w-full max-w-xl bg-white/5 border border-white/20 rounded-2xl overflow-hidden">
                     <div class="bg-white/10 px-4 py-2.5 flex items-center gap-2 border-b border-white/10">
                       <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
                       <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
@@ -515,7 +501,7 @@
                 </div>
                 <!-- Right: Browser Mockup -->
                 <div class="flex-grow flex items-center justify-center md:w-3/5">
-                  <div class="w-full max-w-xl bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                  <div class="w-full max-w-xl bg-white/5 border border-white/20 rounded-2xl overflow-hidden">
                     <div class="bg-white/10 px-4 py-2.5 flex items-center gap-2 border-b border-white/10">
                       <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
                       <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
@@ -562,7 +548,7 @@
                 </div>
                 <!-- Right: Browser Mockup -->
                 <div class="flex-grow flex items-center justify-center md:w-3/5">
-                  <div class="w-full max-w-xl bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                  <div class="w-full max-w-xl bg-white/5 border border-white/20 rounded-2xl overflow-hidden">
                     <div class="bg-white/10 px-4 py-2.5 flex items-center gap-2 border-b border-white/10">
                       <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
                       <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
@@ -609,7 +595,7 @@
                 </div>
                 <!-- Right: Browser Mockup -->
                 <div class="flex-grow flex items-center justify-center md:w-3/5">
-                  <div class="w-full max-w-xl bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                  <div class="w-full max-w-xl bg-white/5 border border-white/20 rounded-2xl overflow-hidden">
                     <div class="bg-white/10 px-4 py-2.5 flex items-center gap-2 border-b border-white/10">
                       <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
                       <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
@@ -652,7 +638,7 @@
                 </div>
                 <!-- Right: Browser Mockup -->
                 <div class="flex-grow flex items-center justify-center md:w-3/5">
-                  <div class="w-full max-w-xl bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                  <div class="w-full max-w-xl bg-white/5 border border-white/20 rounded-2xl overflow-hidden">
                     <div class="bg-white/10 px-4 py-2.5 flex items-center gap-2 border-b border-white/10">
                       <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
                       <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
@@ -674,12 +660,12 @@
 
           <!-- Navigation Arrows -->
           <button id="prev-slide-btn"
-            class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all active:scale-90 z-20 shadow-lg">
-            <span class="material-symbols-outlined text-xl">chevron_left</span>
+            class="absolute left-3 top-1/2 -translate-y-1/2 bg-surface/80 hover:bg-secondary text-text hover:text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300 active:scale-95 z-20 shadow-sm">
+            <span class="material-symbols-outlined text-xl font-bold">chevron_left</span>
           </button>
           <button id="next-slide-btn"
-            class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all active:scale-90 z-20 shadow-lg">
-            <span class="material-symbols-outlined text-xl">chevron_right</span>
+            class="absolute right-3 top-1/2 -translate-y-1/2 bg-surface/80 hover:bg-secondary text-text hover:text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300 active:scale-95 z-20 shadow-sm">
+            <span class="material-symbols-outlined text-xl font-bold">chevron_right</span>
           </button>
 
           <!-- Slide Indicators (5 dots) -->
@@ -705,160 +691,157 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="py-section-padding bg-secondary-container/20" id="keahlian">
+    <section class="py-section-padding bg-surface" id="keahlian">
       <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
         <div class="flex flex-col gap-stack-sm mb-stack-lg">
           <div class="flex items-center gap-4 text-primary font-label-md text-label-md">
             <span class="w-12 h-[2px] bg-primary"></span> 03 / PENGUASAAN TEKNOLOGI
           </div>
-          <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg">Keahlian Saya</h2>
-          <p class="text-on-surface-variant max-w-xl font-body-md text-body-md">Tingkat penguasaan saya dalam beberapa
-            teknologi inti pemrograman dan alat bantu pengembangan.</p>
+          <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-text">Keahlian Saya</h2>
+          <p class="text-text-muted max-w-xl font-body-md text-body-md">Tingkat penguasaan saya dalam beberapa teknologi inti pemrograman dan alat bantu pengembangan.</p>
         </div>
-        <div class="grid grid-cols-3 md:grid-cols-5 gap-6 md:gap-8 max-w-5xl mx-auto py-8">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 md:gap-8 max-w-5xl mx-auto py-8">
           <!-- HTML5 -->
-          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
-            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <img src="assets/images/html.png" alt="HTML5" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer bg-bg-base border border-outline-variant/30 rounded-2xl p-5 hover:translate-y-[-4px] hover:bg-secondary/5 transition-all duration-300">
+            <div class="flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="assets/images/html.png" alt="HTML5" class="w-12 h-12 object-contain" />
             </div>
-            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">HTML5</h4>
+            <h4 class="text-xs font-bold text-text-muted mt-3 transition-colors duration-300 group-hover:text-primary">HTML5</h4>
           </div>
 
           <!-- CSS3 -->
-          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
-            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <img src="assets/images/css.png" alt="CSS3" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer bg-bg-base border border-outline-variant/30 rounded-2xl p-5 hover:translate-y-[-4px] hover:bg-secondary/5 transition-all duration-300">
+            <div class="flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="assets/images/css.png" alt="CSS3" class="w-12 h-12 object-contain" />
             </div>
-            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">CSS3</h4>
+            <h4 class="text-xs font-bold text-text-muted mt-3 transition-colors duration-300 group-hover:text-primary">CSS3</h4>
           </div>
           
           <!-- JavaScript -->
-          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
-            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer bg-bg-base border border-outline-variant/30 rounded-2xl p-5 hover:translate-y-[-4px] hover:bg-secondary/5 transition-all duration-300">
+            <div class="flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-12 h-12 object-contain" />
             </div>
-            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">JavaScript</h4>
+            <h4 class="text-xs font-bold text-text-muted mt-3 transition-colors duration-300 group-hover:text-primary">JavaScript</h4>
           </div>
 
           <!-- PHP -->
-          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
-            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer bg-bg-base border border-outline-variant/30 rounded-2xl p-5 hover:translate-y-[-4px] hover:bg-secondary/5 transition-all duration-300">
+            <div class="flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="w-12 h-12 object-contain" />
             </div>
-            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">PHP</h4>
+            <h4 class="text-xs font-bold text-text-muted mt-3 transition-colors duration-300 group-hover:text-primary">PHP</h4>
           </div>
 
           <!-- Java -->
-          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
-            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer bg-bg-base border border-outline-variant/30 rounded-2xl p-5 hover:translate-y-[-4px] hover:bg-secondary/5 transition-all duration-300">
+            <div class="flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-12 h-12 object-contain" />
             </div>
-            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">Java</h4>
+            <h4 class="text-xs font-bold text-text-muted mt-3 transition-colors duration-300 group-hover:text-primary">Java</h4>
           </div>
 
           <!-- Figma -->
-          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
-            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer bg-bg-base border border-outline-variant/30 rounded-2xl p-5 hover:translate-y-[-4px] hover:bg-secondary/5 transition-all duration-300">
+            <div class="flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="w-12 h-12 object-contain" />
             </div>
-            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">Figma</h4>
+            <h4 class="text-xs font-bold text-text-muted mt-3 transition-colors duration-300 group-hover:text-primary">Figma</h4>
           </div>
 
           <!-- Canva -->
-          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
-            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <img src="https://www.vectorlogo.zone/logos/canva/canva-icon.svg" alt="Canva" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer bg-bg-base border border-outline-variant/30 rounded-2xl p-5 hover:translate-y-[-4px] hover:bg-secondary/5 transition-all duration-300">
+            <div class="flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="https://www.vectorlogo.zone/logos/canva/canva-icon.svg" alt="Canva" class="w-12 h-12 object-contain" />
             </div>
-            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">Canva</h4>
+            <h4 class="text-xs font-bold text-text-muted mt-3 transition-colors duration-300 group-hover:text-primary">Canva</h4>
           </div>
 
           <!-- Flutter -->
-          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
-            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer bg-bg-base border border-outline-variant/30 rounded-2xl p-5 hover:translate-y-[-4px] hover:bg-secondary/5 transition-all duration-300">
+            <div class="flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" class="w-12 h-12 object-contain" />
             </div>
-            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">Flutter</h4>
+            <h4 class="text-xs font-bold text-text-muted mt-3 transition-colors duration-300 group-hover:text-primary">Flutter</h4>
           </div>
 
           <!-- Dart -->
-          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
-            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer bg-bg-base border border-outline-variant/30 rounded-2xl p-5 hover:translate-y-[-4px] hover:bg-secondary/5 transition-all duration-300">
+            <div class="flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart" class="w-12 h-12 object-contain" />
             </div>
-            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">Dart</h4>
+            <h4 class="text-xs font-bold text-text-muted mt-3 transition-colors duration-300 group-hover:text-primary">Dart</h4>
           </div>
 
           <!-- PostgreSQL -->
-          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer">
-            <div class="flex mb-4 items-center justify-center transition-transform duration-300 group-hover:scale-110">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="w-14 h-14 object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)]" />
+          <div class="tech-logo-float flex flex-col items-center justify-center text-center group cursor-pointer bg-bg-base border border-outline-variant/30 rounded-2xl p-5 hover:translate-y-[-4px] hover:bg-secondary/5 transition-all duration-300">
+            <div class="flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="w-12 h-12 object-contain" />
             </div>
-            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 mt-2 transition-colors duration-300 group-hover:text-primary">PostgreSQL</h4>
+            <h4 class="text-xs font-bold text-text-muted mt-3 transition-colors duration-300 group-hover:text-primary">PostgreSQL</h4>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="py-section-padding" id="kontak">
+    <section class="py-section-padding bg-bg-base" id="kontak">
       <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-stack-lg">
           <!-- Left: Info -->
           <div class="lg:col-span-5 space-y-stack-md">
-            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg">Mari Berkolaborasi</h2>
-            <p class="text-on-surface-variant font-body-lg text-body-lg">Hubungi saya untuk mendiskusikan peluang kerja,
-              proyek, atau sekadar bertanya kabar.</p>
-            <p class="text-on-surface-variant font-body-md text-body-md">Terbuka untuk proyek freelance, kolaborasi, dan
-              peluang magang. Kirimkan pesan kepada saya dan saya akan segera merespons dengan senang hati.</p>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-text">Mari Berkolaborasi</h2>
+            <p class="text-text-muted font-body-lg text-body-lg">Hubungi saya untuk mendiskusikan peluang kerja, proyek, atau sekadar bertanya kabar.</p>
+            <p class="text-text-muted font-body-md text-body-md">Terbuka untuk proyek freelance, kolaborasi, dan peluang magang. Kirimkan pesan kepada saya dan saya akan segera merespons dengan senang hati.</p>
             <div class="space-y-stack-sm pt-4">
-              <div class="flex items-center gap-4 p-4 bg-primary-container/20 rounded-xl border border-primary/10">
-                <div class="w-12 h-12 bg-surface rounded-lg flex items-center justify-center text-primary">
+              <div class="flex items-center gap-4 p-4 bg-surface rounded-xl border border-outline-variant/30 shadow-sm">
+                <div class="w-12 h-12 bg-secondary/15 rounded-lg flex items-center justify-center text-primary">
                   <span class="material-symbols-outlined">mail</span>
                 </div>
                 <div>
                   <div class="text-xs font-bold text-primary uppercase tracking-wider">EMAIL SAYA</div>
-                  <div class="font-headline-md text-headline-sm">habibifadli682@gmail.com</div>
+                  <div class="font-headline-md text-headline-sm text-text">habibifadli682@gmail.com</div>
                 </div>
               </div>
-              <div class="flex items-center gap-4 p-4 bg-primary-container/20 rounded-xl border border-primary/10">
-                <div class="w-12 h-12 bg-surface rounded-lg flex items-center justify-center text-primary">
+              <div class="flex items-center gap-4 p-4 bg-surface rounded-xl border border-outline-variant/30 shadow-sm">
+                <div class="w-12 h-12 bg-secondary/15 rounded-lg flex items-center justify-center text-primary">
                   <span class="material-symbols-outlined">location_on</span>
                 </div>
                 <div>
                   <div class="text-xs font-bold text-primary uppercase tracking-wider">LOKASI SAAT INI</div>
-                  <div class="font-headline-md text-headline-sm">Medan, Indonesia</div>
+                  <div class="font-headline-md text-headline-sm text-text">Medan, Indonesia</div>
                 </div>
               </div>
             </div>
           </div>
           <!-- Right: Form -->
           <div class="lg:col-span-7">
-            <div class="bg-primary-container/30 p-stack-md md:p-stack-lg rounded-3xl">
+            <div class="bg-surface border border-outline-variant/30 p-stack-md md:p-stack-lg rounded-3xl shadow-sm">
               <form id="contact-form" class="grid grid-cols-1 gap-stack-sm">
                 <div class="space-y-2">
-                  <label class="font-bold text-primary text-xs uppercase tracking-wider">NAMA LENGKAP</label>
+                  <label class="font-bold text-text text-xs uppercase tracking-wider">NAMA LENGKAP</label>
                   <input
-                    class="w-full bg-surface border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary outline-none text-on-surface font-body-md"
+                    class="w-full bg-bg-base border border-outline-variant/50 rounded-lg p-4 focus:bg-surface focus:ring-2 focus:ring-accent transition-all duration-300 outline-none text-text font-body-md"
                     placeholder="Nama lengkap Anda" type="text" required />
                 </div>
                 <div class="space-y-2">
-                  <label class="font-bold text-primary text-xs uppercase tracking-wider">ALAMAT EMAIL</label>
+                  <label class="font-bold text-text text-xs uppercase tracking-wider">ALAMAT EMAIL</label>
                   <input
-                    class="w-full bg-surface border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary outline-none text-on-surface font-body-md"
+                    class="w-full bg-bg-base border border-outline-variant/50 rounded-lg p-4 focus:bg-surface focus:ring-2 focus:ring-accent transition-all duration-300 outline-none text-text font-body-md"
                     placeholder="email@anda.com" type="email" required />
                 </div>
                 <div class="space-y-2">
-                  <label class="font-bold text-primary text-xs uppercase tracking-wider">PESAN ANDA</label>
+                  <label class="font-bold text-text text-xs uppercase tracking-wider">PESAN ANDA</label>
                   <textarea
-                    class="w-full bg-surface border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary outline-none text-on-surface font-body-md resize-none"
+                    class="w-full bg-bg-base border border-outline-variant/50 rounded-lg p-4 focus:bg-surface focus:ring-2 focus:ring-accent transition-all duration-300 outline-none text-text font-body-md resize-none"
                     placeholder="Tuliskan pesan atau detail proyek Anda..." rows="4" required></textarea>
                 </div>
                 <p id="form-status"
-                  class="hidden text-center bg-primary/10 border border-primary text-primary py-3 rounded-lg font-bold text-label-md">
+                  class="hidden text-center bg-secondary/15 border border-secondary/30 text-secondary-dark py-3 rounded-lg font-bold text-label-md">
                   Pesan berhasil terkirim! Terima kasih telah menghubungi saya.
                 </p>
                 <button
-                  class="w-full bg-primary text-on-primary py-4 rounded-lg font-bold text-label-md hover:bg-[#4CAF50] transition-all mt-4"
+                  class="w-full bg-accent text-white py-4 rounded-xl font-bold text-label-md hover:bg-primary-dark transition-all duration-300 active:scale-95 mt-4"
                   type="submit">Kirim Pesan Sekarang</button>
               </form>
             </div>
@@ -869,20 +852,20 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-surface-container-highest py-stack-lg border-t border-outline-variant/30">
+  <footer class="bg-gradient-to-b from-primary-dark to-secondary-dark text-white py-stack-lg border-t border-primary/20">
     <div
       class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex flex-col md:flex-row justify-between items-center gap-stack-sm">
-      <div class="text-headline-md font-headline-md font-bold text-on-surface">
-        FADLI<span class="text-primary">.PORTFOLIO</span>
+      <div class="text-headline-md font-headline-md font-bold text-white">
+        FADLI<span class="text-secondary">.PORTFOLIO</span>
       </div>
-      <p class="font-body-md text-body-md text-on-surface-variant">
+      <p class="font-body-md text-body-md text-white/70">
         © 2024 Fadli. Dibuat dengan presisi.
       </p>
       <div class="flex gap-stack-sm">
-        <a class="text-on-surface-variant hover:text-primary hover:scale-110 transition-all font-label-md text-label-md"
+        <a class="text-white/70 hover:text-secondary hover:scale-110 transition-all font-label-md text-label-md"
           href="https://github.com/FdliHabibiLubis" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a class="text-on-surface-variant hover:text-primary hover:scale-110 transition-all font-label-md text-label-md"
-          href="mailto:fadli@example.com">Email</a>
+        <a class="text-white/70 hover:text-secondary hover:scale-110 transition-all font-label-md text-label-md"
+          href="mailto:habibifadli682@gmail.com">Email</a>
       </div>
     </div>
   </footer>
@@ -903,9 +886,11 @@
       });
 
       navLinks.forEach(link => {
-        link.classList.remove('bg-secondary-fixed-dim/30');
+        link.classList.remove('bg-secondary/15', 'text-primary');
+        link.classList.add('text-text-muted');
         if (link.getAttribute('href').includes(current)) {
-          link.classList.add('bg-secondary-fixed-dim/30');
+          link.classList.add('bg-secondary/15', 'text-primary');
+          link.classList.remove('text-text-muted');
         }
       });
     });
