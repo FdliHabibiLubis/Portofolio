@@ -201,25 +201,30 @@ export default function Home() {
 
   const navItems = ["beranda", "tentang", "proyek", "keahlian", "kontak"];
 
-  // ── Shared inline style helpers ────────────────────────────────────────────
+  // ── Verdant Circuit — Shared inline style helpers ─────────────────────────
   const C = {
-    bg: "#0A0A0F",
-    bgRaised: "#0D0D14",
-    surface: "#12121A",
-    primary: "#7C6BFF",
-    primaryDark: "#5A4AE3",
-    accent: "#C471ED",
-    cyan: "#12C2E9",
-    text: "#F0F0FF",
-    muted: "rgba(240,240,255,0.5)",
-    glass: "rgba(255,255,255,0.03)",
-    glassBorder: "rgba(255,255,255,0.07)",
-    primaryBg: "rgba(124,107,255,0.08)",
-    primaryBorder: "rgba(124,107,255,0.2)",
+    // Backgrounds
+    bg: "#0F1712",
+    bgRaised: "#16221C",
+    surface: "#1C2E25",
+    // Brand
+    primary: "#10D9A6",       // Spring Green
+    primaryDark: "#0B8A6C",   // Deep Teal
+    accentLime: "#33CC0F",    // Lime Green
+    accentBlue: "#1268D6",    // Cobalt Blue
+    accentForest: "#228B0A",  // Forest Green
+    // Text
+    text: "#F2FBF7",
+    muted: "rgba(242,251,247,0.5)",
+    // Glass / border
+    glass: "rgba(16,217,166,0.04)",
+    glassBorder: "rgba(16,217,166,0.1)",
+    primaryBg: "rgba(16,217,166,0.08)",
+    primaryBorder: "rgba(16,217,166,0.22)",
   };
 
   return (
-    <div style={{ backgroundColor: C.bg, color: C.text }} className="font-inter min-h-screen">
+    <div style={{ backgroundColor: C.bg, color: C.text }} className="font-inter min-h-screen" data-theme="dark">
 
       {/* ────────────────────────── NAVBAR ───────────────────────────────── */}
       <header
@@ -227,11 +232,11 @@ export default function Home() {
         style={{
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
-          backgroundColor: scrolled ? "rgba(10,10,15,0.95)" : "rgba(10,10,15,0.6)",
+          backgroundColor: scrolled ? "rgba(15,23,18,0.97)" : "rgba(15,23,18,0.65)",
           borderBottom: scrolled
-            ? "1px solid rgba(255,255,255,0.08)"
-            : "1px solid rgba(255,255,255,0.04)",
-          boxShadow: scrolled ? "0 8px 40px rgba(0,0,0,0.6)" : "none",
+            ? "1px solid rgba(16,217,166,0.12)"
+            : "1px solid rgba(16,217,166,0.06)",
+          boxShadow: scrolled ? "0 8px 40px rgba(0,0,0,0.5)" : "none",
         }}
       >
         {/* ── Scroll progress bar ── */}
@@ -239,8 +244,8 @@ export default function Home() {
           className="absolute top-0 left-0 h-[2px] z-20 transition-all duration-150 pointer-events-none"
           style={{
             width: `${scrollProgress}%`,
-            background: "linear-gradient(90deg, #7C6BFF, #C471ED, #12C2E9)",
-            boxShadow: "0 0 10px rgba(124,107,255,0.7), 0 0 4px rgba(196,113,237,0.5)",
+            background: "linear-gradient(90deg, #10D9A6, #33CC0F, #1268D6)",
+            boxShadow: "0 0 10px rgba(16,217,166,0.7), 0 0 4px rgba(51,204,15,0.5)",
           }}
         />
 
@@ -256,8 +261,8 @@ export default function Home() {
             <div
               className="relative w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110"
               style={{
-                background: "linear-gradient(135deg, #7C6BFF, #C471ED)",
-                boxShadow: "0 0 18px rgba(124,107,255,0.55)",
+                background: "linear-gradient(135deg, #10D9A6, #1268D6)",
+                boxShadow: "0 0 18px rgba(16,217,166,0.55)",
               }}
             >
               {/* Inner glow pulse */}
@@ -267,7 +272,7 @@ export default function Home() {
               />
               <span
                 className="relative z-10 font-black text-white"
-                style={{ fontSize: "15px", fontFamily: "var(--font-outfit)", letterSpacing: "-0.5px" }}
+                style={{ fontSize: "15px", fontFamily: "var(--font-space-grotesk)", letterSpacing: "-0.5px" }}
               >
                 F
               </span>
@@ -277,7 +282,7 @@ export default function Home() {
               FADLI
               <span
                 style={{
-                  background: "linear-gradient(135deg, #7C6BFF, #C471ED)",
+                  background: "linear-gradient(135deg, #10D9A6, #1268D6)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -313,8 +318,8 @@ export default function Home() {
                       layoutId="activeNavBg"
                       className="absolute inset-0 rounded-xl -z-10"
                       style={{
-                        background: "linear-gradient(135deg, rgba(124,107,255,0.18), rgba(196,113,237,0.1))",
-                        border: "1px solid rgba(124,107,255,0.3)",
+                        background: "linear-gradient(135deg, rgba(16,217,166,0.14), rgba(18,104,214,0.08))",
+                        border: "1px solid rgba(16,217,166,0.28)",
                       }}
                       transition={{ type: "spring", stiffness: 400, damping: 32 }}
                     />
@@ -335,17 +340,18 @@ export default function Home() {
           <a
             id="navbar-hire-me"
             href="mailto:habibifadli682@gmail.com"
-            className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-black text-white relative overflow-hidden group transition-all duration-300"
+            className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-black relative overflow-hidden group transition-all duration-300"
             style={{
-              background: "linear-gradient(135deg, #7C6BFF 0%, #C471ED 100%)",
-              boxShadow: "0 0 22px rgba(124,107,255,0.4)",
+              background: "linear-gradient(135deg, #10D9A6 0%, #1268D6 100%)",
+              color: "#0F1712",
+              boxShadow: "0 0 22px rgba(16,217,166,0.4)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = "0 0 40px rgba(124,107,255,0.7)";
+              e.currentTarget.style.boxShadow = "0 0 40px rgba(16,217,166,0.7)";
               e.currentTarget.style.transform = "translateY(-1px) scale(1.02)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = "0 0 22px rgba(124,107,255,0.4)";
+              e.currentTarget.style.boxShadow = "0 0 22px rgba(16,217,166,0.4)";
               e.currentTarget.style.transform = "translateY(0) scale(1)";
             }}
           >
@@ -366,9 +372,9 @@ export default function Home() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden relative w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200"
             style={{
-              background: mobileMenuOpen ? C.primaryBg : "rgba(255,255,255,0.05)",
-              border: mobileMenuOpen ? `1px solid ${C.primaryBorder}` : "1px solid rgba(255,255,255,0.08)",
-              color: mobileMenuOpen ? C.primary : "rgba(255,255,255,0.65)",
+              background: mobileMenuOpen ? C.primaryBg : "rgba(16,217,166,0.04)",
+              border: mobileMenuOpen ? `1px solid ${C.primaryBorder}` : "1px solid rgba(16,217,166,0.12)",
+              color: mobileMenuOpen ? C.primary : "rgba(242,251,247,0.65)",
             }}
             aria-label="Buka menu navigasi"
           >
@@ -388,8 +394,8 @@ export default function Home() {
               transition={{ duration: 0.2, ease: "easeOut" }}
               className="md:hidden"
               style={{
-                background: "rgba(10,10,15,0.98)",
-                borderBottom: "1px solid rgba(255,255,255,0.07)",
+                background: "rgba(15,23,18,0.98)",
+                borderBottom: "1px solid rgba(16,217,166,0.1)",
                 backdropFilter: "blur(24px)",
               }}
             >
@@ -404,12 +410,12 @@ export default function Home() {
                     transition={{ delay: i * 0.04, duration: 0.2 }}
                     className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-150"
                     style={{
-                      color: activeSection === sect ? C.primary : "rgba(255,255,255,0.6)",
+                      color: activeSection === sect ? C.primary : "rgba(242,251,247,0.6)",
                       background: activeSection === sect
-                        ? "linear-gradient(135deg, rgba(124,107,255,0.12), rgba(196,113,237,0.07))"
+                        ? "linear-gradient(135deg, rgba(16,217,166,0.12), rgba(18,104,214,0.06))"
                         : "transparent",
                       border: activeSection === sect
-                        ? "1px solid rgba(124,107,255,0.2)"
+                        ? "1px solid rgba(16,217,166,0.22)"
                         : "1px solid transparent",
                     }}
                   >
@@ -428,8 +434,8 @@ export default function Home() {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: navItems.length * 0.04 + 0.05 }}
-                  className="mt-2 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-black text-white"
-                  style={{ background: "linear-gradient(135deg, #7C6BFF, #C471ED)", boxShadow: "0 0 20px rgba(124,107,255,0.4)" }}
+                  className="mt-2 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-black"
+                  style={{ background: "linear-gradient(135deg, #10D9A6, #1268D6)", color: "#0F1712", boxShadow: "0 0 20px rgba(16,217,166,0.4)" }}
                 >
                   <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>mail</span>
                   Kirim Email
@@ -450,15 +456,15 @@ export default function Home() {
           {/* Ambient orbs */}
           <div
             className="absolute -top-20 -left-48 w-[500px] h-[500px] rounded-full pointer-events-none"
-            style={{ background: "radial-gradient(circle, rgba(124,107,255,0.18) 0%, transparent 70%)", filter: "blur(50px)" }}
+            style={{ background: "radial-gradient(circle, rgba(16,217,166,0.16) 0%, transparent 70%)", filter: "blur(50px)" }}
           />
           <div
             className="absolute bottom-0 -right-48 w-[600px] h-[600px] rounded-full pointer-events-none"
-            style={{ background: "radial-gradient(circle, rgba(196,113,237,0.12) 0%, transparent 70%)", filter: "blur(70px)" }}
+            style={{ background: "radial-gradient(circle, rgba(11,138,108,0.14) 0%, transparent 70%)", filter: "blur(70px)" }}
           />
           <div
             className="absolute top-2/3 left-1/3 w-[300px] h-[300px] rounded-full pointer-events-none"
-            style={{ background: "radial-gradient(circle, rgba(18,194,233,0.07) 0%, transparent 70%)", filter: "blur(40px)" }}
+            style={{ background: "radial-gradient(circle, rgba(51,204,15,0.08) 0%, transparent 70%)", filter: "blur(40px)" }}
           />
 
           {/* Dot-grid texture */}
@@ -481,7 +487,7 @@ export default function Home() {
                 <motion.div variants={fadeInUp}>
                   <span
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-black tracking-widest uppercase"
-                    style={{ background: C.primaryBg, border: `1px solid ${C.primaryBorder}`, color: C.primary }}
+                    style={{ background: C.primaryBg, border: `1px solid ${C.primaryBorder}`, color: C.primary, fontFamily: "var(--font-space-grotesk)" }}
                   >
                     <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: C.primary }} />
                     Frontend Web Developer
@@ -492,11 +498,12 @@ export default function Home() {
                 <motion.h1
                   variants={fadeInUp}
                   className="text-[40px] md:text-[62px] font-black leading-[1.07] tracking-tight"
+                  style={{ fontFamily: "var(--font-space-grotesk)" }}
                 >
                   <span className="text-white">Membangun </span>
                   <span
                     style={{
-                      background: "linear-gradient(135deg, #7C6BFF 0%, #C471ED 50%, #12C2E9 100%)",
+                      background: "linear-gradient(135deg, #10D9A6 0%, #33CC0F 50%, #1268D6 100%)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                       backgroundClip: "text",
@@ -517,22 +524,22 @@ export default function Home() {
                 <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
                   <motion.a
                     id="hero-cta-projects"
-                    whileHover={{ scale: 1.04, boxShadow: "0 0 40px rgba(124,107,255,0.55)" }}
+                    whileHover={{ scale: 1.04, boxShadow: "0 0 40px rgba(16,217,166,0.55)" }}
                     whileTap={{ scale: 0.97 }}
                     href="#proyek"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-300"
-                    style={{ background: C.primary, boxShadow: "0 0 24px rgba(124,107,255,0.4)" }}
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm transition-all duration-300"
+                    style={{ background: C.primary, color: "#0F1712", boxShadow: "0 0 24px rgba(16,217,166,0.4)" }}
                   >
                     Lihat Proyek Saya
                     <span className="material-symbols-outlined" style={{ fontSize: "18px" }}>arrow_forward</span>
                   </motion.a>
                   <motion.a
                     id="hero-cta-contact"
-                    whileHover={{ scale: 1.04, background: "rgba(255,255,255,0.08)" }}
+                    whileHover={{ scale: 1.04, background: "rgba(16,217,166,0.08)" }}
                     whileTap={{ scale: 0.97 }}
                     href="#kontak"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-300"
-                    style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)" }}
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm transition-all duration-300"
+                    style={{ background: "rgba(16,217,166,0.06)", border: `1px solid ${C.primaryBorder}`, color: C.text }}
                   >
                     Hubungi Saya
                   </motion.a>
@@ -549,15 +556,16 @@ export default function Home() {
                       <div
                         className="text-3xl font-black"
                         style={{
-                          background: "linear-gradient(135deg, #7C6BFF, #C471ED)",
+                          background: "linear-gradient(135deg, #10D9A6, #33CC0F)",
                           WebkitBackgroundClip: "text",
                           WebkitTextFillColor: "transparent",
                           backgroundClip: "text",
+                          fontFamily: "var(--font-space-grotesk)",
                         }}
                       >
                         {s.value}
                       </div>
-                      <div className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.38)" }}>
+                      <div className="text-xs mt-0.5" style={{ color: "rgba(242,251,247,0.42)" }}>
                         {s.label}
                       </div>
                     </div>
@@ -578,15 +586,15 @@ export default function Home() {
                     className="absolute rounded-[32px] animate-pulse-glow pointer-events-none"
                     style={{
                       inset: "-14px",
-                      background: "linear-gradient(135deg, #7C6BFF, #C471ED, #12C2E9)",
+                      background: "linear-gradient(135deg, #10D9A6, #0B8A6C, #1268D6)",
                       filter: "blur(22px)",
-                      opacity: 0.45,
+                      opacity: 0.4,
                     }}
                   />
                   {/* Photo frame */}
                   <div
                     className="relative w-[256px] h-[306px] md:w-[300px] md:h-[360px] rounded-3xl overflow-hidden"
-                    style={{ border: "1px solid rgba(255,255,255,0.1)", background: C.surface }}
+                    style={{ border: "1px solid rgba(16,217,166,0.18)", background: C.surface }}
                   >
                     <Image
                       src="/assets/images/me.jpeg"
@@ -599,7 +607,7 @@ export default function Home() {
                     {/* Bottom fade */}
                     <div
                       className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
-                      style={{ background: "linear-gradient(to top, rgba(10,10,15,0.65), transparent)" }}
+                      style={{ background: "linear-gradient(to top, rgba(15,23,18,0.65), transparent)" }}
                     />
                   </div>
 
@@ -607,8 +615,8 @@ export default function Home() {
                   <motion.div
                     animate={{ y: [0, -7, 0] }}
                     transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut" }}
-                    className="absolute -top-4 -left-7 px-3 py-1.5 rounded-full text-[10px] font-black text-white"
-                    style={{ background: C.primary, boxShadow: "0 6px 24px rgba(124,107,255,0.55)" }}
+                    className="absolute -top-4 -left-7 px-3 py-1.5 rounded-full text-[10px] font-black"
+                    style={{ background: C.primary, color: "#0F1712", boxShadow: "0 6px 24px rgba(16,217,166,0.55)" }}
                   >
                     FRONTEND DEV
                   </motion.div>
@@ -617,9 +625,9 @@ export default function Home() {
                     transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut", delay: 0.8 }}
                     className="absolute -bottom-4 -right-7 px-3 py-1.5 rounded-full text-[10px] font-black"
                     style={{
-                      background: C.cyan,
-                      color: C.bg,
-                      boxShadow: "0 6px 24px rgba(18,194,233,0.5)",
+                      background: C.accentBlue,
+                      color: "#fff",
+                      boxShadow: "0 6px 24px rgba(18,104,214,0.5)",
                     }}
                   >
                     CREATIVE
@@ -636,14 +644,14 @@ export default function Home() {
             transition={{ delay: 1.8, duration: 0.6 }}
             className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 select-none pointer-events-none"
           >
-            <span className="text-[10px] font-bold tracking-[0.2em] uppercase" style={{ color: "rgba(255,255,255,0.25)" }}>
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase" style={{ color: "rgba(16,217,166,0.4)" }}>
               Scroll
             </span>
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
               className="w-px h-10"
-              style={{ background: "linear-gradient(to bottom, rgba(124,107,255,0.7), transparent)" }}
+              style={{ background: "linear-gradient(to bottom, rgba(16,217,166,0.7), transparent)" }}
             />
           </motion.div>
         </section>
@@ -668,7 +676,7 @@ export default function Home() {
                 <span className="w-10 h-px" style={{ background: C.primary }} />
                 01 / SIAPA SAYA
               </div>
-              <h2 className="text-3xl md:text-5xl font-black text-white">Tentang Saya</h2>
+              <h2 className="text-3xl md:text-5xl font-black text-white" style={{ fontFamily: "var(--font-space-grotesk)" }}>Tentang Saya</h2>
               <p className="max-w-md text-base mt-2" style={{ color: C.muted }}>
                 Latar belakang, minat teknologi, dan keahlian yang saya miliki.
               </p>
@@ -680,21 +688,21 @@ export default function Home() {
                 {/* Quote card */}
                 <div
                   className="relative p-7 rounded-2xl overflow-hidden"
-                  style={{ background: "rgba(124,107,255,0.05)", border: `1px solid rgba(124,107,255,0.15)` }}
+                  style={{ background: "rgba(16,217,166,0.05)", border: `1px solid rgba(16,217,166,0.15)` }}
                 >
                   <div
                     className="absolute top-0 left-0 w-[3px] h-full rounded-full"
-                    style={{ background: "linear-gradient(to bottom, #7C6BFF, #C471ED)" }}
+                    style={{ background: "linear-gradient(to bottom, #10D9A6, #1268D6)" }}
                   />
                   <span
-                    className="block text-7xl font-black leading-none ml-3 opacity-20"
-                    style={{ color: C.primary }}
+                    className="block text-7xl font-black leading-none ml-3 opacity-15"
+                    style={{ color: C.primary, fontFamily: "var(--font-space-grotesk)" }}
                   >
                     &ldquo;
                   </span>
                   <blockquote
                     className="text-lg font-medium leading-relaxed mt-1 ml-3"
-                    style={{ color: "rgba(240,240,255,0.78)" }}
+                    style={{ color: "rgba(242,251,247,0.78)" }}
                   >
                     Mendedikasikan setiap baris kode untuk menciptakan antarmuka web
                     yang cepat, responsif, fungsional, dan menyenangkan bagi pengguna.
@@ -716,14 +724,14 @@ export default function Home() {
                     >
                       <div
                         className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                        style={{ background: "rgba(124,107,255,0.15)" }}
+                        style={{ background: "rgba(16,217,166,0.12)" }}
                       >
                         <span className="material-symbols-outlined" style={{ color: C.primary, fontSize: "17px" }}>
                           {item.icon}
                         </span>
                       </div>
                       <div>
-                        <div className="text-[9px] uppercase tracking-wider mb-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>
+                        <div className="text-[9px] uppercase tracking-wider mb-0.5" style={{ color: "rgba(242,251,247,0.38)" }}>
                           {item.label}
                         </div>
                         <div className="text-xs font-bold text-white">{item.value}</div>
@@ -735,12 +743,12 @@ export default function Home() {
 
               {/* Right column */}
               <motion.div variants={fadeInUp} className="md:col-span-7 space-y-6">
-                <p className="text-base leading-relaxed" style={{ color: "rgba(240,240,255,0.62)" }}>
+                <p className="text-base leading-relaxed" style={{ color: "rgba(242,251,247,0.65)" }}>
                   Saya adalah mahasiswa Ilmu Komputer yang berfokus sebagai Frontend Web Developer. Saya senang
                   membangun antarmuka website dan aplikasi web yang cepat, responsif, berkinerja tinggi,
                   serta memiliki desain yang ramah bagi pengguna.
                 </p>
-                <p className="text-base leading-relaxed" style={{ color: "rgba(240,240,255,0.62)" }}>
+                <p className="text-base leading-relaxed" style={{ color: "rgba(242,251,247,0.65)" }}>
                   Pengalaman saya meliputi pengembangan aplikasi web modern menggunakan Next.js dan React, 
                   serta aplikasi mobile menggunakan Flutter. Saya juga aktif belajar tentang UI/UX design 
                   untuk menciptakan pengalaman pengguna yang optimal di setiap platform.
@@ -762,16 +770,16 @@ export default function Home() {
                       <span
                         key={skill}
                         className="px-3 py-1.5 rounded-lg text-sm font-medium cursor-default transition-all duration-200"
-                        style={{ background: C.glass, border: `1px solid ${C.glassBorder}`, color: "rgba(240,240,255,0.7)" }}
+                        style={{ background: C.glass, border: `1px solid ${C.glassBorder}`, color: "rgba(242,251,247,0.7)" }}
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.background = "rgba(124,107,255,0.12)";
-                          e.currentTarget.style.borderColor = "rgba(124,107,255,0.35)";
+                          e.currentTarget.style.background = "rgba(16,217,166,0.1)";
+                          e.currentTarget.style.borderColor = "rgba(16,217,166,0.35)";
                           e.currentTarget.style.color = C.primary;
                         }}
                         onMouseLeave={(e) => {
                           e.currentTarget.style.background = C.glass;
                           e.currentTarget.style.borderColor = C.glassBorder;
-                          e.currentTarget.style.color = "rgba(240,240,255,0.7)";
+                          e.currentTarget.style.color = "rgba(242,251,247,0.7)";
                         }}
                       >
                         {skill}
@@ -813,7 +821,7 @@ export default function Home() {
                 <span className="w-10 h-px" style={{ background: C.primary }} />
                 02 / HASIL KARYA
               </div>
-              <h2 className="text-3xl md:text-5xl font-black text-white">Proyek Pilihan</h2>
+              <h2 className="text-3xl md:text-5xl font-black text-white" style={{ fontFamily: "var(--font-space-grotesk)" }}>Proyek Pilihan</h2>
               <p className="max-w-md text-base mt-2" style={{ color: C.muted }}>
                 Kumpulan proyek yang telah saya selesaikan menggunakan teknologi web dan mobile terkini.
               </p>
@@ -955,7 +963,7 @@ export default function Home() {
                 id="slide-prev"
                 onClick={handlePrevSlide}
                 className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-200 active:scale-90 z-20"
-                style={{ background: "rgba(10,10,15,0.75)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.8)" }}
+                style={{ background: "rgba(15,23,18,0.85)", border: `1px solid ${C.glassBorder}`, color: C.primary }}
               >
                 <span className="material-symbols-outlined text-xl">chevron_left</span>
               </button>
@@ -963,7 +971,7 @@ export default function Home() {
                 id="slide-next"
                 onClick={handleNextSlide}
                 className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-200 active:scale-90 z-20"
-                style={{ background: "rgba(10,10,15,0.75)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.8)" }}
+                style={{ background: "rgba(15,23,18,0.85)", border: `1px solid ${C.glassBorder}`, color: C.primary }}
               >
                 <span className="material-symbols-outlined text-xl">chevron_right</span>
               </button>
@@ -1014,7 +1022,7 @@ export default function Home() {
                 <span className="w-10 h-px" style={{ background: C.primary }} />
                 03 / PENGUASAAN TEKNOLOGI
               </div>
-              <h2 className="text-3xl md:text-5xl font-black text-white">Keahlian Saya</h2>
+              <h2 className="text-3xl md:text-5xl font-black text-white" style={{ fontFamily: "var(--font-space-grotesk)" }}>Keahlian Saya</h2>
               <p className="max-w-md text-base mt-2" style={{ color: C.muted }}>
                 Teknologi dan alat bantu yang saya kuasai dalam pengembangan.
               </p>
@@ -1032,9 +1040,9 @@ export default function Home() {
                   className="flex flex-col items-center justify-center text-center group cursor-default p-5 rounded-2xl transition-all duration-300"
                   style={{ background: C.glass, border: `1px solid ${C.glassBorder}` }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "rgba(124,107,255,0.09)";
-                    e.currentTarget.style.borderColor = "rgba(124,107,255,0.3)";
-                    e.currentTarget.style.boxShadow = "0 0 32px rgba(124,107,255,0.18)";
+                    e.currentTarget.style.background = "rgba(16,217,166,0.09)";
+                    e.currentTarget.style.borderColor = "rgba(16,217,166,0.3)";
+                    e.currentTarget.style.boxShadow = "0 0 32px rgba(16,217,166,0.18)";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.background = C.glass;
@@ -1053,8 +1061,8 @@ export default function Home() {
                     />
                   </div>
                   <h4
-                    className="text-xs font-bold mt-3 transition-colors duration-300 group-hover:text-[#7C6BFF]"
-                    style={{ color: "rgba(255,255,255,0.65)" }}
+                    className="text-xs font-bold mt-3 transition-colors duration-300 group-hover:text-[#10D9A6]"
+                    style={{ color: "rgba(242,251,247,0.65)" }}
                   >
                     {skill.name}
                   </h4>
@@ -1077,7 +1085,7 @@ export default function Home() {
           {/* Background glow */}
           <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none"
-            style={{ background: "radial-gradient(circle, rgba(124,107,255,0.055) 0%, transparent 70%)" }}
+            style={{ background: "radial-gradient(circle, rgba(16,217,166,0.055) 0%, transparent 70%)" }}
           />
 
           <div className="max-w-[1200px] mx-auto px-5 md:px-6 relative z-10">
@@ -1089,7 +1097,7 @@ export default function Home() {
                 <span className="w-10 h-px" style={{ background: C.primary }} />
                 04 / HUBUNGI SAYA
               </div>
-              <h2 className="text-3xl md:text-5xl font-black text-white">Mari Berkolaborasi</h2>
+              <h2 className="text-3xl md:text-5xl font-black text-white" style={{ fontFamily: "var(--font-space-grotesk)" }}>Mari Berkolaborasi</h2>
               <p className="max-w-md text-base mt-2" style={{ color: C.muted }}>
                 Hubungi saya untuk mendiskusikan peluang kerja, proyek, atau sekadar bertanya kabar.
               </p>
@@ -1098,7 +1106,7 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               {/* Left: Contact info */}
               <motion.div variants={fadeInUp} className="lg:col-span-5 space-y-6">
-                <p className="text-base leading-relaxed" style={{ color: "rgba(240,240,255,0.58)" }}>
+                <p className="text-base leading-relaxed" style={{ color: "rgba(242,251,247,0.62)" }}>
                   Terbuka untuk proyek freelance, kolaborasi, dan peluang magang.
                   Kirimkan pesan kepada saya dan saya akan segera merespons dengan senang hati.
                 </p>
@@ -1143,7 +1151,7 @@ export default function Home() {
                     >
                       <div
                         className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                        style={{ background: "rgba(124,107,255,0.15)" }}
+                        style={{ background: "rgba(16,217,166,0.12)" }}
                       >
                         <span className="material-symbols-outlined" style={{ color: C.primary }}>
                           {item.icon}
@@ -1203,18 +1211,18 @@ export default function Home() {
                           required
                           className="w-full px-4 py-3.5 rounded-xl text-sm outline-none transition-all duration-200"
                           style={{
-                            background: "rgba(255,255,255,0.05)",
-                            border: "1px solid rgba(255,255,255,0.09)",
+                            background: "rgba(16,217,166,0.04)",
+                            border: `1px solid ${C.glassBorder}`,
                             color: C.text,
                           }}
                           onFocus={(e) => {
-                            e.currentTarget.style.borderColor = "rgba(124,107,255,0.55)";
-                            e.currentTarget.style.background = "rgba(124,107,255,0.07)";
-                            e.currentTarget.style.boxShadow = "0 0 0 3px rgba(124,107,255,0.1)";
+                            e.currentTarget.style.borderColor = "rgba(16,217,166,0.55)";
+                            e.currentTarget.style.background = "rgba(16,217,166,0.08)";
+                            e.currentTarget.style.boxShadow = "0 0 0 3px rgba(16,217,166,0.1)";
                           }}
                           onBlur={(e) => {
-                            e.currentTarget.style.borderColor = "rgba(255,255,255,0.09)";
-                            e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+                            e.currentTarget.style.borderColor = C.glassBorder;
+                            e.currentTarget.style.background = "rgba(16,217,166,0.04)";
                             e.currentTarget.style.boxShadow = "none";
                           }}
                         />
@@ -1237,18 +1245,18 @@ export default function Home() {
                         required
                         className="w-full px-4 py-3.5 rounded-xl text-sm outline-none transition-all duration-200 resize-none"
                         style={{
-                          background: "rgba(255,255,255,0.05)",
-                          border: "1px solid rgba(255,255,255,0.09)",
+                          background: "rgba(16,217,166,0.04)",
+                          border: `1px solid ${C.glassBorder}`,
                           color: C.text,
                         }}
                         onFocus={(e) => {
-                          e.currentTarget.style.borderColor = "rgba(124,107,255,0.55)";
-                          e.currentTarget.style.background = "rgba(124,107,255,0.07)";
-                          e.currentTarget.style.boxShadow = "0 0 0 3px rgba(124,107,255,0.1)";
+                          e.currentTarget.style.borderColor = "rgba(16,217,166,0.55)";
+                          e.currentTarget.style.background = "rgba(16,217,166,0.08)";
+                          e.currentTarget.style.boxShadow = "0 0 0 3px rgba(16,217,166,0.1)";
                         }}
                         onBlur={(e) => {
-                          e.currentTarget.style.borderColor = "rgba(255,255,255,0.09)";
-                          e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+                          e.currentTarget.style.borderColor = C.glassBorder;
+                          e.currentTarget.style.background = "rgba(16,217,166,0.04)";
                           e.currentTarget.style.boxShadow = "none";
                         }}
                       />
@@ -1277,12 +1285,12 @@ export default function Home() {
                     {/* Submit */}
                     <motion.button
                       id="submit-form"
-                      whileHover={{ scale: 1.02, boxShadow: "0 0 36px rgba(124,107,255,0.45)" }}
+                      whileHover={{ scale: 1.02, boxShadow: "0 0 36px rgba(16,217,166,0.45)" }}
                       whileTap={{ scale: 0.98 }}
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 rounded-xl font-black text-sm text-white transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
-                      style={{ background: C.primary, boxShadow: "0 0 20px rgba(124,107,255,0.3)" }}
+                      className="w-full py-4 rounded-xl font-black text-sm transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                      style={{ background: "linear-gradient(135deg, #10D9A6, #0B8A6C)", color: "#0F1712", boxShadow: "0 0 20px rgba(16,217,166,0.3)" }}
                     >
                       {isSubmitting ? (
                         <span className="inline-flex items-center justify-center gap-2">
@@ -1307,17 +1315,17 @@ export default function Home() {
       {/* ─────────────────────────── FOOTER ──────────────────────────────── */}
       <footer
         className="py-10"
-        style={{ backgroundColor: "#07070D", borderTop: `1px solid ${C.glassBorder}` }}
+        style={{ backgroundColor: "#0A1510", borderTop: `1px solid ${C.glassBorder}` }}
       >
         <div className="max-w-[1200px] mx-auto px-5 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-5">
             {/* Logo */}
-            <div className="font-black tracking-tighter text-xl text-white">
+            <div className="font-black tracking-tighter text-xl text-white" style={{ fontFamily: "var(--font-space-grotesk)" }}>
               FADLI<span style={{ color: C.primary }}>.DEV</span>
             </div>
 
             {/* Copyright */}
-            <p className="text-xs text-center" style={{ color: "rgba(255,255,255,0.28)" }}>
+            <p className="text-xs text-center" style={{ color: "rgba(242,251,247,0.3)" }}>
               © 2024 Fadli Habibi Lubis &mdash; Dibuat dengan presisi &amp; dedikasi.
             </p>
 
@@ -1333,9 +1341,9 @@ export default function Home() {
                   target={link.href.startsWith("http") ? "_blank" : undefined}
                   rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="text-xs font-bold transition-colors duration-200"
-                  style={{ color: "rgba(255,255,255,0.35)" }}
+                  style={{ color: "rgba(242,251,247,0.35)" }}
                   onMouseEnter={(e) => (e.currentTarget.style.color = C.primary)}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.35)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(242,251,247,0.35)")}
                 >
                   {link.label}
                 </a>

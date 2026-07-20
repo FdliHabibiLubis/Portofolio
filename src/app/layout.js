@@ -1,10 +1,10 @@
-import { Outfit, Inter } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const inter = Inter({
@@ -13,22 +13,28 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
 export const metadata = {
   title: "Fadli — Frontend Developer",
   description:
     "Mahasiswa Ilmu Komputer yang berfokus pada pengembangan frontend web yang cepat, responsif, aksesibel, dan dirancang dengan presisi.",
-  themeColor: "#0A0A0F",
+  themeColor: "#0F1712",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html
       lang="id"
-      className={`${outfit.variable} ${inter.variable} scroll-smooth`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>
-        <meta name="theme-color" content="#0A0A0F" />
+        <meta name="theme-color" content="#0F1712" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
