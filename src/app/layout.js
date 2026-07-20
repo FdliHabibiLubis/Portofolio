@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
       </head>
       <body
         className="antialiased"
-        style={{ backgroundColor: "#0F1712", color: "#F2FBF7" }}
+        style={{ backgroundColor: "#fff", color: "#111" }}
         data-theme="dark"
       >
         <Navbar />
