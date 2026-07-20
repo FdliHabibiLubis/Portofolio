@@ -28,7 +28,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#0F1712",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({ children }) {
@@ -48,7 +48,6 @@ export default function RootLayout({ children }) {
       <body
         className="antialiased"
         style={{ backgroundColor: "#fff", color: "#111" }}
-        data-theme="dark"
       >
         <Navbar />
         <main>{children}</main>
