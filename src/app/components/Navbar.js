@@ -35,7 +35,7 @@ export default function Navbar() {
   const isActive = (href) => href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <div className="sticky top-0 z-50 px-4 pt-3 pb-1" style={{ backgroundColor: "transparent" }}>
+    <div className="sticky top-0 z-50 px-4 pt-3 pb-4" style={{ backgroundColor: "transparent" }}>
 
       {/* ── Floating Navbar Shell ── */}
       <motion.header
