@@ -10,12 +10,14 @@ const outfit = Outfit({
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
   title: "Fadli — Frontend Developer",
-  description: "Mahasiswa Ilmu Komputer yang berfokus pada pengembangan frontend web yang cepat, responsif, aksesibel, dan dirancang dengan presisi.",
+  description:
+    "Mahasiswa Ilmu Komputer yang berfokus pada pengembangan frontend web yang cepat, responsif, aksesibel, dan dirancang dengan presisi.",
+  themeColor: "#0A0A0F",
 };
 
 export default function RootLayout({ children }) {
@@ -26,6 +28,7 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <head>
+        <meta name="theme-color" content="#0A0A0F" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"

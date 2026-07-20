@@ -5,153 +5,178 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
-  // Navigation active section scroll tracker
   const [activeSection, setActiveSection] = useState("beranda");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formStatus, setFormStatus] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
+      // Active section tracking
       const sections = ["beranda", "tentang", "proyek", "keahlian", "kontak"];
       let current = "beranda";
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
-          // Offset for header height
-          if (rect.top <= 140) {
-            current = section;
-          }
+          if (rect.top <= 140) current = section;
         }
       }
       setActiveSection(current);
-    };
 
-    window.addEventListener("scroll", handleScroll);
+      // Scroll progress
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+
+      // Scrolled state for navbar appearance
+      setScrolled(scrollTop > 20);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Project Slideshow Data
+  // ── Projects Data ──────────────────────────────────────────────────────────
   const projects = [
     {
       id: "saku",
       title: "SAKU",
       category: "FEATURED MOBILE APP",
-      description: "Sistem Aplikasi Keuangan Usaha — solusi cerdas untuk mengelola keuangan bisnis secara efisien, transparan, dan real-time.",
+      description:
+        "Sistem Aplikasi Keuangan Usaha — solusi cerdas untuk mengelola keuangan bisnis secara efisien, transparan, dan real-time.",
       tags: ["Fintech", "Mobile App", "SaaS"],
       features: [
         { icon: "account_balance_wallet", label: "Manajemen Keuangan" },
-        { icon: "bar_chart", label: "Analitik Real-time" }
+        { icon: "bar_chart", label: "Analitik Real-time" },
       ],
       mockup: "/assets/images/projek/saku.png",
       gitUrl: "https://github.com/FdliHabibiLubis/Saku-flutter",
       linkText: "saku.app",
-      gradient: "from-[#14532d] via-[#0d3b1f] to-[#0b2f18]",
-      radialGlow: "rgba(52,211,153,0.12)",
-      glowClass: "bg-emerald-400/10",
+      gradient: "from-[#071a0f] via-[#0d3b1f] to-[#0b2a15]",
+      radialGlow: "rgba(52,211,153,0.14)",
       tagColor: "text-emerald-300",
-      pillBg: "bg-emerald-400"
+      pillBg: "bg-emerald-400",
     },
     {
       id: "ciakad",
       title: "CIAKAD",
       category: "FEATURED CASE STUDY",
-      description: "Platform terintegrasi untuk mengelola ekosistem akademik dengan efisiensi tinggi dan antarmuka administrator yang intuitif.",
+      description:
+        "Platform terintegrasi untuk mengelola ekosistem akademik dengan efisiensi tinggi dan antarmuka administrator yang intuitif.",
       tags: ["Academic Mgmt", "Web Admin", "Cloud DB"],
       features: [
         { icon: "school", label: "Manajemen Akademik" },
-        { icon: "dashboard", label: "Dashboard Admin" }
+        { icon: "dashboard", label: "Dashboard Admin" },
       ],
       mockup: "/assets/images/projek/ciakad.png",
       gitUrl: "https://github.com/FdliHabibiLubis/siakad-flutter",
       linkText: "ciakad.app",
-      gradient: "from-[#0c162f] via-[#101d3f] to-[#070d1e]",
-      radialGlow: "rgba(96,165,250,0.10)",
-      glowClass: "bg-blue-400/10",
+      gradient: "from-[#050c1e] via-[#0c1a38] to-[#0a1630]",
+      radialGlow: "rgba(96,165,250,0.12)",
       tagColor: "text-blue-300",
-      pillBg: "bg-blue-400"
+      pillBg: "bg-blue-400",
     },
     {
       id: "bukukita",
       title: "Buku Kita",
       category: "WEB APP",
-      description: "Platform toko buku online berbasis web dengan panel admin, fitur pencarian cerdas, dan integrasi Google Books API.",
+      description:
+        "Platform toko buku online berbasis web dengan panel admin, fitur pencarian cerdas, dan integrasi Google Books API.",
       tags: ["E-Commerce", "Google Books"],
       features: [
         { icon: "storefront", label: "Online Bookstore" },
-        { icon: "search", label: "Pencarian Cerdas" }
+        { icon: "search", label: "Pencarian Cerdas" },
       ],
       mockup: "/assets/images/projek/1.png",
       gitUrl: "https://github.com/FdliHabibiLubis/Buku-kita-nextjs",
       linkText: "bukukita.app",
-      gradient: "from-[#1a3c1a] via-[#0f2b10] to-[#0a1a0b]",
+      gradient: "from-[#081208] via-[#0e2810] to-[#122e14]",
       radialGlow: "rgba(163,230,53,0.10)",
-      glowClass: "bg-lime-400/10",
       tagColor: "text-lime-300",
-      pillBg: "bg-lime-400"
+      pillBg: "bg-lime-400",
     },
     {
       id: "password",
       title: "Password Generator",
       category: "FRONTEND TOOL",
-      description: "Generator password interaktif yang membuat kata sandi acak kuat dan aman dengan konfigurasi karakter fleksibel.",
+      description:
+        "Generator password interaktif yang membuat kata sandi acak kuat dan aman dengan konfigurasi karakter fleksibel.",
       tags: ["Security Tool", "Vanilla JS"],
       features: [
         { icon: "lock", label: "Password Kuat" },
-        { icon: "tune", label: "Konfigurasi Fleksibel" }
+        { icon: "tune", label: "Konfigurasi Fleksibel" },
       ],
       mockup: "/assets/images/projek/2.png",
       gitUrl: "https://github.com/FdliHabibiLubis/PasswordGenerator",
       linkText: "password-generator.app",
-      gradient: "from-[#1e1040] via-[#140b30] to-[#0a0520]",
-      radialGlow: "rgba(168,85,247,0.12)",
-      glowClass: "bg-purple-400/10",
+      gradient: "from-[#08051e] via-[#120930] to-[#1a0d42]",
+      radialGlow: "rgba(168,85,247,0.14)",
       tagColor: "text-purple-300",
-      pillBg: "bg-purple-400"
+      pillBg: "bg-purple-400",
     },
     {
       id: "taskflow",
       title: "TaskFlow",
       category: "WEB APP",
-      description: "Aplikasi To-Do List modern bergaya Glassmorphism untuk produktivitas maksimal dengan antarmuka yang bersih dan intuitif.",
+      description:
+        "Aplikasi To-Do List modern bergaya Glassmorphism untuk produktivitas maksimal dengan antarmuka yang bersih dan intuitif.",
       tags: ["Productivity", "Glassmorphism"],
-      features: [
-        { icon: "check_circle", label: "Task Management" }
-      ],
+      features: [{ icon: "check_circle", label: "Task Management" }],
       mockup: "/assets/images/projek/3.png",
       gitUrl: "https://github.com/FdliHabibiLubis/TodoList",
       linkText: "taskflow.app",
-      gradient: "from-[#0a1628] via-[#0d1f3c] to-[#060e1a]",
+      gradient: "from-[#04090e] via-[#081828] to-[#0a1f38]",
       radialGlow: "rgba(56,189,248,0.10)",
-      glowClass: "bg-sky-400/10",
       tagColor: "text-sky-300",
-      pillBg: "bg-sky-400"
-    }
+      pillBg: "bg-sky-400",
+    },
   ];
 
-  // Tech Skills Grid Data
+  // ── Skills Data ────────────────────────────────────────────────────────────
   const skills = [
     { name: "HTML5", src: "/assets/images/html.png" },
     { name: "CSS3", src: "/assets/images/css.png" },
-    { name: "JavaScript", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-    { name: "PHP", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
-    { name: "Java", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
-    { name: "Figma", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
-    { name: "Canva", src: "https://www.vectorlogo.zone/logos/canva/canva-icon.svg" },
-    { name: "Flutter", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
-    { name: "Dart", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" },
-    { name: "PostgreSQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" }
+    {
+      name: "JavaScript",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    },
+    {
+      name: "PHP",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+    },
+    {
+      name: "Java",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+    },
+    {
+      name: "Figma",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+    },
+    {
+      name: "Canva",
+      src: "https://www.vectorlogo.zone/logos/canva/canva-icon.svg",
+    },
+    {
+      name: "Flutter",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+    },
+    {
+      name: "Dart",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
+    },
+    {
+      name: "PostgreSQL",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    },
   ];
 
-  const handlePrevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
-  };
-
-  const handleNextSlide = () => {
-    setCurrentSlide((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
-  };
+  const handlePrevSlide = () =>
+    setCurrentSlide((p) => (p === 0 ? projects.length - 1 : p - 1));
+  const handleNextSlide = () =>
+    setCurrentSlide((p) => (p === projects.length - 1 ? 0 : p + 1));
 
   const handleContactSubmit = (e) => {
     e.preventDefault();
@@ -164,191 +189,438 @@ export default function Home() {
     }, 1200);
   };
 
-  // Animation variants
+  // ── Animation Variants ─────────────────────────────────────────────────────
   const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    hidden: { opacity: 0, y: 36 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
   };
-
   const staggerContainer = {
     hidden: {},
-    visible: { transition: { staggerChildren: 0.1 } }
+    visible: { transition: { staggerChildren: 0.1 } },
+  };
+
+  const navItems = ["beranda", "tentang", "proyek", "keahlian", "kontak"];
+
+  // ── Shared inline style helpers ────────────────────────────────────────────
+  const C = {
+    bg: "#0A0A0F",
+    bgRaised: "#0D0D14",
+    surface: "#12121A",
+    primary: "#7C6BFF",
+    primaryDark: "#5A4AE3",
+    accent: "#C471ED",
+    cyan: "#12C2E9",
+    text: "#F0F0FF",
+    muted: "rgba(240,240,255,0.5)",
+    glass: "rgba(255,255,255,0.03)",
+    glassBorder: "rgba(255,255,255,0.07)",
+    primaryBg: "rgba(124,107,255,0.08)",
+    primaryBorder: "rgba(124,107,255,0.2)",
   };
 
   return (
-    <div className="bg-bg-base font-inter min-h-screen">
-      {/* TopNavBar */}
-      <header className="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/50">
-        <nav className="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-gutter h-20">
-          <div className="text-headline-md font-headline-lg font-black tracking-tighter text-text">
-            FADLI<span className="text-primary">.PORTFOLIO</span>
-          </div>
-          <div className="hidden md:flex items-center gap-unit relative">
-            {["beranda", "tentang", "proyek", "keahlian", "kontak"].map((sect) => {
+    <div style={{ backgroundColor: C.bg, color: C.text }} className="font-inter min-h-screen">
+
+      {/* ────────────────────────── NAVBAR ───────────────────────────────── */}
+      <header
+        className="sticky top-0 z-50 transition-all duration-500"
+        style={{
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          backgroundColor: scrolled ? "rgba(10,10,15,0.95)" : "rgba(10,10,15,0.6)",
+          borderBottom: scrolled
+            ? "1px solid rgba(255,255,255,0.08)"
+            : "1px solid rgba(255,255,255,0.04)",
+          boxShadow: scrolled ? "0 8px 40px rgba(0,0,0,0.6)" : "none",
+        }}
+      >
+        {/* ── Scroll progress bar ── */}
+        <div
+          className="absolute top-0 left-0 h-[2px] z-20 transition-all duration-150 pointer-events-none"
+          style={{
+            width: `${scrollProgress}%`,
+            background: "linear-gradient(90deg, #7C6BFF, #C471ED, #12C2E9)",
+            boxShadow: "0 0 10px rgba(124,107,255,0.7), 0 0 4px rgba(196,113,237,0.5)",
+          }}
+        />
+
+        <nav className="flex justify-between items-center max-w-[1200px] mx-auto px-5 md:px-6 h-[68px]">
+
+          {/* ── Logo ── */}
+          <a
+            href="#beranda"
+            className="flex items-center gap-3 select-none group"
+            style={{ textDecoration: "none" }}
+          >
+            {/* Gradient orb icon */}
+            <div
+              className="relative w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110"
+              style={{
+                background: "linear-gradient(135deg, #7C6BFF, #C471ED)",
+                boxShadow: "0 0 18px rgba(124,107,255,0.55)",
+              }}
+            >
+              {/* Inner glow pulse */}
+              <div
+                className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.2), transparent)" }}
+              />
+              <span
+                className="relative z-10 font-black text-white"
+                style={{ fontSize: "15px", fontFamily: "var(--font-outfit)", letterSpacing: "-0.5px" }}
+              >
+                F
+              </span>
+            </div>
+            {/* Wordmark */}
+            <span className="font-black tracking-tight text-[1.2rem] text-white transition-all duration-200">
+              FADLI
+              <span
+                style={{
+                  background: "linear-gradient(135deg, #7C6BFF, #C471ED)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                .DEV
+              </span>
+            </span>
+          </a>
+
+          {/* ── Desktop nav links ── */}
+          <div className="hidden md:flex items-center gap-0.5">
+            {navItems.map((sect) => {
               const isActive = activeSection === sect;
               return (
                 <a
                   key={sect}
                   href={`#${sect}`}
-                  className={`relative px-4 py-1.5 transition-all text-label-md font-label-md z-10 ${
-                    isActive ? "text-primary font-bold" : "text-text/70 hover:text-primary"
-                  }`}
+                  className="relative px-4 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200"
+                  style={{
+                    color: isActive ? "#fff" : "rgba(255,255,255,0.42)",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isActive) e.currentTarget.style.color = "rgba(255,255,255,0.85)";
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) e.currentTarget.style.color = "rgba(255,255,255,0.42)";
+                  }}
                 >
                   {sect.charAt(0).toUpperCase() + sect.slice(1)}
                   {isActive && (
                     <motion.span
-                      layoutId="activeNavBackground"
-                      className="absolute inset-0 bg-secondary/15 rounded-lg -z-10"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      layoutId="activeNavBg"
+                      className="absolute inset-0 rounded-xl -z-10"
+                      style={{
+                        background: "linear-gradient(135deg, rgba(124,107,255,0.18), rgba(196,113,237,0.1))",
+                        border: "1px solid rgba(124,107,255,0.3)",
+                      }}
+                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                    />
+                  )}
+                  {/* Active dot indicator */}
+                  {isActive && (
+                    <span
+                      className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
+                      style={{ background: C.primary, boxShadow: `0 0 6px ${C.primary}` }}
                     />
                   )}
                 </a>
               );
             })}
           </div>
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-text"
-            aria-label="Buka menu navigasi mobile"
+
+          {/* ── Desktop CTA: Hire Me (gradient) ── */}
+          <a
+            id="navbar-hire-me"
+            href="mailto:habibifadli682@gmail.com"
+            className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-black text-white relative overflow-hidden group transition-all duration-300"
+            style={{
+              background: "linear-gradient(135deg, #7C6BFF 0%, #C471ED 100%)",
+              boxShadow: "0 0 22px rgba(124,107,255,0.4)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.boxShadow = "0 0 40px rgba(124,107,255,0.7)";
+              e.currentTarget.style.transform = "translateY(-1px) scale(1.02)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.boxShadow = "0 0 22px rgba(124,107,255,0.4)";
+              e.currentTarget.style.transform = "translateY(0) scale(1)";
+            }}
           >
-            <span className="material-symbols-outlined">
+            {/* Shimmer sweep on hover */}
+            <span
+              className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none"
+              style={{
+                background: "linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.22) 50%, transparent 70%)",
+              }}
+            />
+            <span className="material-symbols-outlined relative z-10" style={{ fontSize: "16px" }}>mail</span>
+            <span className="relative z-10">Hire Me</span>
+          </a>
+
+          {/* ── Mobile Hamburger ── */}
+          <button
+            id="mobile-menu-toggle"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden relative w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200"
+            style={{
+              background: mobileMenuOpen ? C.primaryBg : "rgba(255,255,255,0.05)",
+              border: mobileMenuOpen ? `1px solid ${C.primaryBorder}` : "1px solid rgba(255,255,255,0.08)",
+              color: mobileMenuOpen ? C.primary : "rgba(255,255,255,0.65)",
+            }}
+            aria-label="Buka menu navigasi"
+          >
+            <span className="material-symbols-outlined" style={{ fontSize: "20px" }}>
               {mobileMenuOpen ? "close" : "menu"}
             </span>
           </button>
         </nav>
-        {/* Mobile Navigation Drawer */}
+
+        {/* ── Mobile Drawer ── */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              className="md:hidden absolute top-20 left-0 w-full bg-surface border-b border-outline-variant/50 flex flex-col p-4 gap-2 z-40"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="md:hidden"
+              style={{
+                background: "rgba(10,10,15,0.98)",
+                borderBottom: "1px solid rgba(255,255,255,0.07)",
+                backdropFilter: "blur(24px)",
+              }}
             >
-              {["beranda", "tentang", "proyek", "keahlian", "kontak"].map((sect) => (
-                <a
-                  key={sect}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`px-4 py-2.5 transition-colors text-label-md font-label-md rounded-lg hover:bg-secondary/10 ${
-                    activeSection === sect ? "text-primary bg-secondary/5 font-semibold" : "text-text"
-                  }`}
-                  href={`#${sect}`}
+              <div className="flex flex-col p-4 gap-1.5">
+                {navItems.map((sect, i) => (
+                  <motion.a
+                    key={sect}
+                    href={`#${sect}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.04, duration: 0.2 }}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-150"
+                    style={{
+                      color: activeSection === sect ? C.primary : "rgba(255,255,255,0.6)",
+                      background: activeSection === sect
+                        ? "linear-gradient(135deg, rgba(124,107,255,0.12), rgba(196,113,237,0.07))"
+                        : "transparent",
+                      border: activeSection === sect
+                        ? "1px solid rgba(124,107,255,0.2)"
+                        : "1px solid transparent",
+                    }}
+                  >
+                    {activeSection === sect && (
+                      <span
+                        className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                        style={{ background: C.primary, boxShadow: `0 0 6px ${C.primary}` }}
+                      />
+                    )}
+                    {sect.charAt(0).toUpperCase() + sect.slice(1)}
+                  </motion.a>
+                ))}
+                {/* Mobile CTA */}
+                <motion.a
+                  href="mailto:habibifadli682@gmail.com"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: navItems.length * 0.04 + 0.05 }}
+                  className="mt-2 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-black text-white"
+                  style={{ background: "linear-gradient(135deg, #7C6BFF, #C471ED)", boxShadow: "0 0 20px rgba(124,107,255,0.4)" }}
                 >
-                  {sect.charAt(0).toUpperCase() + sect.slice(1)}
-                </a>
-              ))}
+                  <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>mail</span>
+                  Kirim Email
+                </motion.a>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
       </header>
 
       <main>
-        {/* Hero Section */}
+        {/* ─────────────────────────── HERO ────────────────────────────────── */}
         <section
-          className="py-stack-lg md:py-section-padding overflow-hidden relative bg-gradient-to-br from-primary to-accent text-white"
           id="beranda"
+          className="relative min-h-screen flex items-center overflow-hidden"
+          style={{ backgroundColor: C.bg }}
         >
-          {/* Floating Abstract Background Shapes */}
-          <div className="absolute top-1/4 left-8 w-8 h-8 text-white/10 pointer-events-none animate-spin-slow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <polygon points="12 2 22 8.5 22 19.5 12 22 2 19.5 2 8.5" />
-            </svg>
-          </div>
-          <div className="absolute bottom-1/4 right-1/3 w-10 h-10 text-white/5 pointer-events-none animate-bounce-slow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="10" />
-              <line x1="12" y1="8" x2="12" y2="16" />
-              <line x1="8" y1="12" x2="16" y2="12" />
-            </svg>
-          </div>
-          <div className="absolute top-1/3 right-12 w-20 h-20 text-white/5 pointer-events-none">
-            <svg viewBox="0 0 100 100" fill="currentColor">
-              {[...Array(5)].map((_, r) =>
-                [...Array(5)].map((_, c) => (
-                  <circle key={`${r}-${c}`} cx={10 + c * 20} cy={10 + r * 20} r="3" />
-                ))
-              )}
-            </svg>
-          </div>
+          {/* Ambient orbs */}
+          <div
+            className="absolute -top-20 -left-48 w-[500px] h-[500px] rounded-full pointer-events-none"
+            style={{ background: "radial-gradient(circle, rgba(124,107,255,0.18) 0%, transparent 70%)", filter: "blur(50px)" }}
+          />
+          <div
+            className="absolute bottom-0 -right-48 w-[600px] h-[600px] rounded-full pointer-events-none"
+            style={{ background: "radial-gradient(circle, rgba(196,113,237,0.12) 0%, transparent 70%)", filter: "blur(70px)" }}
+          />
+          <div
+            className="absolute top-2/3 left-1/3 w-[300px] h-[300px] rounded-full pointer-events-none"
+            style={{ background: "radial-gradient(circle, rgba(18,194,233,0.07) 0%, transparent 70%)", filter: "blur(40px)" }}
+          />
 
-          <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter relative z-10">
-            <div className="flex flex-col md:flex-row items-center gap-stack-lg">
+          {/* Dot-grid texture */}
+          <div
+            className="absolute inset-0 pointer-events-none dot-grid"
+            style={{ opacity: 0.018 }}
+          />
+
+          <div className="max-w-[1200px] mx-auto px-5 md:px-6 py-24 md:py-0 relative z-10 w-full">
+            <div className="flex flex-col-reverse md:flex-row items-center gap-14 md:gap-16">
+
+              {/* ── Left: Text ── */}
               <motion.div
                 initial="hidden"
                 animate="visible"
                 variants={staggerContainer}
-                className="flex-1 space-y-stack-md relative z-10"
+                className="flex-1 space-y-7"
               >
-                <motion.div
-                  variants={fadeInUp}
-                  className="inline-block bg-white/15 border border-white/25 px-4 py-1 rounded-full text-white font-semibold text-xs tracking-wider"
-                >
-                  FRONTEND WEB DEVELOPER
+                {/* Badge */}
+                <motion.div variants={fadeInUp}>
+                  <span
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-black tracking-widest uppercase"
+                    style={{ background: C.primaryBg, border: `1px solid ${C.primaryBorder}`, color: C.primary }}
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: C.primary }} />
+                    Frontend Web Developer
+                  </span>
                 </motion.div>
+
+                {/* Heading */}
                 <motion.h1
                   variants={fadeInUp}
-                  className="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight text-white"
+                  className="text-[40px] md:text-[62px] font-black leading-[1.07] tracking-tight"
                 >
-                  Membangun Website &amp; Aplikasi Web yang{" "}
-                  <span className="hero-highlight">Fungsional</span>
-                </motion.h1>
-                <motion.p
-                  variants={fadeInUp}
-                  className="font-body-lg text-body-lg text-white max-w-2xl"
-                >
-                  Mahasiswa Ilmu Komputer yang berfokus pada pengembangan frontend web yang cepat,
-                  responsif, aksesibel, dan dirancang dengan presisi.
-                </motion.p>
-                <motion.div variants={fadeInUp} className="flex flex-wrap gap-stack-sm pt-4">
-                  <motion.a
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-accent text-white px-stack-md py-4 rounded-xl font-label-md text-label-md flex items-center gap-2 hover:bg-primary-dark transition-colors duration-300"
-                    href="#proyek"
+                  <span className="text-white">Membangun </span>
+                  <span
+                    style={{
+                      background: "linear-gradient(135deg, #7C6BFF 0%, #C471ED 50%, #12C2E9 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
                   >
-                    Lihat Proyek Saya <span className="material-symbols-outlined">arrow_forward</span>
+                    Website &amp; Aplikasi
+                  </span>
+                  <span className="text-white"> Web yang Fungsional</span>
+                </motion.h1>
+
+                {/* Subtitle */}
+                <motion.p variants={fadeInUp} className="text-lg leading-relaxed max-w-lg" style={{ color: C.muted }}>
+                  Mahasiswa Ilmu Komputer yang berfokus pada pengembangan frontend web
+                  yang cepat, responsif, aksesibel, dan dirancang dengan presisi.
+                </motion.p>
+
+                {/* CTAs */}
+                <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
+                  <motion.a
+                    id="hero-cta-projects"
+                    whileHover={{ scale: 1.04, boxShadow: "0 0 40px rgba(124,107,255,0.55)" }}
+                    whileTap={{ scale: 0.97 }}
+                    href="#proyek"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-300"
+                    style={{ background: C.primary, boxShadow: "0 0 24px rgba(124,107,255,0.4)" }}
+                  >
+                    Lihat Proyek Saya
+                    <span className="material-symbols-outlined" style={{ fontSize: "18px" }}>arrow_forward</span>
                   </motion.a>
                   <motion.a
-                    whileHover={{ scale: 1.02, backgroundColor: "rgba(255,255,255,0.1)" }}
-                    whileTap={{ scale: 0.98 }}
-                    className="border-2 border-white text-white px-stack-md py-4 rounded-xl font-label-md text-label-md transition-colors duration-300"
+                    id="hero-cta-contact"
+                    whileHover={{ scale: 1.04, background: "rgba(255,255,255,0.08)" }}
+                    whileTap={{ scale: 0.97 }}
                     href="#kontak"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-300"
+                    style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)" }}
                   >
                     Hubungi Saya
                   </motion.a>
                 </motion.div>
+
+                {/* Stats */}
+                <motion.div variants={fadeInUp} className="flex gap-10 pt-2">
+                  {[
+                    { value: "5+", label: "Proyek Selesai" },
+                    { value: "2+", label: "Tahun Belajar" },
+                    { value: "10+", label: "Teknologi" },
+                  ].map((s) => (
+                    <div key={s.label}>
+                      <div
+                        className="text-3xl font-black"
+                        style={{
+                          background: "linear-gradient(135deg, #7C6BFF, #C471ED)",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                          backgroundClip: "text",
+                        }}
+                      >
+                        {s.value}
+                      </div>
+                      <div className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.38)" }}>
+                        {s.label}
+                      </div>
+                    </div>
+                  ))}
+                </motion.div>
               </motion.div>
 
+              {/* ── Right: Profile Photo ── */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="flex-shrink-0 w-full md:w-auto flex justify-center"
+                initial={{ opacity: 0, scale: 0.88, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
+                className="flex-shrink-0 flex justify-center"
               >
-                <div className="group relative w-[280px] h-[280px] md:w-[340px] md:h-[340px]">
-                  {/* Flat Image frame */}
-                  <div className="relative w-[280px] h-[280px] md:w-[340px] md:h-[340px] rounded-3xl overflow-hidden bg-surface border-4 border-white/20">
+                <div className="relative">
+                  {/* Glow halo */}
+                  <div
+                    className="absolute rounded-[32px] animate-pulse-glow pointer-events-none"
+                    style={{
+                      inset: "-14px",
+                      background: "linear-gradient(135deg, #7C6BFF, #C471ED, #12C2E9)",
+                      filter: "blur(22px)",
+                      opacity: 0.45,
+                    }}
+                  />
+                  {/* Photo frame */}
+                  <div
+                    className="relative w-[256px] h-[306px] md:w-[300px] md:h-[360px] rounded-3xl overflow-hidden"
+                    style={{ border: "1px solid rgba(255,255,255,0.1)", background: C.surface }}
+                  >
                     <Image
-                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105"
-                      alt="Foto Fadli"
                       src="/assets/images/me.jpeg"
+                      alt="Foto profil Fadli Habibi Lubis, Frontend Developer"
                       width={400}
-                      height={400}
+                      height={480}
                       priority
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Bottom fade */}
+                    <div
+                      className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+                      style={{ background: "linear-gradient(to top, rgba(10,10,15,0.65), transparent)" }}
                     />
                   </div>
-                  {/* Small overlapping floating badges for abstract accent */}
+
+                  {/* Floating badges */}
                   <motion.div
-                    animate={{ y: [0, -4, 0] }}
-                    transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                    className="absolute -top-4 -left-4 bg-accent text-white font-bold text-xs px-3 py-1 rounded-full transform -rotate-12 shadow-sm"
+                    animate={{ y: [0, -7, 0] }}
+                    transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut" }}
+                    className="absolute -top-4 -left-7 px-3 py-1.5 rounded-full text-[10px] font-black text-white"
+                    style={{ background: C.primary, boxShadow: "0 6px 24px rgba(124,107,255,0.55)" }}
                   >
                     FRONTEND DEV
                   </motion.div>
                   <motion.div
-                    animate={{ y: [0, 4, 0] }}
-                    transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 0.5 }}
-                    className="absolute -bottom-2 -right-4 bg-secondary-dark text-white font-bold text-xs px-3 py-1 rounded-full transform rotate-6 shadow-sm"
+                    animate={{ y: [0, 7, 0] }}
+                    transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut", delay: 0.8 }}
+                    className="absolute -bottom-4 -right-7 px-3 py-1.5 rounded-full text-[10px] font-black"
+                    style={{
+                      background: C.cyan,
+                      color: C.bg,
+                      boxShadow: "0 6px 24px rgba(18,194,233,0.5)",
+                    }}
                   >
                     CREATIVE
                   </motion.div>
@@ -356,158 +628,250 @@ export default function Home() {
               </motion.div>
             </div>
           </div>
+
+          {/* Scroll cue */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.8, duration: 0.6 }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 select-none pointer-events-none"
+          >
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase" style={{ color: "rgba(255,255,255,0.25)" }}>
+              Scroll
+            </span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+              className="w-px h-10"
+              style={{ background: "linear-gradient(to bottom, rgba(124,107,255,0.7), transparent)" }}
+            />
+          </motion.div>
         </section>
 
-        {/* About Section */}
+        {/* ──────────────────────── ABOUT ──────────────────────────────────── */}
         <motion.section
+          id="tentang"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.15 }}
           variants={fadeInUp}
-          className="py-section-padding bg-surface"
-          id="tentang"
+          className="py-24 md:py-32"
+          style={{ backgroundColor: C.bgRaised }}
         >
-          <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-            <div className="flex flex-col gap-stack-sm mb-stack-lg">
-              <div className="flex items-center gap-4 text-primary font-label-md text-label-md">
-                <span className="w-12 h-[2px] bg-primary" /> 01 / SIAPA SAYA
+          <div className="max-w-[1200px] mx-auto px-5 md:px-6">
+            {/* Section header */}
+            <motion.div variants={fadeInUp} className="mb-16">
+              <div
+                className="flex items-center gap-3 font-bold text-[11px] uppercase tracking-[0.2em] mb-3"
+                style={{ color: C.primary }}
+              >
+                <span className="w-10 h-px" style={{ background: C.primary }} />
+                01 / SIAPA SAYA
               </div>
-              <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-text">
-                Tentang Saya
-              </h2>
-              <p className="text-text max-w-xl font-body-md text-body-md">
-                Informasi singkat mengenai latar belakang, minat teknologi, dan keahlian yang saya miliki.
+              <h2 className="text-3xl md:text-5xl font-black text-white">Tentang Saya</h2>
+              <p className="max-w-md text-base mt-2" style={{ color: C.muted }}>
+                Latar belakang, minat teknologi, dan keahlian yang saya miliki.
               </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-stack-lg items-start">
-              <div className="md:col-span-5 border-l-4 border-accent pl-stack-md">
-                <blockquote className="font-headline-md text-headline-md italic leading-relaxed text-text">
-                  &quot;Mendedikasikan setiap baris kode untuk menciptakan antarmuka web yang cepat, responsif, fungsional, dan menyenangkan bagi pengguna.&quot;
-                </blockquote>
-              </div>
-              <div className="md:col-span-7 space-y-stack-sm text-text font-body-lg text-body-lg">
-                <p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+              {/* Left column */}
+              <motion.div variants={fadeInUp} className="md:col-span-5 space-y-5">
+                {/* Quote card */}
+                <div
+                  className="relative p-7 rounded-2xl overflow-hidden"
+                  style={{ background: "rgba(124,107,255,0.05)", border: `1px solid rgba(124,107,255,0.15)` }}
+                >
+                  <div
+                    className="absolute top-0 left-0 w-[3px] h-full rounded-full"
+                    style={{ background: "linear-gradient(to bottom, #7C6BFF, #C471ED)" }}
+                  />
+                  <span
+                    className="block text-7xl font-black leading-none ml-3 opacity-20"
+                    style={{ color: C.primary }}
+                  >
+                    &ldquo;
+                  </span>
+                  <blockquote
+                    className="text-lg font-medium leading-relaxed mt-1 ml-3"
+                    style={{ color: "rgba(240,240,255,0.78)" }}
+                  >
+                    Mendedikasikan setiap baris kode untuk menciptakan antarmuka web
+                    yang cepat, responsif, fungsional, dan menyenangkan bagi pengguna.
+                  </blockquote>
+                </div>
+
+                {/* Info grid */}
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { icon: "school", label: "Pendidikan", value: "Ilmu Komputer" },
+                    { icon: "location_on", label: "Lokasi", value: "Medan, Indonesia" },
+                    { icon: "work", label: "Posisi", value: "Frontend Dev" },
+                    { icon: "language", label: "Bahasa", value: "ID & EN" },
+                  ].map((item) => (
+                    <div
+                      key={item.label}
+                      className="flex items-center gap-3 p-3 rounded-xl"
+                      style={{ background: C.glass, border: `1px solid ${C.glassBorder}` }}
+                    >
+                      <div
+                        className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                        style={{ background: "rgba(124,107,255,0.15)" }}
+                      >
+                        <span className="material-symbols-outlined" style={{ color: C.primary, fontSize: "17px" }}>
+                          {item.icon}
+                        </span>
+                      </div>
+                      <div>
+                        <div className="text-[9px] uppercase tracking-wider mb-0.5" style={{ color: "rgba(255,255,255,0.35)" }}>
+                          {item.label}
+                        </div>
+                        <div className="text-xs font-bold text-white">{item.value}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Right column */}
+              <motion.div variants={fadeInUp} className="md:col-span-7 space-y-6">
+                <p className="text-base leading-relaxed" style={{ color: "rgba(240,240,255,0.62)" }}>
                   Saya adalah mahasiswa Ilmu Komputer yang berfokus sebagai Frontend Web Developer. Saya senang
                   membangun antarmuka website dan aplikasi web yang cepat, responsif, berkinerja tinggi,
                   serta memiliki desain yang ramah bagi pengguna.
                 </p>
-                <div className="pt-4 space-y-3">
-                  <span className="block text-primary font-label-md text-label-md">Keahlian Utama:</span>
+                <p className="text-base leading-relaxed" style={{ color: "rgba(240,240,255,0.62)" }}>
+                  Pengalaman saya meliputi pengembangan aplikasi web modern menggunakan Next.js dan React, 
+                  serta aplikasi mobile menggunakan Flutter. Saya juga aktif belajar tentang UI/UX design 
+                  untuk menciptakan pengalaman pengguna yang optimal di setiap platform.
+                </p>
+
+                {/* Skill chips */}
+                <div className="space-y-3">
+                  <span
+                    className="block font-bold text-[10px] uppercase tracking-[0.18em]"
+                    style={{ color: C.primary }}
+                  >
+                    Keahlian Utama
+                  </span>
                   <div className="flex flex-wrap gap-2">
-                    <span
-                      className="px-3 py-1 rounded border border-accent/20 text-body-md font-bold"
-                      style={{ background: "rgba(124,88,183,0.12)", color: "#634690" }}
-                    >
-                      HTML5
-                    </span>
-                    <span
-                      className="px-3 py-1 rounded border border-secondary/20 text-body-md font-bold"
-                      style={{ background: "rgba(88,160,183,0.12)", color: "#3E7080" }}
-                    >
-                      CSS3
-                    </span>
-                    <span
-                      className="px-3 py-1 rounded border border-primary/20 text-body-md font-bold"
-                      style={{ background: "rgba(95,107,183,0.12)", color: "#424B80" }}
-                    >
-                      JavaScript
-                    </span>
-                    <span
-                      className="px-3 py-1 rounded border border-accent/20 text-body-md font-bold"
-                      style={{ background: "rgba(124,88,183,0.12)", color: "#634690" }}
-                    >
-                      Figma
-                    </span>
-                    <span
-                      className="px-3 py-1 rounded border border-secondary/20 text-body-md font-bold"
-                      style={{ background: "rgba(88,160,183,0.12)", color: "#3E7080" }}
-                    >
-                      Canva
-                    </span>
-                    <span
-                      className="px-3 py-1 rounded border border-primary/20 text-body-md font-bold"
-                      style={{ background: "rgba(95,107,183,0.12)", color: "#424B80" }}
-                    >
-                      Tailwind CSS
-                    </span>
-                    <span
-                      className="px-3 py-1 rounded border border-accent/20 text-body-md font-bold"
-                      style={{ background: "rgba(124,88,183,0.12)", color: "#634690" }}
-                    >
-                      Git
-                    </span>
+                    {[
+                      "HTML5","CSS3","JavaScript","React","Next.js",
+                      "Tailwind CSS","Flutter","Dart","Figma","Git",
+                    ].map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1.5 rounded-lg text-sm font-medium cursor-default transition-all duration-200"
+                        style={{ background: C.glass, border: `1px solid ${C.glassBorder}`, color: "rgba(240,240,255,0.7)" }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.background = "rgba(124,107,255,0.12)";
+                          e.currentTarget.style.borderColor = "rgba(124,107,255,0.35)";
+                          e.currentTarget.style.color = C.primary;
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.background = C.glass;
+                          e.currentTarget.style.borderColor = C.glassBorder;
+                          e.currentTarget.style.color = "rgba(240,240,255,0.7)";
+                        }}
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              </div>
+
+                <a
+                  id="about-contact-link"
+                  href="#kontak"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-200"
+                  style={{ background: C.primaryBg, border: `1px solid ${C.primaryBorder}`, color: C.primary }}
+                >
+                  <span className="material-symbols-outlined" style={{ fontSize: "16px" }}>send</span>
+                  Hubungi Saya
+                </a>
+              </motion.div>
             </div>
           </div>
         </motion.section>
 
-        {/* Projects Section */}
+        {/* ─────────────────────── PROJECTS ────────────────────────────────── */}
         <motion.section
+          id="proyek"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.08 }}
           variants={fadeInUp}
-          className="py-section-padding bg-bg-base"
-          id="proyek"
+          className="py-24 md:py-32"
+          style={{ backgroundColor: C.bg }}
         >
-          <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-            <div className="flex flex-col gap-stack-sm mb-stack-lg">
-              <div className="flex items-center gap-4 text-primary font-label-md text-label-md">
-                <span className="w-12 h-[2px] bg-primary" /> 02 / HASIL KARYA
+          <div className="max-w-[1200px] mx-auto px-5 md:px-6">
+            <motion.div variants={fadeInUp} className="mb-16">
+              <div
+                className="flex items-center gap-3 font-bold text-[11px] uppercase tracking-[0.2em] mb-3"
+                style={{ color: C.primary }}
+              >
+                <span className="w-10 h-px" style={{ background: C.primary }} />
+                02 / HASIL KARYA
               </div>
-              <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-text">
-                Proyek Pilihan
-              </h2>
-              <p className="text-text-muted max-w-xl font-body-md text-body-md">
+              <h2 className="text-3xl md:text-5xl font-black text-white">Proyek Pilihan</h2>
+              <p className="max-w-md text-base mt-2" style={{ color: C.muted }}>
                 Kumpulan proyek yang telah saya selesaikan menggunakan teknologi web dan mobile terkini.
               </p>
-            </div>
+            </motion.div>
 
-            {/* Unified Project Slideshow Container */}
-            <div className="relative w-full overflow-hidden rounded-3xl border border-outline-variant/30 bg-slate-900 shadow-xl">
-              {/* Slider Track Wrapper */}
+            {/* Slideshow */}
+            <div
+              className="relative w-full overflow-hidden rounded-2xl shadow-2xl"
+              style={{ border: `1px solid ${C.glassBorder}` }}
+            >
+              {/* Track */}
               <div
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{
                   width: `${projects.length * 100}%`,
-                  transform: `translateX(-${(currentSlide * 100) / projects.length}%)`
+                  transform: `translateX(-${(currentSlide * 100) / projects.length}%)`,
                 }}
               >
                 {projects.map((proj) => (
                   <div
                     key={proj.id}
-                    className={`flex-shrink-0 relative overflow-hidden flex flex-col min-h-[300px] md:min-h-[400px] bg-gradient-to-br ${proj.gradient}`}
-                    style={{ width: `${100 / projects.length}%` }}
+                    className={`flex-shrink-0 relative overflow-hidden bg-gradient-to-br ${proj.gradient}`}
+                    style={{
+                      width: `${100 / projects.length}%`,
+                      minHeight: "340px",
+                    }}
                   >
-                    {/* Glowing radial backdrop inside slides */}
+                    {/* Glow overlay */}
                     <div
                       className="absolute inset-0 pointer-events-none"
-                      style={{
-                        background: `radial-gradient(ellipse at top right, ${proj.radialGlow}, transparent 60%)`
-                      }}
+                      style={{ background: `radial-gradient(ellipse at 70% 20%, ${proj.radialGlow}, transparent 65%)` }}
                     />
-                    <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full blur-3xl pointer-events-none opacity-30 bg-white" />
+                    {/* Subtle inner border */}
+                    <div
+                      className="absolute inset-0 rounded-2xl pointer-events-none"
+                      style={{ border: "1px solid rgba(255,255,255,0.04)", inset: "1px" }}
+                    />
 
-                    <div className="relative z-10 flex flex-col md:flex-row gap-4 md:gap-6 w-full h-full p-4 md:p-6">
-                      {/* Left: Info */}
-                      <div className="flex flex-col gap-2 md:gap-4 md:w-2/5 text-white">
-                        <div className="flex flex-col gap-1 md:gap-2">
-                          <div className={`flex items-center gap-2 font-bold text-[10px] uppercase tracking-widest ${proj.tagColor}`}>
-                            <span className={`w-6 md:w-8 h-[2px] ${proj.pillBg}`} /> {proj.category}
+                    <div className="relative z-10 flex flex-col md:flex-row gap-5 md:gap-8 w-full h-full p-5 md:p-8">
+                      {/* Left: info */}
+                      <div className="flex flex-col gap-3 md:gap-5 md:w-[38%] text-white">
+                        <div className="space-y-2">
+                          <div className={`flex items-center gap-2 font-black text-[10px] uppercase tracking-widest ${proj.tagColor}`}>
+                            <span className={`w-8 h-[2px] ${proj.pillBg}`} />
+                            {proj.category}
                           </div>
-                          <h3 className="font-display-lg text-2xl md:text-3xl font-extrabold leading-tight">
+                          <h3 className="text-3xl md:text-[40px] font-black leading-none tracking-tight text-white">
                             {proj.title}
                           </h3>
-                          <p className="text-white/80 text-[11px] md:text-xs leading-relaxed line-clamp-3 md:line-clamp-none">
+                          <p className="text-white/70 text-xs md:text-sm leading-relaxed line-clamp-3 md:line-clamp-none">
                             {proj.description}
                           </p>
-                          <div className="flex flex-wrap gap-1 mt-1">
+                          <div className="flex flex-wrap gap-1.5">
                             {proj.tags.map((t, idx) => (
                               <span
                                 key={idx}
-                                className="bg-white/10 text-white/90 border border-white/15 px-2 py-0.5 rounded-full text-[9px] font-semibold"
+                                className="px-2.5 py-0.5 rounded-full text-[10px] font-bold"
+                                style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.13)", color: "rgba(255,255,255,0.85)" }}
                               >
                                 {t}
                               </span>
@@ -515,32 +879,51 @@ export default function Home() {
                           </div>
                         </div>
 
-                        {/* Feature indicators */}
-                        <div className="hidden md:flex flex-col gap-1 mt-auto">
+                        {/* Features + GitHub btn */}
+                        <div className="hidden md:flex flex-col gap-2 mt-auto">
                           {proj.features.map((feat, idx) => (
                             <div
                               key={idx}
-                              className="flex items-center gap-2 bg-white/10 rounded-lg px-2.5 py-1.5 border border-white/10"
+                              className="flex items-center gap-2 px-3 py-2 rounded-xl"
+                              style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.08)" }}
                             >
-                              <span className="material-symbols-outlined text-white/90 text-sm">
+                              <span className="material-symbols-outlined text-white/80" style={{ fontSize: "15px" }}>
                                 {feat.icon}
                               </span>
-                              <span className="text-white/85 text-[11px] font-semibold">
-                                {feat.label}
-                              </span>
+                              <span className="text-white/80 text-[11px] font-semibold">{feat.label}</span>
                             </div>
                           ))}
+                          <a
+                            href={proj.gitUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 mt-1 px-4 py-2 rounded-xl text-xs font-bold text-white transition-all duration-200"
+                            style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.14)" }}
+                          >
+                            <span className="material-symbols-outlined" style={{ fontSize: "14px" }}>code</span>
+                            Lihat di GitHub
+                          </a>
                         </div>
                       </div>
 
-                      {/* Right: Mockup Image */}
-                      <div className="flex-grow flex items-center justify-center md:w-3/5">
-                        <div className="w-full max-w-xl bg-white/5 border border-white/20 rounded-2xl overflow-hidden shadow-md">
-                          <div className="bg-white/10 px-4 py-2.5 flex items-center gap-2 border-b border-white/10">
-                            <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
-                            <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-                            <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                            <div className="flex-1 mx-2 bg-white/10 rounded-full px-3 py-0.5 text-white/40 text-[9px]">
+                      {/* Right: mockup browser */}
+                      <div className="flex-grow flex items-center justify-center md:w-[62%]">
+                        <div
+                          className="w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl"
+                          style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.11)" }}
+                        >
+                          {/* Browser chrome */}
+                          <div
+                            className="flex items-center gap-2 px-4 py-2.5"
+                            style={{ background: "rgba(255,255,255,0.07)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}
+                          >
+                            <div className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
+                            <div
+                              className="flex-1 mx-2 px-3 py-0.5 rounded-full text-[9px]"
+                              style={{ background: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.3)" }}
+                            >
                               {proj.linkText}
                             </div>
                           </div>
@@ -549,14 +932,14 @@ export default function Home() {
                               href={proj.gitUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="block cursor-pointer hover:scale-[1.02] transition-transform duration-300"
+                              className="block hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
                             >
                               <Image
-                                className="w-full h-auto rounded-lg shadow-lg object-contain max-h-48 md:max-h-[260px]"
-                                alt={proj.title}
                                 src={proj.mockup}
-                                width={600}
-                                height={350}
+                                alt={proj.title}
+                                width={640}
+                                height={380}
+                                className="w-full h-auto rounded-lg object-contain max-h-52 md:max-h-[290px]"
                               />
                             </a>
                           </div>
@@ -567,77 +950,99 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* Navigation Arrows */}
+              {/* Prev / Next */}
               <button
+                id="slide-prev"
                 onClick={handlePrevSlide}
-                className="absolute left-3 top-1/2 -translate-y-1/2 bg-surface/80 hover:bg-secondary text-text hover:text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300 active:scale-95 z-20 shadow-sm"
+                className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-200 active:scale-90 z-20"
+                style={{ background: "rgba(10,10,15,0.75)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.8)" }}
               >
-                <span className="material-symbols-outlined text-xl font-bold">chevron_left</span>
+                <span className="material-symbols-outlined text-xl">chevron_left</span>
               </button>
               <button
+                id="slide-next"
                 onClick={handleNextSlide}
-                className="absolute right-3 top-1/2 -translate-y-1/2 bg-surface/80 hover:bg-secondary text-text hover:text-white w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300 active:scale-95 z-20 shadow-sm"
+                className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-200 active:scale-90 z-20"
+                style={{ background: "rgba(10,10,15,0.75)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.8)" }}
               >
-                <span className="material-symbols-outlined text-xl font-bold">chevron_right</span>
+                <span className="material-symbols-outlined text-xl">chevron_right</span>
               </button>
 
-              {/* Dot Indicators */}
+              {/* Dot indicators */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
                 {projects.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setCurrentSlide(i)}
-                    className="h-2 rounded-full transition-all duration-300"
+                    className="h-1.5 rounded-full transition-all duration-300"
                     style={{
-                      width: i === currentSlide ? "24px" : "8px",
-                      backgroundColor: i === currentSlide ? "#ffffff" : "rgba(255,255,255,0.4)"
+                      width: i === currentSlide ? "28px" : "7px",
+                      background: i === currentSlide ? "#fff" : "rgba(255,255,255,0.28)",
                     }}
                     aria-label={`Slide ${projects[i].title}`}
                   />
                 ))}
               </div>
 
-              {/* Slide Counter */}
-              <div className="absolute top-4 right-16 z-20 bg-black/30 backdrop-blur-sm rounded-full px-3 py-1 text-white/70 text-xs font-semibold">
+              {/* Counter */}
+              <div
+                className="absolute top-4 right-16 z-20 px-3 py-1 rounded-full text-xs font-bold"
+                style={{ background: "rgba(0,0,0,0.45)", backdropFilter: "blur(8px)", color: "rgba(255,255,255,0.55)" }}
+              >
                 {currentSlide + 1} / {projects.length}
               </div>
             </div>
           </div>
         </motion.section>
 
-        {/* Skills Section */}
+        {/* ──────────────────────── SKILLS ─────────────────────────────────── */}
         <motion.section
+          id="keahlian"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.15 }}
           variants={fadeInUp}
-          className="py-section-padding bg-surface"
-          id="keahlian"
+          className="py-24 md:py-32"
+          style={{ backgroundColor: C.bgRaised }}
         >
-          <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-            <div className="flex flex-col gap-stack-sm mb-stack-lg">
-              <div className="flex items-center gap-4 text-primary font-label-md text-label-md">
-                <span className="w-12 h-[2px] bg-primary" /> 03 / PENGUASAAN TEKNOLOGI
+          <div className="max-w-[1200px] mx-auto px-5 md:px-6">
+            <motion.div variants={fadeInUp} className="mb-16">
+              <div
+                className="flex items-center gap-3 font-bold text-[11px] uppercase tracking-[0.2em] mb-3"
+                style={{ color: C.primary }}
+              >
+                <span className="w-10 h-px" style={{ background: C.primary }} />
+                03 / PENGUASAAN TEKNOLOGI
               </div>
-              <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-text">
-                Keahlian Saya
-              </h2>
-              <p className="text-text max-w-xl font-body-md text-body-md">
-                Tingkat penguasaan saya dalam beberapa teknologi inti pemrograman dan alat bantu pengembangan.
+              <h2 className="text-3xl md:text-5xl font-black text-white">Keahlian Saya</h2>
+              <p className="max-w-md text-base mt-2" style={{ color: C.muted }}>
+                Teknologi dan alat bantu yang saya kuasai dalam pengembangan.
               </p>
-            </div>
+            </motion.div>
+
             <motion.div
               variants={staggerContainer}
-              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 md:gap-8 max-w-5xl mx-auto py-8"
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-5 max-w-4xl mx-auto"
             >
               {skills.map((skill, index) => (
                 <motion.div
                   key={index}
                   variants={fadeInUp}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  className="flex flex-col items-center justify-center text-center group cursor-pointer bg-surface border border-outline-variant/30 rounded-2xl p-5 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300"
+                  whileHover={{ y: -10, scale: 1.04 }}
+                  className="flex flex-col items-center justify-center text-center group cursor-default p-5 rounded-2xl transition-all duration-300"
+                  style={{ background: C.glass, border: `1px solid ${C.glassBorder}` }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "rgba(124,107,255,0.09)";
+                    e.currentTarget.style.borderColor = "rgba(124,107,255,0.3)";
+                    e.currentTarget.style.boxShadow = "0 0 32px rgba(124,107,255,0.18)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = C.glass;
+                    e.currentTarget.style.borderColor = C.glassBorder;
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
                 >
-                  <div className="flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <div className="transition-transform duration-300 group-hover:scale-110">
                     <Image
                       src={skill.src}
                       alt={skill.name}
@@ -647,7 +1052,10 @@ export default function Home() {
                       unoptimized={skill.src.startsWith("http")}
                     />
                   </div>
-                  <h4 className="text-xs font-bold text-text mt-3 transition-colors duration-300 group-hover:text-primary">
+                  <h4
+                    className="text-xs font-bold mt-3 transition-colors duration-300 group-hover:text-[#7C6BFF]"
+                    style={{ color: "rgba(255,255,255,0.65)" }}
+                  >
                     {skill.name}
                   </h4>
                 </motion.div>
@@ -656,135 +1064,283 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* Contact Section */}
+        {/* ─────────────────────── CONTACT ─────────────────────────────────── */}
         <motion.section
+          id="kontak"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.15 }}
           variants={fadeInUp}
-          className="py-section-padding bg-bg-base"
-          id="kontak"
+          className="py-24 md:py-32 relative overflow-hidden"
+          style={{ backgroundColor: C.bg }}
         >
-          <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-stack-lg">
-              {/* Left Info */}
-              <div className="lg:col-span-5 space-y-stack-md">
-                <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-text">
-                  Mari Berkolaborasi
-                </h2>
-                <p className="text-text font-body-lg text-body-lg">
-                  Hubungi saya untuk mendiskusikan peluang kerja, proyek, atau sekadar bertanya kabar.
-                </p>
-                <p className="text-text/80 font-body-md text-body-md">
-                  Terbuka untuk proyek freelance, kolaborasi, dan peluang magang. Kirimkan pesan kepada saya dan saya akan segera merespons dengan senang hati.
-                </p>
-                <div className="space-y-stack-sm pt-4">
-                  <motion.div
-                    whileHover={{ y: -6, scale: 1.01 }}
-                    className="flex items-center gap-4 p-4 bg-surface rounded-xl border border-outline-variant/30 shadow-md hover:shadow-lg hover:border-primary/30 transition-all duration-300"
-                  >
-                    <div className="w-12 h-12 bg-secondary/15 rounded-lg flex items-center justify-center text-primary">
-                      <span className="material-symbols-outlined">mail</span>
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-primary uppercase tracking-wider">EMAIL SAYA</div>
-                      <div className="font-headline-md text-headline-sm text-text">habibifadli682@gmail.com</div>
-                    </div>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ y: -6, scale: 1.01 }}
-                    className="flex items-center gap-4 p-4 bg-surface rounded-xl border border-outline-variant/30 shadow-md hover:shadow-lg hover:border-primary/30 transition-all duration-300"
-                  >
-                    <div className="w-12 h-12 bg-secondary/15 rounded-lg flex items-center justify-center text-primary">
-                      <span className="material-symbols-outlined">location_on</span>
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-primary uppercase tracking-wider">LOKASI SAAT INI</div>
-                      <div className="font-headline-md text-headline-sm text-text">Medan, Indonesia</div>
-                    </div>
-                  </motion.div>
-                </div>
-              </div>
+          {/* Background glow */}
+          <div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none"
+            style={{ background: "radial-gradient(circle, rgba(124,107,255,0.055) 0%, transparent 70%)" }}
+          />
 
-              {/* Right Form */}
-              <div className="lg:col-span-7">
-                <div className="bg-surface border border-outline-variant/30 p-stack-md md:p-stack-lg rounded-3xl shadow-xl">
-                  <form onSubmit={handleContactSubmit} className="grid grid-cols-1 gap-stack-sm">
-                    <div className="space-y-2">
-                      <label className="font-bold text-text text-xs uppercase tracking-wider">NAMA LENGKAP</label>
-                      <input
-                        className="w-full bg-bg-base border border-outline-variant/50 rounded-lg p-4 focus:bg-surface focus:ring-2 focus:ring-accent transition-all duration-300 outline-none text-text font-body-md"
-                        placeholder="Nama lengkap Anda"
-                        type="text"
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="font-bold text-text text-xs uppercase tracking-wider">ALAMAT EMAIL</label>
-                      <input
-                        className="w-full bg-bg-base border border-outline-variant/50 rounded-lg p-4 focus:bg-surface focus:ring-2 focus:ring-accent transition-all duration-300 outline-none text-text font-body-md"
-                        placeholder="email@anda.com"
-                        type="email"
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="font-bold text-text text-xs uppercase tracking-wider">PESAN ANDA</label>
-                      <textarea
-                        className="w-full bg-bg-base border border-outline-variant/50 rounded-lg p-4 focus:bg-surface focus:ring-2 focus:ring-accent transition-all duration-300 outline-none text-text font-body-md resize-none"
-                        placeholder="Tuliskan pesan atau detail proyek Anda..."
-                        rows="4"
-                        required
-                      />
-                    </div>
-                    {formStatus && (
-                      <motion.p
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="text-center bg-secondary/15 border border-secondary/30 text-secondary-dark py-3 rounded-lg font-bold text-label-md"
+          <div className="max-w-[1200px] mx-auto px-5 md:px-6 relative z-10">
+            <motion.div variants={fadeInUp} className="mb-16">
+              <div
+                className="flex items-center gap-3 font-bold text-[11px] uppercase tracking-[0.2em] mb-3"
+                style={{ color: C.primary }}
+              >
+                <span className="w-10 h-px" style={{ background: C.primary }} />
+                04 / HUBUNGI SAYA
+              </div>
+              <h2 className="text-3xl md:text-5xl font-black text-white">Mari Berkolaborasi</h2>
+              <p className="max-w-md text-base mt-2" style={{ color: C.muted }}>
+                Hubungi saya untuk mendiskusikan peluang kerja, proyek, atau sekadar bertanya kabar.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+              {/* Left: Contact info */}
+              <motion.div variants={fadeInUp} className="lg:col-span-5 space-y-6">
+                <p className="text-base leading-relaxed" style={{ color: "rgba(240,240,255,0.58)" }}>
+                  Terbuka untuk proyek freelance, kolaborasi, dan peluang magang.
+                  Kirimkan pesan kepada saya dan saya akan segera merespons dengan senang hati.
+                </p>
+
+                <div className="space-y-3">
+                  {[
+                    {
+                      icon: "mail",
+                      label: "Email Saya",
+                      value: "habibifadli682@gmail.com",
+                      href: "mailto:habibifadli682@gmail.com",
+                    },
+                    {
+                      icon: "location_on",
+                      label: "Lokasi Saat Ini",
+                      value: "Medan, Indonesia",
+                      href: null,
+                    },
+                    {
+                      icon: "code",
+                      label: "GitHub",
+                      value: "FdliHabibiLubis",
+                      href: "https://github.com/FdliHabibiLubis",
+                    },
+                  ].map((item) => (
+                    <motion.a
+                      key={item.label}
+                      href={item.href || "#"}
+                      target={item.href?.startsWith("http") ? "_blank" : undefined}
+                      rel={item.href?.startsWith("http") ? "noopener noreferrer" : undefined}
+                      whileHover={{ y: -4 }}
+                      className="flex items-center gap-4 p-4 rounded-2xl transition-all duration-250"
+                      style={{ background: C.glass, border: `1px solid ${C.glassBorder}`, textDecoration: "none" }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = C.primaryBg;
+                        e.currentTarget.style.borderColor = C.primaryBorder;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = C.glass;
+                        e.currentTarget.style.borderColor = C.glassBorder;
+                      }}
+                    >
+                      <div
+                        className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                        style={{ background: "rgba(124,107,255,0.15)" }}
                       >
-                        Pesan berhasil terkirim! Terima kasih telah menghubungi saya.
-                      </motion.p>
-                    )}
-                    <button
-                      className="w-full bg-accent text-white py-4 rounded-xl font-bold text-label-md hover:bg-primary-dark transition-all duration-300 active:scale-95 mt-4 disabled:opacity-50"
+                        <span className="material-symbols-outlined" style={{ color: C.primary }}>
+                          {item.icon}
+                        </span>
+                      </div>
+                      <div>
+                        <div
+                          className="text-[9px] font-black uppercase tracking-[0.18em] mb-0.5"
+                          style={{ color: C.primary }}
+                        >
+                          {item.label}
+                        </div>
+                        <div className="font-semibold text-sm text-white">{item.value}</div>
+                      </div>
+                    </motion.a>
+                  ))}
+                </div>
+
+                {/* Availability */}
+                <div
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold"
+                  style={{
+                    background: "rgba(34,197,94,0.09)",
+                    border: "1px solid rgba(34,197,94,0.22)",
+                    color: "#22C55E",
+                  }}
+                >
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  Tersedia untuk proyek baru
+                </div>
+              </motion.div>
+
+              {/* Right: Form */}
+              <motion.div variants={fadeInUp} className="lg:col-span-7">
+                <div
+                  className="p-7 md:p-9 rounded-2xl backdrop-blur-sm"
+                  style={{ background: "rgba(255,255,255,0.022)", border: `1px solid ${C.glassBorder}` }}
+                >
+                  <form id="contact-form" onSubmit={handleContactSubmit} className="space-y-5">
+                    {/* Name + Email */}
+                    {[
+                      { id: "input-name", label: "NAMA LENGKAP", placeholder: "Nama lengkap Anda", type: "text" },
+                      { id: "input-email", label: "ALAMAT EMAIL", placeholder: "email@anda.com", type: "email" },
+                    ].map((f) => (
+                      <div key={f.id} className="space-y-2">
+                        <label
+                          htmlFor={f.id}
+                          className="block font-black text-[10px] uppercase tracking-[0.18em]"
+                          style={{ color: "rgba(255,255,255,0.42)" }}
+                        >
+                          {f.label}
+                        </label>
+                        <input
+                          id={f.id}
+                          type={f.type}
+                          placeholder={f.placeholder}
+                          required
+                          className="w-full px-4 py-3.5 rounded-xl text-sm outline-none transition-all duration-200"
+                          style={{
+                            background: "rgba(255,255,255,0.05)",
+                            border: "1px solid rgba(255,255,255,0.09)",
+                            color: C.text,
+                          }}
+                          onFocus={(e) => {
+                            e.currentTarget.style.borderColor = "rgba(124,107,255,0.55)";
+                            e.currentTarget.style.background = "rgba(124,107,255,0.07)";
+                            e.currentTarget.style.boxShadow = "0 0 0 3px rgba(124,107,255,0.1)";
+                          }}
+                          onBlur={(e) => {
+                            e.currentTarget.style.borderColor = "rgba(255,255,255,0.09)";
+                            e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+                            e.currentTarget.style.boxShadow = "none";
+                          }}
+                        />
+                      </div>
+                    ))}
+
+                    {/* Message */}
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="input-message"
+                        className="block font-black text-[10px] uppercase tracking-[0.18em]"
+                        style={{ color: "rgba(255,255,255,0.42)" }}
+                      >
+                        PESAN ANDA
+                      </label>
+                      <textarea
+                        id="input-message"
+                        placeholder="Tuliskan pesan atau detail proyek Anda..."
+                        rows={4}
+                        required
+                        className="w-full px-4 py-3.5 rounded-xl text-sm outline-none transition-all duration-200 resize-none"
+                        style={{
+                          background: "rgba(255,255,255,0.05)",
+                          border: "1px solid rgba(255,255,255,0.09)",
+                          color: C.text,
+                        }}
+                        onFocus={(e) => {
+                          e.currentTarget.style.borderColor = "rgba(124,107,255,0.55)";
+                          e.currentTarget.style.background = "rgba(124,107,255,0.07)";
+                          e.currentTarget.style.boxShadow = "0 0 0 3px rgba(124,107,255,0.1)";
+                        }}
+                        onBlur={(e) => {
+                          e.currentTarget.style.borderColor = "rgba(255,255,255,0.09)";
+                          e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+                          e.currentTarget.style.boxShadow = "none";
+                        }}
+                      />
+                    </div>
+
+                    {/* Success message */}
+                    <AnimatePresence>
+                      {formStatus && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0 }}
+                          className="flex items-center gap-3 p-4 rounded-xl text-sm font-bold"
+                          style={{
+                            background: "rgba(34,197,94,0.1)",
+                            border: "1px solid rgba(34,197,94,0.22)",
+                            color: "#22C55E",
+                          }}
+                        >
+                          <span className="material-symbols-outlined" style={{ fontSize: "20px" }}>check_circle</span>
+                          Pesan berhasil terkirim! Terima kasih telah menghubungi saya.
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
+                    {/* Submit */}
+                    <motion.button
+                      id="submit-form"
+                      whileHover={{ scale: 1.02, boxShadow: "0 0 36px rgba(124,107,255,0.45)" }}
+                      whileTap={{ scale: 0.98 }}
                       type="submit"
                       disabled={isSubmitting}
+                      className="w-full py-4 rounded-xl font-black text-sm text-white transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                      style={{ background: C.primary, boxShadow: "0 0 20px rgba(124,107,255,0.3)" }}
                     >
-                      {isSubmitting ? "Mengirim..." : "Kirim Pesan Sekarang"}
-                    </button>
+                      {isSubmitting ? (
+                        <span className="inline-flex items-center justify-center gap-2">
+                          <span
+                            className="w-4 h-4 border-2 rounded-full animate-spin"
+                            style={{ borderColor: "rgba(255,255,255,0.3)", borderTopColor: "#fff" }}
+                          />
+                          Mengirim...
+                        </span>
+                      ) : (
+                        "Kirim Pesan Sekarang"
+                      )}
+                    </motion.button>
                   </form>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </motion.section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-gradient-to-b from-primary-dark to-secondary-dark text-white py-stack-lg border-t border-primary/20">
-        <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex flex-col md:flex-row justify-between items-center gap-stack-sm">
-          <div className="text-headline-md font-headline-md font-bold text-white">
-            FADLI<span className="text-secondary">.PORTFOLIO</span>
-          </div>
-          <p className="font-body-md text-body-md text-white/70">
-            © 2024 Fadli. Dibuat dengan presisi.
-          </p>
-          <div className="flex gap-stack-sm">
-            <a
-              className="text-white/70 hover:text-secondary hover:scale-110 transition-all font-label-md text-label-md"
-              href="https://github.com/FdliHabibiLubis"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-            <a
-              className="text-white/70 hover:text-secondary hover:scale-110 transition-all font-label-md text-label-md"
-              href="mailto:habibifadli682@gmail.com"
-            >
-              Email
-            </a>
+      {/* ─────────────────────────── FOOTER ──────────────────────────────── */}
+      <footer
+        className="py-10"
+        style={{ backgroundColor: "#07070D", borderTop: `1px solid ${C.glassBorder}` }}
+      >
+        <div className="max-w-[1200px] mx-auto px-5 md:px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-5">
+            {/* Logo */}
+            <div className="font-black tracking-tighter text-xl text-white">
+              FADLI<span style={{ color: C.primary }}>.DEV</span>
+            </div>
+
+            {/* Copyright */}
+            <p className="text-xs text-center" style={{ color: "rgba(255,255,255,0.28)" }}>
+              © 2024 Fadli Habibi Lubis &mdash; Dibuat dengan presisi &amp; dedikasi.
+            </p>
+
+            {/* Links */}
+            <div className="flex items-center gap-5">
+              {[
+                { label: "GitHub", href: "https://github.com/FdliHabibiLubis" },
+                { label: "Email", href: "mailto:habibifadli682@gmail.com" },
+              ].map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="text-xs font-bold transition-colors duration-200"
+                  style={{ color: "rgba(255,255,255,0.35)" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = C.primary)}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.35)")}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </footer>
