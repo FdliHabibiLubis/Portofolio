@@ -135,17 +135,17 @@ export const skills = [
 // ── Shared Verdant Circuit Color Constants ─────────────────────────────────
 export const C = {
   bg: "#0F1712",
-  bgRaised: "#16221C",
-  surface: "#1C2E25",
-  primary: "#10D9A6",
-  primaryDark: "#0B8A6C",
-  accentLime: "#33CC0F",
-  accentBlue: "#1268D6",
-  accentForest: "#228B0A",
-  text: "#F2FBF7",
-  muted: "rgba(242,251,247,0.5)",
-  glass: "rgba(16,217,166,0.04)",
-  glassBorder: "rgba(16,217,166,0.1)",
-  primaryBg: "rgba(16,217,166,0.08)",
-  primaryBorder: "rgba(16,217,166,0.22)",
+  bgRaised: "#141F19",
+  surface: "#1A2820",
+  primary: "#0D9488",        // Teal 600 — solid
+  primaryDark: "#0F766E",    // Teal 700
+  accentLime: "#16A34A",     // Green 600 — solid
+  accentBlue: "#2563EB",     // Blue 600 — solid
+  accentForest: "#15803D",   // Green 700
+  text: "#F1F5F9",
+  muted: "rgba(241,245,249,0.55)",
+  glass: "rgba(13,148,136,0.05)",
+  glassBorder: "rgba(13,148,136,0.13)",
+  primaryBg: "rgba(13,148,136,0.08)",
+  primaryBorder: "rgba(13,148,136,0.2)",
 };

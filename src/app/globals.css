@@ -2,14 +2,14 @@
 
 @theme {
   /* ── Verdant Circuit — Brand Palette ── */
-  --color-primary: #10D9A6;
-  --color-primary-hover: #0EC495;
-  --color-primary-dark: #0B8A6C;
+  --color-primary: #0D9488;
+  --color-primary-hover: #0F766E;
+  --color-primary-dark: #0F766E;
 
   /* ── Accent Colors ── */
-  --color-accent-blue: #1268D6;
-  --color-accent-lime: #33CC0F;
-  --color-accent-forest: #228B0A;
+  --color-accent-blue: #2563EB;
+  --color-accent-lime: #16A34A;
+  --color-accent-forest: #15803D;
 
   /* ── Semantic ── */
   --color-success: #33CC0F;
@@ -59,14 +59,14 @@
 /* ── CSS Variables (runtime) ── */
 :root {
   /* Brand */
-  --color-primary: #10D9A6;
-  --color-primary-hover: #0EC495;
-  --color-primary-dark: #0B8A6C;
+  --color-primary: #0D9488;
+  --color-primary-hover: #0F766E;
+  --color-primary-dark: #0F766E;
 
   /* Accents */
-  --color-accent-blue: #1268D6;
-  --color-accent-lime: #33CC0F;
-  --color-accent-forest: #228B0A;
+  --color-accent-blue: #2563EB;
+  --color-accent-lime: #16A34A;
+  --color-accent-forest: #15803D;
 
   /* Semantic */
   --color-success: #33CC0F;
