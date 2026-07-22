@@ -96,27 +96,13 @@ export const projects = [
 ];
 
 export const skills = [
-  { name: "HTML5", src: "/assets/images/html.png" },
-  { name: "CSS3", src: "/assets/images/css.png" },
   {
     name: "JavaScript",
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
   },
   {
-    name: "PHP",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
-  },
-  {
-    name: "Java",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
-  },
-  {
-    name: "Figma",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
-  },
-  {
-    name: "Canva",
-    src: "https://www.vectorlogo.zone/logos/canva/canva-icon.svg",
+    name: "PostgreSQL",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
   },
   {
     name: "Flutter",
@@ -127,8 +113,12 @@ export const skills = [
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
   },
   {
-    name: "PostgreSQL",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    name: "Figma",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+  },
+  {
+    name: "Canva",
+    src: "https://www.vectorlogo.zone/logos/canva/canva-icon.svg",
   },
 ];
 
