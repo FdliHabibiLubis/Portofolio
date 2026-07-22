@@ -11,11 +11,12 @@ export default function Footer() {
             FADLI<span style={{ color: C.primary }}>.DEV</span>
           </div>
           <p className="text-xs text-center" style={{ color: "#9ca3af" }}>
-            © 2024 Fadli Habibi Lubis &mdash; Dibuat dengan hati.
+            © 2026 Fadli Habibi Lubis &mdash; Dibuat dengan uang.
           </p>
           <div className="flex items-center gap-5">
             {[
               { label: "GitHub", href: "https://github.com/FdliHabibiLubis" },
+              { label: "Instagram", href: "https://instagram.com/fdlihabibilubis" },
               { label: "Email", href: "mailto:habibifadli682@gmail.com" },
             ].map((link) => (
               <a key={link.label} href={link.href}

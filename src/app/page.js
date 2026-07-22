@@ -140,7 +140,7 @@ export default function Home() {
                   {[
                     { value: "5+", label: "Proyek" },
                     { value: "1+", label: "Tahun Belajar" },
-                    { value: "10+", label: "Teknologi" },
+                    { value: "6+", label: "Teknologi" },
                   ].map((s) => (
                     <div key={s.label} className="text-center md:text-left">
                       <div className="text-3xl font-black" style={{ color: C.primary, fontFamily: "var(--font-space-grotesk)" }}>
