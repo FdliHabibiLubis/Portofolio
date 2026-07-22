@@ -16,47 +16,52 @@ export default function Home() {
     <div style={{ backgroundColor: "#fff", color: "#111" }}>
 
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: "#fff" }}>
+      <section className="relative overflow-hidden bg-white">
 
-        {/* Top dark band */}
-        <div className="absolute top-0 left-0 right-0 h-[52%] pointer-events-none" style={{ backgroundColor: C.bg }} />
+        {/* ── Top Dark Block ── */}
+        <div style={{ backgroundColor: C.bg }} className="pt-16 pb-[182px] md:pb-[220px]">
+          <div className="max-w-[1100px] mx-auto px-5 md:px-6">
+            <motion.div initial="hidden" animate="visible" variants={stagger}>
+              {/* Top text block with spacious bottom gap */}
+              <div className="text-center mb-10 md:mb-12">
+                <motion.div variants={fadeInUp} className="flex justify-center mb-5">
+                  <span
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-black tracking-widest uppercase"
+                    style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)", color: "#fff", fontFamily: "var(--font-space-grotesk)" }}
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full" style={{ background: C.primary }} />
+                    Frontend Web Developer
+                  </span>
+                </motion.div>
 
-        <div className="max-w-[1100px] mx-auto px-5 md:px-6 relative z-10">
-          <motion.div initial="hidden" animate="visible" variants={stagger}>
-
-            {/* ── Top text block (dark bg) ── */}
-            <div className="pt-16 pb-0 text-center">
-              <motion.div variants={fadeInUp} className="flex justify-center mb-5">
-                <span
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-black tracking-widest uppercase"
-                  style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.15)", color: "#fff", fontFamily: "var(--font-space-grotesk)" }}
+                <motion.h1 variants={fadeInUp}
+                  className="text-[42px] md:text-[64px] font-black leading-[1.06] tracking-tight mb-4"
+                  style={{ fontFamily: "var(--font-space-grotesk)", color: "#fff" }}
                 >
-                  <span className="w-1.5 h-1.5 rounded-full" style={{ background: C.primary }} />
-                  Frontend Web Developer
-                </span>
-              </motion.div>
+                  Halo, saya{" "}
+                  <span style={{ color: C.primary }}>Fadli</span>
+                </motion.h1>
 
-              <motion.h1 variants={fadeInUp}
-                className="text-[42px] md:text-[64px] font-black leading-[1.06] tracking-tight mb-4"
-                style={{ fontFamily: "var(--font-space-grotesk)", color: "#fff" }}
-              >
-                Halo, saya{" "}
-                <span style={{ color: C.primary }}>Fadli</span>
-              </motion.h1>
+                <motion.p variants={fadeInUp} className="text-sm md:text-base max-w-md mx-auto"
+                  style={{ color: "rgba(255,255,255,0.55)" }}>
+                  Mahasiswa Ilmu Komputer, fokus membangun antarmuka web yang cepat,
+                  responsif, dan ramah pengguna.
+                </motion.p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
 
-              <motion.p variants={fadeInUp} className="text-sm md:text-base max-w-md mx-auto"
-                style={{ color: "rgba(255,255,255,0.55)" }}>
-                Mahasiswa Ilmu Komputer, fokus membangun antarmuka web yang cepat,
-                responsif, dan ramah pengguna.
-              </motion.p>
-            </div>
+        {/* ── Photo & White Content Container (Anchored Split Line) ── */}
+        <div className="max-w-[1100px] mx-auto px-5 md:px-6 relative z-10 -mt-[142px] md:-mt-[172px]">
+          <motion.div initial="hidden" animate="visible" variants={stagger}>
 
             {/* ── Centered Photo ── */}
             <motion.div
               initial={{ opacity: 0, y: 32 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.25, ease: "easeOut" }}
-              className="flex justify-center mt-10"
+              className="flex justify-center"
             >
               <div className="relative">
                 {/* Abstract offset background shapes */}
@@ -107,7 +112,7 @@ export default function Home() {
             </motion.div>
 
             {/* ── Bottom white section ── */}
-            <motion.div variants={stagger} className="pt-16 pb-16 space-y-8">
+            <motion.div variants={stagger} className="pt-14 md:pt-16 pb-16 space-y-8">
 
               {/* Info cards — white */}
               <motion.div variants={fadeInUp} className="grid grid-cols-2 md:grid-cols-4 gap-3">

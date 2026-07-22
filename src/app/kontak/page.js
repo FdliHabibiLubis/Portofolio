@@ -15,38 +15,31 @@ const staggerContainer = {
 
 export default function KontakPage() {
   return (
-    <div style={{ backgroundColor: "#fff", color: "#111" }} className="min-h-[85vh] flex items-center py-12 md:py-20">
-      <motion.div
+    <div style={{ backgroundColor: "#fff", color: "#111" }}>
+      <motion.section
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="max-w-[850px] mx-auto px-4 sm:px-6 w-full"
+        className="py-16 md:py-24"
       >
+        <div className="max-w-[1100px] mx-auto px-5 md:px-6">
 
-        {/* Hero Header with Live Availability Badge */}
-        <motion.div variants={fadeInUp} className="mb-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold mb-4 border-2"
-            style={{
-              background: C.primaryBg,
-              borderColor: C.primaryBorder,
-              color: C.primary,
-              boxShadow: "2px 2px 0px rgba(13,148,136,0.15)",
-            }}
-          >
-            <span className="w-2 h-2 rounded-full animate-ping" style={{ background: C.accentLime }} />
-            Tersedia untuk Proyek Baru & Kolaborasi
-          </div>
+          {/* Standardized Header */}
+          <motion.div variants={fadeInUp} className="mb-12">
+            <div className="flex items-center gap-3 font-bold text-[11px] uppercase tracking-[0.2em] mb-3" style={{ color: C.primary }}>
+              <span className="w-8 h-px" style={{ background: C.primary }} />
+              Hubungi Saya
+            </div>
+            <h1 className="text-3xl md:text-4xl font-black" style={{ color: "#111", fontFamily: "var(--font-space-grotesk)" }}>
+              Mari Berkolaborasi<span style={{ color: C.primary }}>.</span>
+            </h1>
+            <p className="max-w-md text-sm mt-2" style={{ color: "#6b7280" }}>
+              Punya ide menarik, butuh pengembang web/mobile, atau mau sekadar diskusi santai? Pilih kanal di bawah ini.
+            </p>
+          </motion.div>
 
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight" style={{ fontFamily: "var(--font-space-grotesk)", color: "#111" }}>
-            Mari Terhubung<span style={{ color: C.primary }}>.</span>
-          </h1>
-          <p className="text-sm text-gray-500 mt-2.5 max-w-md mx-auto leading-relaxed">
-            Punya ide menarik, butuh pengembang web/mobile, atau mau sekadar diskusi santai? Pilih kanal di bawah untuk menyapa.
-          </p>
-        </motion.div>
-
-        {/* Responsive Bento Grid (2 Columns on Mobile & Desktop) */}
-        <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-3.5 sm:gap-4 max-w-[760px] mx-auto">
+          {/* Responsive Bento Grid (2 Columns on Mobile & Desktop) */}
+          <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-3.5 sm:gap-4 max-w-[800px]">
 
           {/* Card 1: Email (Featured Hero Card - Spans 2 cols) */}
           <a
@@ -239,7 +232,8 @@ export default function KontakPage() {
 
         </motion.div>
 
-      </motion.div>
+        </div>
+      </motion.section>
     </div>
   );
 }
