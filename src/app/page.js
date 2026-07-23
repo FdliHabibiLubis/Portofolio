@@ -59,7 +59,7 @@ export default function Home() {
 
                 {/* Subtitle / Bio */}
                 <motion.p variants={fadeInUp} className="text-sm md:text-base leading-relaxed max-w-lg mx-auto"
-                  style={{ color: "rgba(255,255,255,0.65)" }}>
+                  style={{ color: "rgba(255,255,255,0.65)", fontFamily: "var(--font-inter)" }}>
                   Mahasiswa Ilmu Komputer, fokus membangun antarmuka web yang cepat, responsif, dan ramah pengguna.
                 </motion.p>
 
@@ -119,7 +119,7 @@ export default function Home() {
                 {/* Floating Badge (Top Left) dengan animasi terangkat */}
                 <motion.div animate={{ y: [0, -5, 0] }} transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
                   className="absolute -top-4 -left-6 px-3.5 py-1.5 rounded-full text-[10px] font-black tracking-wider uppercase select-none z-20 pointer-events-none transition-all duration-200 group-hover:-translate-y-1 group-hover:scale-105"
-                  style={{ background: "#fff", color: C.primary, border: `2px solid ${C.glassBorder}`, boxShadow: "4px 4px 0px " + C.primary }}>
+                  style={{ background: "#fff", color: C.primary, border: `2px solid ${C.glassBorder}`, boxShadow: "4px 4px 0px " + C.primary, fontFamily: "var(--font-space-grotesk)" }}>
                   FRONTEND DEV
                 </motion.div>
 
@@ -159,7 +159,7 @@ export default function Home() {
                     <div className="text-2xl md:text-3xl font-black" style={{ color: C.primary, fontFamily: "var(--font-space-grotesk)" }}>
                       {s.value}
                     </div>
-                    <div className="text-xs font-semibold mt-0.5" style={{ color: "#6b7280" }}>{s.label}</div>
+                    <div className="text-xs font-semibold mt-0.5" style={{ color: "#6b7280", fontFamily: "var(--font-inter)" }}>{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -183,8 +183,8 @@ export default function Home() {
                       <span className="material-symbols-outlined" style={{ color: C.primary, fontSize: "20px" }}>{item.icon}</span>
                     </div>
                     <div>
-                      <div className="text-[10px] uppercase font-bold tracking-wider mb-0.5" style={{ color: "#9ca3af" }}>{item.label}</div>
-                      <div className="text-xs md:text-sm font-bold" style={{ color: "#111" }}>{item.value}</div>
+                      <div className="text-[10px] uppercase font-bold tracking-wider mb-0.5" style={{ color: "#9ca3af", fontFamily: "var(--font-space-grotesk)" }}>{item.label}</div>
+                      <div className="text-xs md:text-sm font-bold" style={{ color: "#111", fontFamily: "var(--font-inter)" }}>{item.value}</div>
                     </div>
                   </div>
                 ))}

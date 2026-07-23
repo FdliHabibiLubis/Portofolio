@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { C } from "../lib/data";
 
 const navItems = [
-  { label: "Tentang Saya", href: "/" },
+  { label: "Tentang", href: "/" },
   { label: "Proyek", href: "/proyek" },
   { label: "Keahlian", href: "/keahlian" },
   { label: "Kontak", href: "/kontak" },
@@ -17,15 +17,9 @@ export default function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
-      setScrolled(scrollTop > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -37,259 +31,231 @@ export default function Navbar() {
   const isActive = (href) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 
   return (
-    <div className="sticky top-0 z-50 px-3 sm:px-4 pt-3 pb-2 transition-all duration-300">
-      
-      {/* ── Background Overlay for Mobile Menu ── */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setMobileMenuOpen(false)}
-            className="fixed inset-0 bg-black/40 z-40 md:hidden"
-          />
-        )}
-      </AnimatePresence>
+    <>
+      {/* ── Spacer ── */}
+      <div className="h-5" />
 
-      {/* ── Floating Header Shell dengan Shadow Keras (Double Card Stack Effect) ── */}
-      <motion.header
-        initial={{ y: -25, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        className="relative max-w-[1100px] mx-auto rounded-2xl z-50 bg-white transition-all duration-200"
-        style={{
-          border: "2px solid #111",
-          boxShadow: scrolled ? `5px 5px 0px ${C.primary}` : "5px 5px 0px #111",
-        }}
-      >
-        {/* Scroll Progress Bar (Hard Solid Line) */}
+      {/* ── Pill Floating Navbar ── */}
+      <div className="sticky top-4 z-50 flex justify-center px-4">
+
+        {/* ── Backdrop Overlay Mobile ── */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black/40 z-40 md:hidden"
+            />
+          )}
+        </AnimatePresence>
+
+        {/* ── Pill Container ── */}
         <div
-          className="absolute top-0 left-0 h-[3px] z-30 transition-all duration-150 pointer-events-none rounded-t-2xl"
+          className="relative flex items-center justify-between gap-2 bg-white rounded-full z-50 px-2 py-1.5"
           style={{
-            width: `${scrollProgress}%`,
-            background: C.primary,
+            border: "2px solid #111",
+            boxShadow: scrolled
+              ? `4px 4px 0px ${C.primary}`
+              : "4px 4px 0px #111",
+            minWidth: "min(680px, calc(100vw - 32px))",
+            maxWidth: "720px",
+            transition: "box-shadow 0.3s ease",
           }}
-        />
-
-        <nav className="flex items-center justify-between h-[58px] px-3 sm:px-4">
-          
-          {/* ── Logo Section ── */}
+        >
+          {/* ── Logo ── */}
           <Link
             href="/"
-            className="flex items-center gap-3 py-1 rounded-xl select-none group relative transition-all duration-200"
+            className="flex items-center gap-2 px-1 select-none flex-shrink-0"
             style={{ textDecoration: "none" }}
           >
-            {/* Logo Badge 'F' dengan shadow keras */}
-            <div className="relative flex items-center justify-center">
-              <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-150 group-hover:translate-x-[-1px] group-hover:translate-y-[-1px]"
-                style={{
-                  background: C.primary,
-                  border: "2px solid #111",
-                  boxShadow: "2px 2px 0px #111",
-                }}
-              >
-                <span
-                  className="font-black text-white"
-                  style={{ fontSize: "16px", fontFamily: "var(--font-space-grotesk)" }}
-                >
-                  F
-                </span>
-              </div>
-            </div>
-
-            {/* Brand Text (Tanpa Ikon) */}
-            <div className="flex flex-col">
+            <div
+              className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
+              style={{
+                background: C.primary,
+                border: "2px solid #111",
+                boxShadow: "1.5px 1.5px 0px #111",
+              }}
+            >
               <span
-                className="font-black tracking-tight text-[1.15rem] leading-none"
-                style={{ color: "#111", fontFamily: "var(--font-space-grotesk)" }}
+                className="font-black text-white text-xs"
+                style={{ fontFamily: "var(--font-space-grotesk)" }}
               >
-                FADLI<span style={{ color: C.primary }}>.</span>
-              </span>
-              <span
-                className="text-[9.5px] font-bold tracking-wider text-emerald-700 uppercase mt-0.5"
-                style={{ fontFamily: "var(--font-jetbrains-mono)" }}
-              >
-                Frontend Developer
+                F
               </span>
             </div>
+            <span
+              className="font-black tracking-tight text-sm"
+              style={{ color: "#111", fontFamily: "var(--font-space-grotesk)" }}
+            >
+              FADLI<span style={{ color: C.primary }}>.</span>
+            </span>
           </Link>
 
-          {/* ── Desktop Navigation Links (Tanpa Ikon, Teks Bersih) ── */}
-          <div className="hidden md:flex items-center gap-1.5 p-1 rounded-xl">
+          {/* ── Desktop Nav Links ── */}
+          <nav className="hidden md:flex items-center gap-0.5">
             {navItems.map((item) => {
               const active = isActive(item.href);
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="relative px-4 py-2 text-xs font-black rounded-xl transition-all duration-150 group select-none"
+                  className="relative px-3.5 py-1.5 text-xs font-black rounded-full select-none"
                   style={{
-                    color: active ? "#ffffff" : "#374151",
+                    color: active ? "#fff" : "#374151",
+                    fontFamily: "var(--font-space-grotesk)",
                   }}
                 >
-                  {/* Active Card Pill dengan Hard Shadow */}
                   {active && (
-                    <motion.span
-                      layoutId="activeHardPill"
-                      className="absolute inset-0 rounded-xl"
+                    <span
+                      className="absolute inset-0 rounded-full"
                       style={{
                         background: C.primary,
                         border: "2px solid #111",
-                        boxShadow: "2.5px 2.5px 0px #111",
+                        boxShadow: "2px 2px 0px #111",
                       }}
-                      transition={{ type: "spring", stiffness: 450, damping: 30 }}
                     />
                   )}
-
-                  {/* Label Teks Saja */}
                   <span className="relative z-10">{item.label}</span>
                 </Link>
               );
             })}
-          </div>
+          </nav>
 
-          {/* ── Desktop Action Buttons (Hard Card Shadow, Tanpa Ikon) ── */}
-          <div className="hidden md:flex items-center gap-2.5">
-            {/* GitHub Link */}
+          {/* ── Right Actions ── */}
+          <div className="flex items-center gap-1.5 flex-shrink-0">
+            {/* GitHub — desktop only */}
             <a
               href="https://github.com/FdliHabibiLubis"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-2 rounded-xl text-xs font-black text-gray-900 bg-white border-2 border-black transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5"
-              style={{ boxShadow: "2.5px 2.5px 0px #111" }}
-              title="GitHub Profile"
+              className="hidden md:flex items-center px-3 py-1.5 rounded-full text-xs font-black text-gray-800 bg-white border-2 border-black"
+              style={{
+                boxShadow: "2px 2px 0px #111",
+                fontFamily: "var(--font-space-grotesk)",
+              }}
+              title="GitHub"
             >
               GitHub
             </a>
 
-            {/* Hire Me CTA Button */}
+            {/* Hire Me CTA */}
             <a
               id="navbar-hire-me"
               href="mailto:habibifadli682@gmail.com"
-              className="px-4 py-2 rounded-xl text-xs font-black transition-all duration-150 cursor-pointer select-none"
+              className="hidden md:flex items-center px-3.5 py-1.5 rounded-full text-xs font-black text-white border-2 border-black"
               style={{
                 background: C.primary,
-                color: "#ffffff",
-                border: "2px solid #111",
-                boxShadow: "3px 3px 0px #111",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = C.primaryDark;
-                e.currentTarget.style.transform = "translate(-1px,-1px)";
-                e.currentTarget.style.boxShadow = "4px 4px 0px #111";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = C.primary;
-                e.currentTarget.style.transform = "none";
-                e.currentTarget.style.boxShadow = "3px 3px 0px #111";
+                boxShadow: "2px 2px 0px #111",
+                fontFamily: "var(--font-space-grotesk)",
               }}
             >
-              Hire Me
+              Hire Me ↗
             </a>
-          </div>
 
-          {/* ── Mobile Hamburger Button ── */}
-          <div className="md:hidden">
+            {/* Mobile Hamburger */}
             <button
               id="mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="px-3 py-2 rounded-xl text-xs font-black transition-all duration-150 cursor-pointer bg-white text-black border-2 border-black"
-              style={{ boxShadow: "2.5px 2.5px 0px #111" }}
-              aria-label="Buka menu navigasi"
+              className="md:hidden w-8 h-8 flex items-center justify-center rounded-full text-white border-2 border-black cursor-pointer select-none"
+              style={{
+                background: C.primary,
+                boxShadow: "2px 2px 0px #111",
+              }}
+              aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? "TUTUP" : "MENU"}
+              {mobileMenuOpen ? (
+                <svg className="w-4 h-4 stroke-current stroke-[2.5]" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 18L18 6M6 6l12 12" strokeLinecap="round" />
+                </svg>
+              ) : (
+                <svg className="w-4 h-4 stroke-current stroke-[2.5]" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round" />
+                </svg>
+              )}
             </button>
           </div>
-        </nav>
-      </motion.header>
+        </div>
 
-      {/* ── Mobile Menu Drawer (Double Card Shadow, Tanpa Ikon) ── */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.98 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className="max-w-[1100px] mx-auto mt-2 rounded-2xl overflow-hidden relative z-50 bg-white"
-            style={{
-              border: "2px solid #111",
-              boxShadow: "5px 5px 0px #111",
-            }}
-          >
-            <div className="flex flex-col p-4 gap-2">
-              <div className="text-[10px] font-black uppercase tracking-wider text-gray-500 px-2 pt-1 pb-1">
-                Navigasi Utama
-              </div>
+        {/* ── Mobile Dropdown ── */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.97 }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
+              className="absolute top-[calc(100%+8px)] left-4 right-4 bg-white rounded-2xl z-50"
+              style={{
+                border: "2px solid #111",
+                boxShadow: "5px 5px 0px #111",
+              }}
+            >
+              <div className="p-3 flex flex-col gap-2">
 
-              {navItems.map((item, i) => {
-                const active = isActive(item.href);
-                return (
-                  <motion.div
-                    key={item.href}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.04, duration: 0.18 }}
+                {/* Nav links — 2 kolom grid pill */}
+                <div className="grid grid-cols-2 gap-1.5">
+                  {navItems.map((item) => {
+                    const active = isActive(item.href);
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-full text-xs font-black border-2 border-black"
+                        style={{
+                          color: active ? "#fff" : "#111",
+                          background: active ? C.primary : "#f4f4f5",
+                          boxShadow: "2px 2px 0px #111",
+                          fontFamily: "var(--font-space-grotesk)",
+                        }}
+                      >
+                        {active && <span className="w-1.5 h-1.5 rounded-full bg-white flex-shrink-0" />}
+                        {item.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+
+                {/* Divider */}
+                <div className="border-t-2 border-black" />
+
+                {/* Action buttons */}
+                <div className="flex gap-1.5">
+                  <a
+                    href="mailto:habibifadli682@gmail.com"
+                    className="flex-1 flex items-center justify-center py-2 rounded-full text-xs font-black text-white border-2 border-black"
+                    style={{
+                      background: C.primary,
+                      boxShadow: "2px 2px 0px #111",
+                      fontFamily: "var(--font-space-grotesk)",
+                    }}
                   >
-                    <Link
-                      href={item.href}
-                      className="flex items-center justify-between px-4 py-3 rounded-xl text-sm font-black transition-all duration-150"
-                      style={{
-                        color: active ? "#ffffff" : "#111827",
-                        background: active ? C.primary : "#f9fafb",
-                        border: "2px solid #111",
-                        boxShadow: active ? "3px 3px 0px #111" : "2px 2px 0px #111",
-                      }}
-                    >
-                      <span>{item.label}</span>
-                      {active && (
-                        <span className="w-2 h-2 rounded-sm rotate-45 bg-white" />
-                      )}
-                    </Link>
-                  </motion.div>
-                );
-              })}
+                    Hire Me ↗
+                  </a>
+                  <a
+                    href="https://github.com/FdliHabibiLubis"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center py-2 rounded-full text-xs font-black text-black bg-white border-2 border-black"
+                    style={{
+                      boxShadow: "2px 2px 0px #111",
+                      fontFamily: "var(--font-space-grotesk)",
+                    }}
+                  >
+                    GitHub
+                  </a>
+                </div>
 
-              <div className="my-1 border-t-2 border-black" />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
-              {/* Mobile Actions (Tanpa Ikon) */}
-              <motion.div
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: navItems.length * 0.04 + 0.04 }}
-                className="flex items-center gap-2 pt-1"
-              >
-                <a
-                  href="mailto:habibifadli682@gmail.com"
-                  className="flex-1 flex items-center justify-center px-4 py-3 rounded-xl text-sm font-black text-white"
-                  style={{
-                    background: C.primary,
-                    border: "2px solid #111",
-                    boxShadow: "3px 3px 0px #111",
-                  }}
-                >
-                  Hubungi Saya
-                </a>
-
-                <a
-                  href="https://github.com/FdliHabibiLubis"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-3 rounded-xl text-sm font-black text-black bg-white border-2 border-black"
-                  style={{ boxShadow: "3px 3px 0px #111" }}
-                >
-                  GitHub
-                </a>
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+      {/* ── Bottom spacer ── */}
+      <div className="h-2" />
+    </>
   );
 }
-
-
 

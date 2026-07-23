@@ -26,14 +26,14 @@ export default function KontakPage() {
 
           {/* Standardized Header (Tetap Left-Aligned Sesuai Permintaan) */}
           <motion.div variants={fadeInUp} className="mb-12 text-left">
-            <div className="flex items-center gap-3 font-bold text-[11px] uppercase tracking-[0.2em] mb-3" style={{ color: C.primary }}>
+            <div className="flex items-center gap-3 font-bold text-[11px] uppercase tracking-[0.2em] mb-3" style={{ color: C.primary, fontFamily: "var(--font-space-grotesk)" }}>
               <span className="w-8 h-px" style={{ background: C.primary }} />
               Hubungi Saya
             </div>
             <h1 className="text-3xl md:text-4xl font-black" style={{ color: "#111", fontFamily: "var(--font-space-grotesk)" }}>
               Mari Berkolaborasi<span style={{ color: C.primary }}>.</span>
             </h1>
-            <p className="max-w-md text-sm mt-2 leading-relaxed" style={{ color: "#6b7280" }}>
+            <p className="max-w-md text-sm mt-2 leading-relaxed" style={{ color: "#6b7280", fontFamily: "var(--font-inter)" }}>
               Punya ide menarik, butuh pengembang web/mobile, atau mau sekadar diskusi santai? Pilih kanal di bawah ini.
             </p>
           </motion.div>
@@ -76,7 +76,7 @@ export default function KontakPage() {
 
                   <div>
                     <div className="flex items-center justify-center sm:justify-start gap-2 mb-0.5">
-                      <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">
+                      <span className="text-[10px] font-black uppercase tracking-widest text-gray-400" style={{ fontFamily: "var(--font-space-grotesk)" }}>
                         EMAIL UTAMA
                       </span>
                       <span
@@ -86,7 +86,7 @@ export default function KontakPage() {
                         FAST RESPONSE
                       </span>
                     </div>
-                    <div className="font-bold text-sm sm:text-base text-gray-900 group-hover:underline break-all">
+                    <div className="font-bold text-sm sm:text-base text-gray-900 group-hover:underline break-all" style={{ fontFamily: "var(--font-inter)" }}>
                       habibifadli682@gmail.com
                     </div>
                   </div>
@@ -129,10 +129,10 @@ export default function KontakPage() {
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                   </svg>
                 </div>
-                <div className="text-[10px] font-black uppercase tracking-wider text-gray-400 mb-0.5">
+                <div className="text-[10px] font-black uppercase tracking-wider text-gray-400 mb-0.5" style={{ fontFamily: "var(--font-space-grotesk)" }}>
                   INSTAGRAM
                 </div>
-                <div className="font-bold text-xs sm:text-sm text-gray-900 group-hover:underline truncate max-w-full">
+                <div className="font-bold text-xs sm:text-sm text-gray-900 group-hover:underline truncate max-w-full" style={{ fontFamily: "var(--font-inter)" }}>
                   @fdlilbs.23
                 </div>
               </a>
@@ -170,7 +170,7 @@ export default function KontakPage() {
                 <div className="text-[10px] font-black uppercase tracking-wider text-teal-400/70 mb-0.5">
                   GITHUB
                 </div>
-                <div className="font-bold text-xs sm:text-sm text-white group-hover:underline truncate max-w-full">
+                <div className="font-bold text-xs sm:text-sm text-white group-hover:underline truncate max-w-full" style={{ fontFamily: "var(--font-inter)" }}>
                   FdliHabibiLubis
                 </div>
               </a>
@@ -195,10 +195,10 @@ export default function KontakPage() {
                     </span>
                   </div>
                   <div>
-                    <div className="text-[10px] font-black uppercase tracking-wider text-gray-400 mb-0.5">
+                    <div className="text-[10px] font-black uppercase tracking-wider text-gray-400 mb-0.5" style={{ fontFamily: "var(--font-space-grotesk)" }}>
                       LOKASI UTAMA
                     </div>
-                    <div className="font-bold text-xs sm:text-sm text-gray-900">
+                    <div className="font-bold text-xs sm:text-sm text-gray-900" style={{ fontFamily: "var(--font-inter)" }}>
                       Medan, Indonesia
                     </div>
                   </div>

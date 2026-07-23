@@ -23,14 +23,14 @@ export default function ProyekPage() {
 
           {/* Header */}
           <motion.div variants={fadeInUp} className="mb-12">
-            <div className="flex items-center gap-3 font-bold text-[11px] uppercase tracking-[0.2em] mb-3" style={{ color: C.primary }}>
+            <div className="flex items-center gap-3 font-bold text-[11px] uppercase tracking-[0.2em] mb-3" style={{ color: C.primary, fontFamily: "var(--font-space-grotesk)" }}>
               <span className="w-8 h-px" style={{ background: C.primary }} />
               Hasil Karya
             </div>
             <h1 className="text-3xl md:text-4xl font-black" style={{ color: "#111", fontFamily: "var(--font-space-grotesk)" }}>
               Proyek Pilihan
             </h1>
-            <p className="max-w-md text-sm mt-2" style={{ color: "#6b7280" }}>
+            <p className="max-w-md text-sm mt-2" style={{ color: "#6b7280", fontFamily: "var(--font-inter)" }}>
               Kumpulan proyek yang telah saya selesaikan.
             </p>
           </motion.div>
@@ -58,7 +58,7 @@ export default function ProyekPage() {
                           style={{ fontFamily: "var(--font-space-grotesk)", color: "#fff" }}>
                           {proj.title}
                         </h2>
-                        <p className="text-white/70 text-xs md:text-sm leading-relaxed line-clamp-3 md:line-clamp-none">
+                        <p className="text-white/70 text-xs md:text-sm leading-relaxed line-clamp-3 md:line-clamp-none" style={{ fontFamily: "var(--font-inter)" }}>
                           {proj.description}
                         </p>
                         <div className="flex flex-wrap gap-1.5">
@@ -75,7 +75,7 @@ export default function ProyekPage() {
                           <div key={i} className="flex items-center gap-2 px-3 py-2 rounded-xl"
                             style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)" }}>
                             <span className="material-symbols-outlined text-white/80" style={{ fontSize: "15px" }}>{feat.icon}</span>
-                            <span className="text-white/80 text-[11px] font-semibold">{feat.label}</span>
+                            <span className="text-white/80 text-[11px] font-semibold" style={{ fontFamily: "var(--font-inter)" }}>{feat.label}</span>
                           </div>
                         ))}
                         <a href={proj.gitUrl} target="_blank" rel="noopener noreferrer"

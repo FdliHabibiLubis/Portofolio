@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="font-black tracking-tighter text-xl" style={{ color: "#111", fontFamily: "var(--font-space-grotesk)" }}>
             FADLI<span style={{ color: C.primary }}>.</span>
           </div>
-          <p className="text-xs text-center" style={{ color: "#9ca3af" }}>
+          <p className="text-xs text-center" style={{ color: "#9ca3af", fontFamily: "var(--font-inter)" }}>
             © 2026 Fadli Habibi Lubis &mdash; Dibuat dengan uang.
           </p>
           <div className="flex items-center gap-5">
@@ -23,7 +23,7 @@ export default function Footer() {
                 target={link.href.startsWith("http") ? "_blank" : undefined}
                 rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="text-xs font-bold transition-colors duration-200"
-                style={{ color: "#9ca3af" }}
+                style={{ color: "#9ca3af", fontFamily: "var(--font-space-grotesk)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = C.primary)}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "#9ca3af")}
               >
