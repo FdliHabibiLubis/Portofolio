@@ -98,27 +98,51 @@ export const projects = [
 export const skills = [
   {
     name: "JavaScript",
+    category: "frontend",
+    level: "Lanjutan",
+    description: "ES6+, Async/Await, Web APIs & DOM",
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    glowColor: "rgba(247, 223, 30, 0.3)",
   },
   {
     name: "PostgreSQL",
+    category: "backend",
+    level: "Menengah",
+    description: "Relational DB, SQL Queries & Schema",
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    glowColor: "rgba(51, 103, 145, 0.3)",
   },
   {
     name: "Flutter",
+    category: "mobile",
+    level: "Menengah",
+    description: "Cross-platform Mobile & State Mgmt",
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+    glowColor: "rgba(2, 86, 155, 0.3)",
   },
   {
     name: "Dart",
+    category: "mobile",
+    level: "Menengah",
+    description: "OOP, Async Programming & App Logic",
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
+    glowColor: "rgba(1, 87, 155, 0.3)",
   },
   {
     name: "Figma",
+    category: "design",
+    level: "Menengah",
+    description: "UI/UX Prototyping & Wireframing",
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+    glowColor: "rgba(242, 78, 30, 0.3)",
   },
   {
     name: "Canva",
+    category: "design",
+    level: "Lanjutan",
+    description: "Graphic Assets & Branding Visuals",
     src: "https://www.vectorlogo.zone/logos/canva/canva-icon.svg",
+    glowColor: "rgba(0, 196, 204, 0.3)",
   },
 ];
 

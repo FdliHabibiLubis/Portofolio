@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="max-w-[1200px] mx-auto px-5 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-5">
           <div className="font-black tracking-tighter text-xl" style={{ color: "#111", fontFamily: "var(--font-space-grotesk)" }}>
-            FADLI<span style={{ color: C.primary }}>.DEV</span>
+            FADLI<span style={{ color: C.primary }}>.</span>
           </div>
           <p className="text-xs text-center" style={{ color: "#9ca3af" }}>
             © 2026 Fadli Habibi Lubis &mdash; Dibuat dengan uang.
@@ -16,7 +16,7 @@ export default function Footer() {
           <div className="flex items-center gap-5">
             {[
               { label: "GitHub", href: "https://github.com/FdliHabibiLubis" },
-              { label: "Instagram", href: "https://instagram.com/fdlihabibilubis" },
+              { label: "Instagram", href: "https://www.instagram.com/fdlilbs.23?igsh=MWtyOGRnamo2czQ1OQ==" },
               { label: "Email", href: "mailto:habibifadli682@gmail.com" },
             ].map((link) => (
               <a key={link.label} href={link.href}
