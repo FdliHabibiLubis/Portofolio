@@ -78,6 +78,25 @@ export const projects = [
     pillBg: "bg-purple-400",
   },
   {
+    id: "anikaze",
+    title: "AniKaze",
+    category: "FEATURED WEB APP",
+    description:
+      "Platform manajemen koleksi anime pribadi (Archive Collections) untuk melacak status tontonan, rating, dan mengorganisir daftar anime favorit.",
+    tags: ["Anime Tracker", "Web App", "JavaScript"],
+    features: [
+      { icon: "movie", label: "Pelacak Anime" },
+      { icon: "star", label: "Rating & Koleksi" },
+    ],
+    mockup: "/assets/images/projek/anikaze.png",
+    gitUrl: "https://github.com/FdliHabibiLubis/Web-anime",
+    linkText: "anikaze.app",
+    gradient: "from-[#17092c] via-[#2a0e44] to-[#1e0a32]",
+    radialGlow: "rgba(192,132,252,0.14)",
+    tagColor: "text-purple-300",
+    pillBg: "bg-purple-400",
+  },
+  {
     id: "taskflow",
     title: "TaskFlow",
     category: "WEB APP",

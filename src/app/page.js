@@ -151,7 +151,7 @@ export default function Home() {
               {/* Stats Counters */}
               <div className="flex items-center justify-center gap-8 md:gap-14 pt-4 border-t border-gray-100 w-full max-w-lg">
                 {[
-                  { value: "5+", label: "Proyek Selesai" },
+                  { value: "6+", label: "Proyek Selesai" },
                   { value: "1+", label: "Tahun Belajar" },
                   { value: "6+", label: "Teknologi" },
                 ].map((s) => (
