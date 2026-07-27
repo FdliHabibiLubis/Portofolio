@@ -19,7 +19,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-white">
 
         {/* ── Top Dark Header Section (Tema Keahlian - C.bg) ── */}
-        <div style={{ backgroundColor: C.bg }} className="relative pt-12 pb-16 md:pt-16 md:pb-20 overflow-hidden border-b-4 border-black">
+        <div style={{ backgroundColor: C.bg }} className="relative py-16 md:py-24 overflow-hidden border-b-4 border-black">
 
           {/* Abstract background dot pattern */}
           <div
@@ -34,7 +34,7 @@ export default function Home() {
           <div className="absolute top-12 left-10 w-12 h-12 rounded-xl border-2 border-white/10 rotate-12 pointer-events-none hidden md:block" />
           <div className="absolute bottom-16 right-16 w-20 h-20 rounded-full border-2 border-white/10 pointer-events-none hidden md:block" />
 
-          <div className="max-w-[1140px] mx-auto px-5 md:px-8 relative z-10">
+          <div className="max-w-[1100px] mx-auto px-5 md:px-6 relative z-10">
             <motion.div
               initial="hidden"
               animate="visible"
@@ -230,7 +230,7 @@ export default function Home() {
         </div>
 
         {/* ── Lower Section (Background Putih Bersih) ── */}
-        <div className="bg-white max-w-[1140px] mx-auto px-5 md:px-8 relative z-10 pt-12 pb-16">
+        <div className="bg-white max-w-[1100px] mx-auto px-5 md:px-6 relative z-10 py-16 md:py-24">
           <motion.div initial="hidden" animate="visible" variants={stagger} className="flex flex-col gap-12">
 
             {/* 4 Info Cards Grid (Sleek Horizontal Cards) */}

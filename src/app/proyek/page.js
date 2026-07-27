@@ -51,7 +51,7 @@ export default function ProyekPage() {
 
   return (
     <div style={{ backgroundColor: "#fff", color: "#111" }}>
-      <motion.section initial="hidden" animate="visible" variants={fadeInUp} className="py-20 md:py-28">
+      <motion.section initial="hidden" animate="visible" variants={fadeInUp} className="py-16 md:py-24">
         <div className="max-w-[1100px] mx-auto px-5 md:px-6">
 
           {/* Header */}
@@ -91,8 +91,7 @@ export default function ProyekPage() {
                   style={{ width: `${100 / projects.length}%`, minHeight: "380px" }}
                 >
 
-
-                  <div className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-10 w-full h-full p-6 sm:p-8 md:p-10 items-center">
+                  <div className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-10 w-full h-full p-6 pb-16 sm:p-8 md:p-10 items-center">
                     
                     {/* Left info */}
                     <div className="flex flex-col gap-4.5 md:w-[40%] text-white w-full">
@@ -136,7 +135,7 @@ export default function ProyekPage() {
                     </div>
 
                     {/* Right mockup photo */}
-                    <div className="flex-grow flex items-center justify-center md:w-[60%] w-full">
+                    <div className="flex-grow flex flex-col items-center justify-center md:w-[60%] w-full gap-3">
                       <div className="w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.01]"
                         style={{ background: "rgba(0,0,0,0.3)", border: "1px solid rgba(255,255,255,0.15)", backdropFilter: "blur(10px)" }}>
                         
@@ -164,6 +163,14 @@ export default function ProyekPage() {
                           />
                         </div>
                       </div>
+
+                      {/* Tombol Lihat di GitHub - Tampil khusus di bawah gambar untuk tampilan HP */}
+                      <a href={proj.gitUrl} target="_blank" rel="noopener noreferrer"
+                        className="md:hidden inline-flex items-center justify-center gap-2 w-full mt-1 px-4 py-2.5 rounded-xl text-xs font-bold text-white transition-all duration-200 active:scale-95 shadow-md relative z-20"
+                        style={{ background: "rgba(255,255,255,0.14)", border: "1px solid rgba(255,255,255,0.24)", backdropFilter: "blur(6px)" }}>
+                        <span className="material-symbols-outlined" style={{ fontSize: "15px" }}>code</span>
+                        Lihat di GitHub
+                      </a>
                     </div>
 
                   </div>
@@ -232,8 +239,8 @@ export default function ProyekPage() {
                 const activeColorMap = {
                   saku: "#34d399",
                   ciakad: "#60a5fa",
-                  bukukita: "#a3e635",
-                  password: "#c084fc",
+                  bukukita: "#f59e0b",
+                  password: "#f97316",
                   anikaze: "#c084fc",
                   taskflow: "#38bdf8",
                 };
