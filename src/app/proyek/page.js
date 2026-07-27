@@ -90,15 +90,7 @@ export default function ProyekPage() {
                   className={`flex-shrink-0 relative overflow-hidden bg-gradient-to-br ${proj.gradient}`}
                   style={{ width: `${100 / projects.length}%`, minHeight: "380px" }}
                 >
-                  {/* Ambient Glow Background Accent */}
-                  <div
-                    className="absolute -top-24 -right-24 w-96 h-96 rounded-full pointer-events-none blur-3xl opacity-40 transition-all duration-700"
-                    style={{ background: proj.radialGlow || "rgba(13,148,136,0.3)" }}
-                  />
-                  <div
-                    className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full pointer-events-none blur-3xl opacity-20 transition-all duration-700"
-                    style={{ background: proj.radialGlow || "rgba(13,148,136,0.2)" }}
-                  />
+
 
                   <div className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-10 w-full h-full p-6 sm:p-8 md:p-10 items-center">
                     
@@ -228,34 +220,39 @@ export default function ProyekPage() {
               <span className="material-symbols-outlined font-black">chevron_right</span>
             </button>
 
-            {/* Mobile Swipe Badge Indicator */}
-            <div
-              className="absolute top-4 left-4 z-30 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[10px] font-bold text-white/90 md:hidden pointer-events-none shadow-md backdrop-blur-md"
-              style={{ background: "rgba(0,0,0,0.55)", border: "1px solid rgba(255,255,255,0.15)" }}
-            >
-              <span className="material-symbols-outlined animate-pulse" style={{ fontSize: "14px" }}>swipe</span>
-              <span>Geser Proyek</span>
-            </div>
+
 
             {/* Dots Indicator Container */}
             <div
-              className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2 rounded-full z-30 shadow-lg backdrop-blur-md"
+              className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2 rounded-full z-30 backdrop-blur-md"
               style={{ background: "rgba(0,0,0,0.55)", border: "1px solid rgba(255,255,255,0.15)" }}
             >
-              {projects.map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={(e) => { e.stopPropagation(); setCurrentSlide(i); }}
-                  className="h-2 rounded-full transition-all duration-300 cursor-pointer"
-                  style={{
-                    width: i === currentSlide ? "28px" : "8px",
-                    background: i === currentSlide ? C.primary : "rgba(255,255,255,0.4)",
-                    boxShadow: i === currentSlide ? `0 0 10px ${C.primary}` : "none",
-                  }}
-                  aria-label={`Slide ${projects[i].title}`}
-                />
-              ))}
+              {projects.map((proj, i) => {
+                const isActive = i === currentSlide;
+                const activeColorMap = {
+                  saku: "#34d399",
+                  ciakad: "#60a5fa",
+                  bukukita: "#a3e635",
+                  password: "#c084fc",
+                  anikaze: "#c084fc",
+                  taskflow: "#38bdf8",
+                };
+                const activeColor = activeColorMap[projects[currentSlide].id] || "#ffffff";
+                return (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={(e) => { e.stopPropagation(); setCurrentSlide(i); }}
+                    className="h-2 rounded-full transition-all duration-300 cursor-pointer"
+                    style={{
+                      width: isActive ? "28px" : "8px",
+                      background: isActive ? activeColor : "rgba(255,255,255,0.35)",
+                      boxShadow: "none",
+                    }}
+                    aria-label={`Slide ${proj.title}`}
+                  />
+                );
+              })}
             </div>
 
             {/* Slide Counter Badge */}
