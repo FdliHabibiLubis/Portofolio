@@ -89,7 +89,7 @@ export const projects = [
       { icon: "star", label: "Rating & Koleksi" },
     ],
     mockup: "/assets/images/projek/anikaze.png",
-    gitUrl: "https://github.com/FdliHabibiLubis/Web-anime",
+    gitUrl: "https://github.com/FdliHabibiLubis/rating-anime",
     linkText: "anikaze.app",
     gradient: "from-[#17092c] via-[#2a0e44] to-[#1e0a32]",
     radialGlow: "rgba(192,132,252,0.14)",
