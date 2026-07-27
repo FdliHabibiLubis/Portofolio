@@ -35,12 +35,40 @@ export default function ProyekPage() {
             </p>
           </motion.div>
 
-          {/* Slideshow */}
-          <div className="relative w-full overflow-hidden rounded-2xl"
-            style={{ border: "2px solid #e5e7eb", boxShadow: "8px 8px 0px #e5e7eb" }}>
+          {/* Slideshow Container with Touch Swipe & Mouse Drag */}
+          <div
+            className="relative w-full overflow-hidden rounded-2xl touch-pan-y select-none cursor-grab active:cursor-grabbing"
+            style={{ border: "2px solid #e5e7eb", boxShadow: "8px 8px 0px #e5e7eb" }}
+            onTouchStart={(e) => {
+              const touchDown = e.touches[0].clientX;
+              e.currentTarget.dataset.touchStart = touchDown;
+            }}
+            onTouchEnd={(e) => {
+              const touchStart = parseFloat(e.currentTarget.dataset.touchStart || "0");
+              const touchUp = e.changedTouches[0].clientX;
+              const diff = touchStart - touchUp;
+              if (diff > 40) {
+                handleNextSlide();
+              } else if (diff < -40) {
+                handlePrevSlide();
+              }
+            }}
+          >
 
-            <div className="flex transition-transform duration-500 ease-in-out"
-              style={{ width: `${projects.length * 100}%`, transform: `translateX(-${(currentSlide * 100) / projects.length}%)` }}>
+            <motion.div
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.15}
+              onDragEnd={(e, { offset, velocity }) => {
+                if (offset.x < -40 || velocity.x < -200) {
+                  handleNextSlide();
+                } else if (offset.x > 40 || velocity.x > 200) {
+                  handlePrevSlide();
+                }
+              }}
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ width: `${projects.length * 100}%`, transform: `translateX(-${(currentSlide * 100) / projects.length}%)` }}
+            >
               {projects.map((proj) => (
                 <div key={proj.id}
                   className={`flex-shrink-0 relative overflow-hidden bg-gradient-to-br ${proj.gradient}`}
@@ -89,7 +117,7 @@ export default function ProyekPage() {
 
                     {/* Right mockup */}
                     <div className="flex-grow flex items-center justify-center md:w-[62%]">
-                      <div className="w-full max-w-2xl rounded-2xl overflow-hidden"
+                      <div className="w-full max-w-2xl rounded-2xl overflow-hidden pointer-events-none"
                         style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}>
                         <div className="flex items-center gap-2 px-4 py-2.5"
                           style={{ background: "rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
@@ -102,35 +130,42 @@ export default function ProyekPage() {
                           </div>
                         </div>
                         <div className="p-3 md:p-4">
-                          <a href={proj.gitUrl} target="_blank" rel="noopener noreferrer" className="block">
-                            <Image src={proj.mockup} alt={proj.title} width={640} height={380}
-                              className="w-full h-auto rounded-lg object-contain max-h-52 md:max-h-[280px]" />
-                          </a>
+                          <Image src={proj.mockup} alt={proj.title} width={640} height={380}
+                            className="w-full h-auto rounded-lg object-contain max-h-52 md:max-h-[280px]" />
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               ))}
-            </div>
+            </motion.div>
 
-            {/* Prev / Next */}
+            {/* Prev / Next Buttons (Disembunyikan di HP / Mobile agar swipe tanpa tombol) */}
             <button id="slide-prev" onClick={handlePrevSlide}
-              className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center z-20 transition-all duration-150"
+              aria-label="Proyek sebelumnya"
+              className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl items-center justify-center z-20 transition-all duration-150 cursor-pointer"
               style={{ background: "#fff", border: "2px solid #e5e7eb", color: "#111", boxShadow: "3px 3px 0px #d1d5db" }}
               onMouseEnter={(e) => { e.currentTarget.style.background = C.primaryBg; e.currentTarget.style.color = C.primary; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.color = "#111"; }}>
               <span className="material-symbols-outlined">chevron_left</span>
             </button>
             <button id="slide-next" onClick={handleNextSlide}
-              className="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl flex items-center justify-center z-20 transition-all duration-150"
+              aria-label="Proyek selanjutnya"
+              className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl items-center justify-center z-20 transition-all duration-150 cursor-pointer"
               style={{ background: "#fff", border: "2px solid #e5e7eb", color: "#111", boxShadow: "3px 3px 0px #d1d5db" }}
               onMouseEnter={(e) => { e.currentTarget.style.background = C.primaryBg; e.currentTarget.style.color = C.primary; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.color = "#111"; }}>
               <span className="material-symbols-outlined">chevron_right</span>
             </button>
 
-            {/* Dots */}
+            {/* Swipe Helper Tag for Mobile */}
+            <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold text-white/80 md:hidden pointer-events-none"
+              style={{ background: "rgba(0,0,0,0.45)", backdropFilter: "blur(4px)" }}>
+              <span className="material-symbols-outlined" style={{ fontSize: "12px" }}>swipe</span>
+              <span>Geser Proyek</span>
+            </div>
+
+            {/* Dots Indicator */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
               {projects.map((_, i) => (
                 <button key={i} onClick={() => setCurrentSlide(i)}
@@ -141,7 +176,7 @@ export default function ProyekPage() {
             </div>
 
             {/* Counter */}
-            <div className="absolute top-4 right-16 z-20 px-3 py-1 rounded-full text-xs font-bold"
+            <div className="absolute top-4 right-4 md:right-16 z-20 px-3 py-1 rounded-full text-xs font-bold"
               style={{ background: "rgba(0,0,0,0.45)", color: "rgba(255,255,255,0.6)" }}>
               {currentSlide + 1} / {projects.length}
             </div>
