@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata = {
   title: "Fadli — Frontend Developer",
   description:
-    "Mahasiswa Ilmu Komputer yang berfokus pada pengembangan frontend web yang cepat, responsif, aksesibel, dan dirancang dengan presisi.",
+    "Mahasiswa Rekayasa Perangkat Lunak yang berfokus pada pengembangan frontend web yang cepat, responsif, aksesibel, dan dirancang dengan presisi.",
 };
 
 export const viewport = {
