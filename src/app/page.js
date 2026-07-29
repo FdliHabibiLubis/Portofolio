@@ -15,11 +15,8 @@ export default function Home() {
   return (
     <div style={{ backgroundColor: "#fff", color: "#111" }}>
 
-      {/* ── HERO SECTION ── */}
-      <section className="relative overflow-hidden bg-white">
-
-        {/* ── Top Dark Header Section (Tema Keahlian - C.bg) ── */}
-        <div style={{ backgroundColor: C.bg }} className="relative py-16 md:py-24 overflow-hidden border-b-4 border-black">
+      {/* ── HERO SECTION (Starts at top edge with generous clearance for floating navbar) ── */}
+      <section style={{ backgroundColor: C.bg }} className="relative pt-36 pb-16 md:pt-48 md:pb-24 overflow-hidden border-b-4 border-black">
 
           {/* Abstract background dot pattern */}
           <div
@@ -55,11 +52,11 @@ export default function Home() {
                   {/* Heading */}
                   <motion.h1
                     variants={fadeInUp}
-                    className="text-[40px] sm:text-[52px] lg:text-[62px] font-black leading-[1.06] tracking-tight mb-4"
+                    className="text-[34px] sm:text-[46px] lg:text-[54px] font-black leading-[1.1] tracking-tight mb-4"
                     style={{ fontFamily: "var(--font-space-grotesk)", color: "#F1F5F9" }}
                   >
                     Halo, saya{" "}
-                    <span style={{ color: C.primary }}>Fadli</span>
+                    <span style={{ color: C.primary }}>Fadli Habibi Lubis</span>
                   </motion.h1>
 
                   {/* Subtitle / Bio */}
@@ -120,32 +117,32 @@ export default function Home() {
 
                 {/* Right Column: Profile Photo on Desktop */}
                 <div className="md:col-span-5 flex flex-col items-center md:items-end gap-6">
+                  {/* Photo Container with Hard Mechanical Push Animation (Ide 3) */}
                   <motion.div
-                    initial={{ opacity: 0, y: 32 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.75, delay: 0.2, ease: "easeOut" }}
-                    className="relative group cursor-pointer select-none"
+                    variants={fadeInUp}
+                    className="relative cursor-pointer group flex justify-center select-none transition-transform duration-100 ease-linear hover:-translate-x-1.5 hover:-translate-y-1.5 active:translate-x-1.5 active:translate-y-1.5"
                   >
                     {/* Offset Backdrop Card */}
                     <div
-                      className="absolute rounded-2xl pointer-events-none transition-all duration-200 ease-out group-hover:translate-x-1.5 group-hover:translate-y-1.5"
+                      className="absolute rounded-2xl pointer-events-none transition-all duration-100 ease-linear group-hover:translate-x-2.5 group-hover:translate-y-2.5 group-active:translate-x-0 group-active:translate-y-0"
                       style={{
                         width: "100%",
                         height: "100%",
                         top: "14px",
                         left: "14px",
                         background: C.primary,
+                        boxShadow: "4px 4px 0px #111",
                       }}
                     />
 
                     {/* Offset Accent Shape */}
                     <div
-                      className="absolute rounded-2xl pointer-events-none transition-all duration-200 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1"
+                      className="absolute rounded-2xl pointer-events-none transition-all duration-100 ease-linear group-hover:-translate-x-1.5 group-hover:-translate-y-1.5 group-active:translate-x-0 group-active:translate-y-0"
                       style={{
                         width: "60%",
                         height: "40%",
                         bottom: "-12px",
-                        right: "-16px",
+                        right: "-8px",
                         background: C.bgRaised,
                         border: "2px solid #24352C",
                       }}
@@ -153,10 +150,10 @@ export default function Home() {
 
                     {/* Main Profile Photo Container */}
                     <div
-                      className="relative z-10 w-[240px] h-[290px] sm:w-[270px] sm:h-[330px] lg:w-[300px] lg:h-[360px] rounded-2xl overflow-hidden transition-all duration-200 ease-out group-hover:translate-x-1 group-hover:translate-y-1"
+                      className="relative z-10 w-[240px] h-[290px] sm:w-[270px] sm:h-[330px] lg:w-[300px] lg:h-[360px] rounded-2xl overflow-hidden transition-all duration-100 ease-linear group-hover:border-teal-400 group-hover:shadow-[12px_12px_0px_#111] group-active:shadow-[3px_3px_0px_#111]"
                       style={{
                         border: "3px solid #24352C",
-                        boxShadow: "8px 8px 0px #24352C",
+                        boxShadow: "8px 8px 0px #111",
                       }}
                     >
                       <Image
@@ -165,25 +162,23 @@ export default function Home() {
                         width={400}
                         height={480}
                         priority
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
+                        className="w-full h-full object-cover transition-transform duration-100 ease-linear group-hover:scale-[1.03]"
                       />
                     </div>
 
-                    {/* Floating Badge */}
-                    <motion.div
-                      animate={{ y: [0, -5, 0] }}
-                      transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
-                      className="absolute -top-4 -left-6 px-3.5 py-1.5 rounded-xl text-[10px] font-black tracking-wider uppercase select-none z-20 transition-all duration-200 group-hover:scale-105"
+                    {/* Single FRONTEND DEV Badge */}
+                    <div
+                      className="absolute -top-4 -left-4 sm:-left-6 px-3.5 py-1.5 rounded-xl text-[10px] font-black tracking-wider uppercase select-none z-20 transition-all duration-100 ease-linear group-hover:scale-105 group-hover:bg-teal-600 group-hover:text-white"
                       style={{
                         background: C.bgRaised,
                         color: C.primary,
                         border: "2px solid #24352C",
-                        boxShadow: "4px 4px 0px #24352C",
+                        boxShadow: "4px 4px 0px #111",
                         fontFamily: "var(--font-space-grotesk)",
                       }}
                     >
                       FRONTEND DEV
-                    </motion.div>
+                    </div>
 
                   </motion.div>
 
@@ -227,7 +222,7 @@ export default function Home() {
 
             </motion.div>
           </div>
-        </div>
+        </section>
 
         {/* ── Lower Section (Background Putih Bersih) ── */}
         <div className="bg-white max-w-[1100px] mx-auto px-5 md:px-6 relative z-10 py-16 md:py-24">
@@ -286,67 +281,103 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* ── Action Buttons Section (Ukuran Simetris Sama Besar) ── */}
-            <motion.div variants={fadeInUp} className="pt-4 border-t border-gray-100 text-center">
-              <div className="flex flex-row items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto">
+            {/* ── Action Buttons Section (Tilted Buttons with Ultra-Extended 7px/10px Shadow) ── */}
+            <motion.div variants={fadeInUp} className="pt-6 border-t-2 border-slate-100 text-center">
+              <div className="flex flex-row items-center justify-center gap-2.5 sm:gap-4 w-full max-w-md mx-auto">
+                
+                {/* Tilted Primary Button: Lihat Proyek (Tilted -2.5deg, Ultra-Extended 7px/10px Shadow) */}
                 <Link
                   href="/proyek"
-                  className="flex-1 inline-flex items-center justify-center gap-2 px-4 sm:px-7 py-3.5 rounded-xl font-black text-xs sm:text-sm transition-all duration-200"
+                  className="group flex-1 inline-flex items-center justify-between gap-2 px-4 sm:px-6 py-3 sm:py-3.5 rounded-2xl font-black text-xs sm:text-sm transition-all duration-200 select-none cursor-pointer whitespace-nowrap"
                   style={{
-                    background: "#0F1712",
-                    color: C.primary,
-                    border: "2px solid #24352C",
-                    boxShadow: "3px 3px 0px #cbd5e1",
+                    background: C.primary,
+                    color: "#FFFFFF",
+                    border: "2.5px solid #0F766E",
+                    boxShadow: "7px 7px 0px #134E4A",
+                    transform: "rotate(-2.5deg)",
                     fontFamily: "var(--font-space-grotesk)",
                   }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = "rotate(0deg) translate(4px, 4px)";
+                    e.currentTarget.style.boxShadow = "3px 3px 0px #134E4A";
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = "rotate(0deg) translate(-4px, -4px)";
+                    e.currentTarget.style.boxShadow = "10px 10px 0px #134E4A";
+                  }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "#141F19";
-                    e.currentTarget.style.borderColor = C.primary;
-                    e.currentTarget.style.boxShadow = "3px 3px 0px " + C.primary;
-                    e.currentTarget.style.transform = "translateY(-2px)";
+                    e.currentTarget.style.transform = "rotate(0deg) translate(-4px, -4px)";
+                    e.currentTarget.style.boxShadow = "10px 10px 0px #134E4A";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "#0F1712";
-                    e.currentTarget.style.borderColor = "#24352C";
-                    e.currentTarget.style.boxShadow = "3px 3px 0px #cbd5e1";
-                    e.currentTarget.style.transform = "none";
+                    e.currentTarget.style.transform = "rotate(-2.5deg)";
+                    e.currentTarget.style.boxShadow = "7px 7px 0px #134E4A";
                   }}
                 >
-                  Lihat Proyek
-                  <span className="material-symbols-outlined" style={{ fontSize: "18px", color: C.primary }}>arrow_forward</span>
+                  <span className="tracking-wide">Lihat Proyek</span>
+                  <div
+                    className="w-7 h-7 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-200 group-hover:scale-110 group-hover:translate-x-0.5"
+                    style={{
+                      background: "#134E4A",
+                      color: "#5EEAD4",
+                      border: "1.5px solid #0F766E",
+                    }}
+                  >
+                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </div>
                 </Link>
 
+                {/* Tilted Secondary Button: Hubungi Saya (Tilted 2.5deg, Ultra-Extended 7px/10px Shadow) */}
                 <Link
                   href="/kontak"
-                  className="flex-1 inline-flex items-center justify-center gap-2 px-4 sm:px-7 py-3.5 rounded-xl font-black text-xs sm:text-sm text-slate-800 bg-white transition-all duration-200"
+                  className="group flex-1 inline-flex items-center justify-between gap-2 px-4 sm:px-6 py-3 sm:py-3.5 rounded-2xl font-black text-xs sm:text-sm transition-all duration-200 select-none cursor-pointer whitespace-nowrap"
                   style={{
-                    border: "2px solid #e2e8f0",
-                    boxShadow: "3px 3px 0px #cbd5e1",
+                    background: "#FFFFFF",
+                    color: "#0F172A",
+                    border: "2.5px solid #0F766E",
+                    boxShadow: "7px 7px 0px #134E4A",
+                    transform: "rotate(2.5deg)",
                     fontFamily: "var(--font-space-grotesk)",
                   }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = "rotate(0deg) translate(4px, 4px)";
+                    e.currentTarget.style.boxShadow = "3px 3px 0px #134E4A";
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = "rotate(0deg) translate(-4px, -4px)";
+                    e.currentTarget.style.boxShadow = "10px 10px 0px #134E4A";
+                  }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = C.primaryBg;
-                    e.currentTarget.style.borderColor = C.primary;
+                    e.currentTarget.style.background = "#F8FAFC";
                     e.currentTarget.style.color = C.primary;
-                    e.currentTarget.style.boxShadow = "3px 3px 0px " + C.primary;
-                    e.currentTarget.style.transform = "translateY(-2px)";
+                    e.currentTarget.style.transform = "rotate(0deg) translate(-4px, -4px)";
+                    e.currentTarget.style.boxShadow = "10px 10px 0px #134E4A";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "#fff";
-                    e.currentTarget.style.borderColor = "#e2e8f0";
-                    e.currentTarget.style.color = "#1e293b";
-                    e.currentTarget.style.boxShadow = "3px 3px 0px #cbd5e1";
-                    e.currentTarget.style.transform = "none";
+                    e.currentTarget.style.background = "#FFFFFF";
+                    e.currentTarget.style.color = "#0F172A";
+                    e.currentTarget.style.transform = "rotate(2.5deg)";
+                    e.currentTarget.style.boxShadow = "7px 7px 0px #134E4A";
                   }}
                 >
-                  Hubungi Saya
+                  <span className="tracking-wide">Hubungi Saya</span>
+                  <div
+                    className="w-7 h-7 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-200 group-hover:scale-110 group-hover:bg-teal-600 group-hover:text-white"
+                    style={{
+                      background: "#CCFBF1",
+                      color: C.primary,
+                      border: "1.5px solid #5EEAD4",
+                    }}
+                  >
+                    <span className="material-symbols-outlined text-sm">send</span>
+                  </div>
                 </Link>
+
               </div>
             </motion.div>
 
           </motion.div>
         </div>
-      </section>
 
     </div>
   );

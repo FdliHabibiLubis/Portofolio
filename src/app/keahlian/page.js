@@ -13,7 +13,7 @@ const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.07 } }
 export default function KeahlianPage() {
   return (
     <div style={{ backgroundColor: C.bg, color: C.text, minHeight: "100vh" }}>
-      <section className="py-16 md:py-24 max-w-[1100px] mx-auto px-5 md:px-6">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-24 max-w-[1100px] mx-auto px-5 md:px-6">
         <motion.div initial="hidden" animate="visible" variants={stagger}>
 
           {/* Header */}
@@ -32,7 +32,7 @@ export default function KeahlianPage() {
 
           {/* Skill Logo Cards Grid */}
           <motion.div variants={stagger} initial="hidden" animate="visible"
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {skills.map((skill) => (
               <motion.div
                 key={skill.name}

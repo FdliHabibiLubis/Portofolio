@@ -2,6 +2,7 @@ import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import BackgroundAnimation from "./components/BackgroundAnimation";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -46,11 +47,15 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body
-        className="antialiased"
+        className="antialiased min-h-screen bg-white relative"
         style={{ backgroundColor: "#fff", color: "#111" }}
       >
+        {/* Dynamic Animated Background */}
+        <BackgroundAnimation />
+        {/* Top Option 2 Modular Navbar */}
         <Navbar />
-        <main>{children}</main>
+        {/* Main 100% Full Width Content */}
+        <main className="min-h-screen w-full relative z-10">{children}</main>
         <Footer />
       </body>
     </html>

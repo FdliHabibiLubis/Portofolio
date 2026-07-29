@@ -51,7 +51,7 @@ export default function ProyekPage() {
 
   return (
     <div style={{ backgroundColor: "#fff", color: "#111" }}>
-      <motion.section initial="hidden" animate="visible" variants={fadeInUp} className="py-16 md:py-24">
+      <motion.section initial="hidden" animate="visible" variants={fadeInUp} className="pt-32 pb-16 md:pt-40 md:pb-24">
         <div className="max-w-[1100px] mx-auto px-5 md:px-6">
 
           {/* Header */}
@@ -183,20 +183,20 @@ export default function ProyekPage() {
               type="button"
               onClick={handlePrevSlide}
               aria-label="Proyek sebelumnya"
-              className="hidden md:flex absolute left-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl items-center justify-center z-30 transition-all duration-200 cursor-pointer"
-              style={{ background: "#fff", border: "2.5px solid #0F1712", color: "#0F1712", boxShadow: "4px 4px 0px #0F1712" }}
+              className="hidden md:flex absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-xl items-center justify-center z-30 transition-all duration-200 cursor-pointer"
+              style={{ background: "#fff", border: "2px solid #0F1712", color: "#0F1712", boxShadow: "3px 3px 0px #0F1712" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = C.primaryBg;
                 e.currentTarget.style.color = C.primary;
                 e.currentTarget.style.borderColor = C.primary;
-                e.currentTarget.style.boxShadow = "4px 4px 0px " + C.primary;
+                e.currentTarget.style.boxShadow = "3px 3px 0px " + C.primary;
                 e.currentTarget.style.transform = "translateY(-50%) scale(1.05)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "#fff";
                 e.currentTarget.style.color = "#0F1712";
                 e.currentTarget.style.borderColor = "#0F1712";
-                e.currentTarget.style.boxShadow = "4px 4px 0px #0F1712";
+                e.currentTarget.style.boxShadow = "3px 3px 0px #0F1712";
                 e.currentTarget.style.transform = "translateY(-50%) scale(1)";
               }}
             >
@@ -207,20 +207,20 @@ export default function ProyekPage() {
               type="button"
               onClick={handleNextSlide}
               aria-label="Proyek selanjutnya"
-              className="hidden md:flex absolute right-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl items-center justify-center z-30 transition-all duration-200 cursor-pointer"
-              style={{ background: "#fff", border: "2.5px solid #0F1712", color: "#0F1712", boxShadow: "4px 4px 0px #0F1712" }}
+              className="hidden md:flex absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-xl items-center justify-center z-30 transition-all duration-200 cursor-pointer"
+              style={{ background: "#fff", border: "2px solid #0F1712", color: "#0F1712", boxShadow: "3px 3px 0px #0F1712" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = C.primaryBg;
                 e.currentTarget.style.color = C.primary;
                 e.currentTarget.style.borderColor = C.primary;
-                e.currentTarget.style.boxShadow = "4px 4px 0px " + C.primary;
+                e.currentTarget.style.boxShadow = "3px 3px 0px " + C.primary;
                 e.currentTarget.style.transform = "translateY(-50%) scale(1.05)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "#fff";
                 e.currentTarget.style.color = "#0F1712";
                 e.currentTarget.style.borderColor = "#0F1712";
-                e.currentTarget.style.boxShadow = "4px 4px 0px #0F1712";
+                e.currentTarget.style.boxShadow = "3px 3px 0px #0F1712";
                 e.currentTarget.style.transform = "translateY(-50%) scale(1)";
               }}
             >

@@ -20,7 +20,7 @@ export default function KontakPage() {
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="py-16 md:py-24"
+        className="pt-32 pb-16 md:pt-40 md:pb-24"
       >
         <div className="max-w-[1100px] mx-auto px-5 md:px-6">
 
@@ -40,7 +40,7 @@ export default function KontakPage() {
 
           {/* Centered Cards Container Grid */}
           <div className="flex justify-center">
-            <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-3.5 sm:gap-4 w-full max-w-[750px]">
+            <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-3.5 sm:gap-4 w-full max-w-[850px]">
 
               {/* Card 1: Email (Centered Layout) */}
               <a
