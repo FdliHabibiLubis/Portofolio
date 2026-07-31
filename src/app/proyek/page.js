@@ -68,7 +68,7 @@ export default function ProyekPage() {
             </p>
           </motion.div>
 
-          {/* Slideshow Main Outer Box */}
+          {/* Single Card Slider Main Outer Box */}
           <div
             className="relative w-full overflow-hidden rounded-3xl touch-pan-y select-none transition-all duration-300"
             style={{ border: "3px solid #0F1712", boxShadow: "10px 10px 0px #cbd5e1" }}
@@ -90,7 +90,6 @@ export default function ProyekPage() {
                   className={`flex-shrink-0 relative overflow-hidden bg-gradient-to-br ${proj.gradient}`}
                   style={{ width: `${100 / projects.length}%`, minHeight: "380px" }}
                 >
-
                   <div className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-10 w-full h-full p-6 pb-16 sm:p-8 md:p-10 items-center">
                     
                     {/* Left info */}
@@ -108,9 +107,9 @@ export default function ProyekPage() {
                           {proj.description}
                         </p>
                         <div className="flex flex-wrap gap-1.5 pt-1">
-                          {proj.tags.map((t, i) => (
-                            <span key={i} className="px-3 py-1 rounded-full text-[10px] font-bold tracking-wide transition-transform hover:scale-105"
-                              style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", color: "#fff", backdropFilter: "blur(4px)" }}>
+                          {proj.tags.map((t, idx) => (
+                            <span key={idx} className="px-3 py-1 rounded-full text-[10px] font-bold tracking-wide transition-transform hover:scale-105"
+                              style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", color: "#fff" }}>
                               {t}
                             </span>
                           ))}
@@ -118,16 +117,16 @@ export default function ProyekPage() {
                       </div>
 
                       <div className="hidden md:flex flex-col gap-2.5 mt-auto pt-2">
-                        {proj.features.map((feat, i) => (
-                          <div key={i} className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl transition-all duration-200 hover:bg-white/15"
-                            style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", backdropFilter: "blur(6px)" }}>
+                        {proj.features.map((feat, idx) => (
+                          <div key={idx} className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl transition-all duration-200 hover:bg-white/15"
+                            style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}>
                             <span className="material-symbols-outlined text-white/90" style={{ fontSize: "16px" }}>{feat.icon}</span>
                             <span className="text-white/90 text-[11px] font-semibold" style={{ fontFamily: "var(--font-inter)" }}>{feat.label}</span>
                           </div>
                         ))}
                         <a href={proj.gitUrl} target="_blank" rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 mt-1 px-4 py-2.5 rounded-xl text-xs font-bold text-white transition-all duration-200 hover:scale-[1.02] active:scale-95 shadow-md"
-                          style={{ background: "rgba(255,255,255,0.14)", border: "1px solid rgba(255,255,255,0.24)", backdropFilter: "blur(6px)" }}>
+                          style={{ background: "rgba(255,255,255,0.14)", border: "1px solid rgba(255,255,255,0.24)" }}>
                           <span className="material-symbols-outlined" style={{ fontSize: "15px" }}>code</span>
                           Lihat di GitHub
                         </a>
@@ -137,7 +136,7 @@ export default function ProyekPage() {
                     {/* Right mockup photo */}
                     <div className="flex-grow flex flex-col items-center justify-center md:w-[60%] w-full gap-3">
                       <div className="w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.01]"
-                        style={{ background: "rgba(0,0,0,0.3)", border: "1px solid rgba(255,255,255,0.15)", backdropFilter: "blur(10px)" }}>
+                        style={{ background: "rgba(0,0,0,0.3)", border: "1px solid rgba(255,255,255,0.15)" }}>
                         
                         {/* Browser Header Bar */}
                         <div className="flex items-center gap-2 px-4 py-3"
@@ -164,10 +163,10 @@ export default function ProyekPage() {
                         </div>
                       </div>
 
-                      {/* Tombol Lihat di GitHub - Tampil khusus di bawah gambar untuk tampilan HP */}
+                      {/* Tombol Lihat di GitHub - Tampil khusus di bawah gambar untuk HP */}
                       <a href={proj.gitUrl} target="_blank" rel="noopener noreferrer"
                         className="md:hidden inline-flex items-center justify-center gap-2 w-full mt-1 px-4 py-2.5 rounded-xl text-xs font-bold text-white transition-all duration-200 active:scale-95 shadow-md relative z-20"
-                        style={{ background: "rgba(255,255,255,0.14)", border: "1px solid rgba(255,255,255,0.24)", backdropFilter: "blur(6px)" }}>
+                        style={{ background: "rgba(255,255,255,0.14)", border: "1px solid rgba(255,255,255,0.24)" }}>
                         <span className="material-symbols-outlined" style={{ fontSize: "15px" }}>code</span>
                         Lihat di GitHub
                       </a>
@@ -183,22 +182,8 @@ export default function ProyekPage() {
               type="button"
               onClick={handlePrevSlide}
               aria-label="Proyek sebelumnya"
-              className="hidden md:flex absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-xl items-center justify-center z-30 transition-all duration-200 cursor-pointer"
+              className="hidden md:flex absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-xl items-center justify-center z-30 transition-all duration-200 cursor-pointer hover:bg-teal-50 hover:text-teal-600 hover:border-teal-600 hover:shadow-[3px_3px_0px_#0D9488] hover:scale-105"
               style={{ background: "#fff", border: "2px solid #0F1712", color: "#0F1712", boxShadow: "3px 3px 0px #0F1712" }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = C.primaryBg;
-                e.currentTarget.style.color = C.primary;
-                e.currentTarget.style.borderColor = C.primary;
-                e.currentTarget.style.boxShadow = "3px 3px 0px " + C.primary;
-                e.currentTarget.style.transform = "translateY(-50%) scale(1.05)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "#fff";
-                e.currentTarget.style.color = "#0F1712";
-                e.currentTarget.style.borderColor = "#0F1712";
-                e.currentTarget.style.boxShadow = "3px 3px 0px #0F1712";
-                e.currentTarget.style.transform = "translateY(-50%) scale(1)";
-              }}
             >
               <span className="material-symbols-outlined font-black">chevron_left</span>
             </button>
@@ -207,27 +192,11 @@ export default function ProyekPage() {
               type="button"
               onClick={handleNextSlide}
               aria-label="Proyek selanjutnya"
-              className="hidden md:flex absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-xl items-center justify-center z-30 transition-all duration-200 cursor-pointer"
+              className="hidden md:flex absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-xl items-center justify-center z-30 transition-all duration-200 cursor-pointer hover:bg-teal-50 hover:text-teal-600 hover:border-teal-600 hover:shadow-[3px_3px_0px_#0D9488] hover:scale-105"
               style={{ background: "#fff", border: "2px solid #0F1712", color: "#0F1712", boxShadow: "3px 3px 0px #0F1712" }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = C.primaryBg;
-                e.currentTarget.style.color = C.primary;
-                e.currentTarget.style.borderColor = C.primary;
-                e.currentTarget.style.boxShadow = "3px 3px 0px " + C.primary;
-                e.currentTarget.style.transform = "translateY(-50%) scale(1.05)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "#fff";
-                e.currentTarget.style.color = "#0F1712";
-                e.currentTarget.style.borderColor = "#0F1712";
-                e.currentTarget.style.boxShadow = "3px 3px 0px #0F1712";
-                e.currentTarget.style.transform = "translateY(-50%) scale(1)";
-              }}
             >
               <span className="material-symbols-outlined font-black">chevron_right</span>
             </button>
-
-
 
             {/* Dots Indicator Container */}
             <div

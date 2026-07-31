@@ -26,6 +26,9 @@ export const metadata = {
   title: "Fadli — Frontend Developer",
   description:
     "Mahasiswa Rekayasa Perangkat Lunak yang berfokus pada pengembangan frontend web yang cepat, responsif, aksesibel, dan dirancang dengan presisi.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export const viewport = {

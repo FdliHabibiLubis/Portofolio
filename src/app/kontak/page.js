@@ -46,22 +46,12 @@ export default function KontakPage() {
               <a
                 id="card-email"
                 href="mailto:habibifadli682@gmail.com"
-                className="col-span-2 group relative p-5 sm:p-6 rounded-2xl border-2 transition-all duration-200 flex flex-col sm:flex-row items-center justify-between gap-4 overflow-hidden text-center sm:text-left"
+                className="col-span-2 group relative p-5 sm:p-6 rounded-2xl border-2 transition-all duration-200 flex flex-col sm:flex-row items-center justify-between gap-4 overflow-hidden text-center sm:text-left hover:-translate-y-1 hover:border-teal-600 hover:shadow-[5px_5px_0px_#0D9488]"
                 style={{
                   background: "#fff",
                   borderColor: "#e5e7eb",
                   boxShadow: "4px 4px 0px #e5e7eb",
                   textDecoration: "none",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = C.primary;
-                  e.currentTarget.style.boxShadow = `5px 5px 0px ${C.primary}`;
-                  e.currentTarget.style.transform = "translate(-2px, -2px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "#e5e7eb";
-                  e.currentTarget.style.boxShadow = "4px 4px 0px #e5e7eb";
-                  e.currentTarget.style.transform = "none";
                 }}
               >
                 <div className="flex flex-col sm:flex-row items-center gap-3.5 sm:gap-4">
@@ -105,22 +95,12 @@ export default function KontakPage() {
                 href="https://www.instagram.com/fdlilbs.23?igsh=MWtyOGRnamo2czQ1OQ=="
                 target="_blank"
                 rel="noopener noreferrer"
-                className="col-span-1 group p-5 rounded-2xl border-2 transition-all duration-200 flex flex-col items-center justify-center text-center min-h-[140px]"
+                className="col-span-1 group p-5 rounded-2xl border-2 transition-all duration-200 flex flex-col items-center justify-center text-center min-h-[140px] hover:-translate-y-1 hover:border-[#E1306C] hover:shadow-[5px_5px_0px_#E1306C]"
                 style={{
                   background: "#fff",
                   borderColor: "#e5e7eb",
                   boxShadow: "4px 4px 0px #e5e7eb",
                   textDecoration: "none",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "#E1306C";
-                  e.currentTarget.style.boxShadow = "5px 5px 0px #E1306C";
-                  e.currentTarget.style.transform = "translate(-2px, -2px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "#e5e7eb";
-                  e.currentTarget.style.boxShadow = "4px 4px 0px #e5e7eb";
-                  e.currentTarget.style.transform = "none";
                 }}
               >
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center border-2 mb-3"
@@ -143,22 +123,12 @@ export default function KontakPage() {
                 href="https://github.com/FdliHabibiLubis"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="col-span-1 group p-5 rounded-2xl border-2 transition-all duration-200 flex flex-col items-center justify-center text-center min-h-[140px]"
+                className="col-span-1 group p-5 rounded-2xl border-2 transition-all duration-200 flex flex-col items-center justify-center text-center min-h-[140px] hover:-translate-y-1 hover:border-teal-400 hover:shadow-[5px_5px_0px_#0D9488]"
                 style={{
                   background: "#0F172A",
                   borderColor: "#1E293B",
                   boxShadow: "4px 4px 0px #e5e7eb",
                   textDecoration: "none",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = C.primary;
-                  e.currentTarget.style.boxShadow = `5px 5px 0px ${C.primary}`;
-                  e.currentTarget.style.transform = "translate(-2px, -2px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "#1E293B";
-                  e.currentTarget.style.boxShadow = "4px 4px 0px #e5e7eb";
-                  e.currentTarget.style.transform = "none";
                 }}
               >
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center border-2 mb-3"
