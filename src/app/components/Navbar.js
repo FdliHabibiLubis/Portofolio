@@ -67,12 +67,9 @@ export default function Navbar() {
         
         {/* ── Block 1 (Left): Animated Floating Brand Card ── */}
         <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: [0, -3, 0], opacity: 1 }}
-          transition={{
-            opacity: { duration: 0.4 },
-            y: { duration: 3.8, repeat: Infinity, ease: "easeInOut" },
-          }}
+          initial={{ y: -12, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4 }}
           whileHover={{ scale: 1.04, y: -2 }}
           whileTap={{ scale: 0.96 }}
           className="flex-shrink-0"
@@ -122,12 +119,9 @@ export default function Navbar() {
 
         {/* ── Block 2 (Center): Animated Floating Nav Pill Bar ── */}
         <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: [0, -4, 0], opacity: 1 }}
-          transition={{
-            opacity: { duration: 0.4, delay: 0.05 },
-            y: { duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 0.3 },
-          }}
+          initial={{ y: -12, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.05 }}
           whileHover={{ scale: 1.02, y: -2 }}
           className="hidden md:flex items-center p-1.5 rounded-full border-2 shadow-xl transition-colors"
           style={{
@@ -167,14 +161,15 @@ export default function Navbar() {
                 >
                   {active && (
                     <motion.span
-                      layoutId="active-pill-opt2"
-                      className="absolute inset-0 rounded-full"
+                      initial={{ opacity: 0, scale: 0.88 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.22, ease: "easeOut" }}
+                      className="absolute inset-0 rounded-full pointer-events-none"
                       style={{
                         background: theme.activePillBg,
                         border: isDarkPage ? "2px solid #111" : "2px solid #0D9488",
                         boxShadow: isDarkPage ? "2px 2px 0px #111" : "2px 2px 0px #0D9488",
                       }}
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}
                   <motion.span
@@ -194,12 +189,9 @@ export default function Navbar() {
 
         {/* ── Block 3 (Right): Animated Floating Action Badges ── */}
         <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: [0, -3, 0], opacity: 1 }}
-          transition={{
-            opacity: { duration: 0.4, delay: 0.1 },
-            y: { duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 },
-          }}
+          initial={{ y: -12, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
           className="flex items-center gap-2 flex-shrink-0"
         >
           {/* GitHub Badge */}

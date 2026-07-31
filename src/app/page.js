@@ -80,21 +80,11 @@ export default function Home() {
                     ].map((s, idx) => (
                       <motion.div
                         key={idx}
-                        className="p-2.5 sm:p-3.5 rounded-xl text-center transition-all duration-200 cursor-default"
+                        className="p-2.5 sm:p-3.5 rounded-xl text-center transition-all duration-200 cursor-default hover:-translate-y-1 hover:border-teal-600 hover:shadow-[3px_3px_0px_#0D9488]"
                         style={{
                           background: C.bgRaised,
                           border: "2px solid #24352C",
                           boxShadow: "3px 3px 0px #24352C",
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.borderColor = C.primary;
-                          e.currentTarget.style.boxShadow = "3px 3px 0px " + C.primary;
-                          e.currentTarget.style.transform = "translateY(-3px)";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.borderColor = "#24352C";
-                          e.currentTarget.style.boxShadow = "3px 3px 0px #24352C";
-                          e.currentTarget.style.transform = "none";
                         }}
                       >
                         <div
@@ -239,20 +229,10 @@ export default function Home() {
                 ].map((item) => (
                   <div
                     key={item.label}
-                    className="flex items-center gap-3 p-3 sm:p-3.5 rounded-2xl transition-all duration-200 bg-white"
+                    className="flex items-center gap-3 p-3 sm:p-3.5 rounded-2xl transition-all duration-200 bg-white hover:-translate-y-1 hover:border-teal-600 hover:shadow-[3px_3px_0px_#0D9488]"
                     style={{
                       border: "2px solid #e2e8f0",
                       boxShadow: "3px 3px 0px #cbd5e1",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = C.primary;
-                      e.currentTarget.style.boxShadow = "3px 3px 0px " + C.primary;
-                      e.currentTarget.style.transform = "translateY(-3px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = "#e2e8f0";
-                      e.currentTarget.style.boxShadow = "3px 3px 0px #cbd5e1";
-                      e.currentTarget.style.transform = "none";
                     }}
                   >
                     <div

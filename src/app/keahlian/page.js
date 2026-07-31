@@ -37,21 +37,11 @@ export default function KeahlianPage() {
               <motion.div
                 key={skill.name}
                 variants={fadeInUp}
-                className="group relative p-6 rounded-2xl flex flex-col items-center justify-center text-center transition-all duration-200 cursor-default"
+                className="group relative p-6 rounded-2xl flex flex-col items-center justify-center text-center transition-all duration-200 cursor-default hover:-translate-y-1 hover:border-teal-600 hover:shadow-[4px_4px_0px_#0D9488]"
                 style={{
                   background: C.bgRaised,
                   border: "2px solid #24352C",
                   boxShadow: "4px 4px 0px #24352C",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = C.primary;
-                  e.currentTarget.style.boxShadow = `0 12px 28px ${skill.glowColor || "rgba(13,148,136,0.2)"}, 4px 4px 0px ${C.primary}`;
-                  e.currentTarget.style.transform = "translateY(-4px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "#24352C";
-                  e.currentTarget.style.boxShadow = "4px 4px 0px #24352C";
-                  e.currentTarget.style.transform = "none";
                 }}
               >
                 {/* Skill Icon */}
