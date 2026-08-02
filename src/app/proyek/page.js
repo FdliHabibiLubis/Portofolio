@@ -70,18 +70,18 @@ export default function ProyekPage() {
 
           {/* Single Card Slider Main Outer Box */}
           <div
-            className="relative w-full overflow-hidden rounded-3xl touch-pan-y select-none transition-all duration-300"
+            className="relative w-full overflow-hidden rounded-3xl touch-pan-y select-none"
             style={{ border: "3px solid #0F1712", boxShadow: "10px 10px 0px #cbd5e1" }}
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onTouchEnd={onTouchEnd}
           >
-            {/* Sliding Track (600% width, translateX) */}
+            {/* Sliding Track (600% width, translate3d GPU Accelerated) */}
             <div
-              className="flex transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1)"
+              className="flex transition-transform duration-500 cubic-bezier(0.16, 1, 0.3, 1) will-change-transform"
               style={{
                 width: `${projects.length * 100}%`,
-                transform: `translateX(-${(currentSlide * 100) / projects.length}%)`,
+                transform: `translate3d(-${(currentSlide * 100) / projects.length}%, 0, 0)`,
               }}
             >
               {projects.map((proj, idx) => (
@@ -108,7 +108,7 @@ export default function ProyekPage() {
                         </p>
                         <div className="flex flex-wrap gap-1.5 pt-1">
                           {proj.tags.map((t, idx) => (
-                            <span key={idx} className="px-3 py-1 rounded-full text-[10px] font-bold tracking-wide transition-transform hover:scale-105"
+                            <span key={idx} className="px-3 py-1 rounded-full text-[10px] font-bold tracking-wide"
                               style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)", color: "#fff" }}>
                               {t}
                             </span>
@@ -118,14 +118,14 @@ export default function ProyekPage() {
 
                       <div className="hidden md:flex flex-col gap-2.5 mt-auto pt-2">
                         {proj.features.map((feat, idx) => (
-                          <div key={idx} className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl transition-all duration-200 hover:bg-white/15"
-                            style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}>
+                          <div key={idx} className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white/10"
+                            style={{ border: "1px solid rgba(255,255,255,0.12)" }}>
                             <span className="material-symbols-outlined text-white/90" style={{ fontSize: "16px" }}>{feat.icon}</span>
                             <span className="text-white/90 text-[11px] font-semibold" style={{ fontFamily: "var(--font-inter)" }}>{feat.label}</span>
                           </div>
                         ))}
                         <a href={proj.gitUrl} target="_blank" rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 mt-1 px-4 py-2.5 rounded-xl text-xs font-bold text-white transition-all duration-200 hover:scale-[1.02] active:scale-95 shadow-md"
+                          className="inline-flex items-center gap-2 mt-1 px-4 py-2.5 rounded-xl text-xs font-bold text-white shadow-md"
                           style={{ background: "rgba(255,255,255,0.14)", border: "1px solid rgba(255,255,255,0.24)" }}>
                           <span className="material-symbols-outlined" style={{ fontSize: "15px" }}>code</span>
                           Lihat di GitHub
@@ -135,7 +135,7 @@ export default function ProyekPage() {
 
                     {/* Right mockup photo */}
                     <div className="flex-grow flex flex-col items-center justify-center md:w-[60%] w-full gap-3">
-                      <div className="w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.01]"
+                      <div className="w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl"
                         style={{ background: "rgba(0,0,0,0.3)", border: "1px solid rgba(255,255,255,0.15)" }}>
                         
                         {/* Browser Header Bar */}
@@ -150,23 +150,29 @@ export default function ProyekPage() {
                           </div>
                         </div>
 
-                        {/* Image Container */}
-                        <div className="p-3 sm:p-4 flex justify-center items-center bg-black/20">
-                          <Image
-                            src={proj.mockup}
-                            alt={proj.title}
-                            width={640}
-                            height={380}
-                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 640px"
-                            priority={idx === 0}
-                            className="w-full h-auto rounded-xl object-contain max-h-56 md:max-h-[300px] shadow-lg transition-transform duration-500 hover:scale-[1.02]"
-                          />
+                        {/* Image Container - Conditional Rendering for Active & Neighbor Slides */}
+                        <div className="p-3 sm:p-4 flex justify-center items-center bg-black/20 min-h-[180px] sm:min-h-[220px]">
+                          {Math.abs(idx - currentSlide) <= 1 ? (
+                            <Image
+                              src={proj.mockup}
+                              alt={proj.title}
+                              width={640}
+                              height={380}
+                              sizes="(max-width: 768px) 100vw, 800px"
+                              priority={idx === 0}
+                              className="w-full h-auto rounded-xl object-contain max-h-56 md:max-h-[300px] shadow-lg"
+                            />
+                          ) : (
+                            <div className="w-full h-44 sm:h-56 rounded-xl bg-black/30 flex items-center justify-center text-white/30 text-xs font-mono">
+                              {proj.title}
+                            </div>
+                          )}
                         </div>
                       </div>
 
                       {/* Tombol Lihat di GitHub - Tampil khusus di bawah gambar untuk HP */}
                       <a href={proj.gitUrl} target="_blank" rel="noopener noreferrer"
-                        className="md:hidden inline-flex items-center justify-center gap-2 w-full mt-1 px-4 py-2.5 rounded-xl text-xs font-bold text-white transition-all duration-200 active:scale-95 shadow-md relative z-20"
+                        className="md:hidden inline-flex items-center justify-center gap-2 w-full mt-1 px-4 py-2.5 rounded-xl text-xs font-bold text-white shadow-md relative z-20"
                         style={{ background: "rgba(255,255,255,0.14)", border: "1px solid rgba(255,255,255,0.24)" }}>
                         <span className="material-symbols-outlined" style={{ fontSize: "15px" }}>code</span>
                         Lihat di GitHub
@@ -201,8 +207,8 @@ export default function ProyekPage() {
 
             {/* Dots Indicator Container */}
             <div
-              className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2 rounded-full z-30 backdrop-blur-md"
-              style={{ background: "rgba(0,0,0,0.55)", border: "1px solid rgba(255,255,255,0.15)" }}
+              className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2 rounded-full z-30"
+              style={{ background: "rgba(10,15,12,0.85)", border: "1px solid rgba(255,255,255,0.15)" }}
             >
               {projects.map((proj, i) => {
                 const isActive = i === currentSlide;
@@ -234,8 +240,8 @@ export default function ProyekPage() {
 
             {/* Slide Counter Badge */}
             <div
-              className="absolute top-4 right-4 md:right-16 z-30 px-3.5 py-1 rounded-full text-xs font-bold select-none backdrop-blur-md shadow-md"
-              style={{ background: "rgba(0,0,0,0.55)", color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.15)" }}
+              className="absolute top-4 right-4 md:right-16 z-30 px-3.5 py-1 rounded-full text-xs font-bold select-none shadow-md"
+              style={{ background: "rgba(10,15,12,0.85)", color: "rgba(255,255,255,0.85)", border: "1px solid rgba(255,255,255,0.15)" }}
             >
               {currentSlide + 1} / {projects.length}
             </div>
