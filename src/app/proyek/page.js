@@ -84,7 +84,7 @@ export default function ProyekPage() {
                 transform: `translateX(-${(currentSlide * 100) / projects.length}%)`,
               }}
             >
-              {projects.map((proj) => (
+              {projects.map((proj, idx) => (
                 <div
                   key={proj.id}
                   className={`flex-shrink-0 relative overflow-hidden bg-gradient-to-br ${proj.gradient}`}
@@ -157,7 +157,8 @@ export default function ProyekPage() {
                             alt={proj.title}
                             width={640}
                             height={380}
-                            priority
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 640px"
+                            priority={idx === 0}
                             className="w-full h-auto rounded-xl object-contain max-h-56 md:max-h-[300px] shadow-lg transition-transform duration-500 hover:scale-[1.02]"
                           />
                         </div>

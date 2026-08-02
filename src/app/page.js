@@ -151,6 +151,7 @@ export default function Home() {
                         alt="Fadli Habibi Lubis"
                         width={400}
                         height={480}
+                        sizes="(max-width: 640px) 240px, (max-width: 1024px) 270px, 300px"
                         priority
                         className="w-full h-full object-cover transition-transform duration-100 ease-linear group-hover:scale-[1.03]"
                       />

@@ -51,6 +51,7 @@ export default function KeahlianPage() {
                     alt={skill.name}
                     width={52}
                     height={52}
+                    sizes="52px"
                     className="w-full h-full object-contain"
                     unoptimized={skill.src.startsWith("http")}
                   />
