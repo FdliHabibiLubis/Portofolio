@@ -124,6 +124,14 @@ export const skills = [
     glowColor: "rgba(247, 223, 30, 0.3)",
   },
   {
+    name: "Next.js",
+    category: "frontend",
+    level: "Menengah",
+    description: "App Router, SSR/SSG, React & API Routes",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    glowColor: "rgba(255, 255, 255, 0.3)",
+  },
+  {
     name: "PostgreSQL",
     category: "backend",
     level: "Menengah",

@@ -76,7 +76,7 @@ export default function Home() {
                     {[
                       { value: "6+", label: "Proyek Selesai" },
                       { value: "1+", label: "Tahun Belajar" },
-                      { value: "6+", label: "Teknologi" },
+                      { value: "7+", label: "Teknologi" },
                     ].map((s, idx) => (
                       <motion.div
                         key={idx}
@@ -181,7 +181,7 @@ export default function Home() {
                     {[
                       { value: "6+", label: "Proyek Selesai" },
                       { value: "1+", label: "Tahun Belajar" },
-                      { value: "6+", label: "Teknologi" },
+                      { value: "7+", label: "Teknologi" },
                     ].map((s, idx) => (
                       <motion.div
                         key={idx}
