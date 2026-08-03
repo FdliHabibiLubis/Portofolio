@@ -8,8 +8,8 @@ import { C } from "../lib/data";
 
 const navItems = [
   { label: "Tentang", href: "/", icon: "person" },
-  { label: "Proyek", href: "/proyek", icon: "folder_open" },
-  { label: "Keahlian", href: "/keahlian", icon: "code" },
+  { label: "Proyek", href: "/proyek", icon: "code" },
+  { label: "Keahlian", href: "/keahlian", icon: "star" },
   { label: "Kontak", href: "/kontak", icon: "mail" },
 ];
 

@@ -30,50 +30,46 @@ export default function KeahlianPage() {
             </p>
           </motion.div>
 
-          {/* Infinite Marquee Skill Banner */}
-          <motion.div variants={fadeInUp} className="relative w-full overflow-hidden select-none py-4">
-            {/* Side Fade Gradient Masks */}
-            <div
-              className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 z-10 pointer-events-none"
-              style={{ background: `linear-gradient(to right, ${C.bg}, transparent)` }}
-            />
-            <div
-              className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 z-10 pointer-events-none"
-              style={{ background: `linear-gradient(to left, ${C.bg}, transparent)` }}
-            />
-
-            {/* Marquee Track (Right to Left Continuous Scrolling) */}
-            <div className="flex gap-4 w-max animate-marquee">
-              {[...skills, ...skills, ...skills, ...skills].map((skill, index) => (
-                <div
-                  key={`${skill.name}-${index}`}
-                  className="flex-shrink-0 w-36 sm:w-44 p-4 sm:p-5 rounded-2xl flex flex-col items-center justify-center text-center transition-all duration-200 cursor-default hover:-translate-y-1 hover:border-teal-500 hover:shadow-[4px_4px_0px_#0D9488]"
-                  style={{
-                    background: C.bgRaised,
-                    border: "2px solid #24352C",
-                    boxShadow: "4px 4px 0px #24352C",
-                  }}
-                >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center p-2 mb-2 sm:mb-3">
-                    <Image
-                      src={skill.src}
-                      alt={skill.name}
-                      width={52}
-                      height={52}
-                      sizes="100px"
-                      className="w-full h-full object-contain"
-                      unoptimized={skill.src.startsWith("http")}
-                    />
-                  </div>
-                  <h3
-                    className="text-xs sm:text-sm font-black"
-                    style={{ fontFamily: "var(--font-space-grotesk)", color: "#F1F5F9" }}
-                  >
-                    {skill.name}
-                  </h3>
+          {/* Skill Logo Cards Grid (Static Clean Display) */}
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4"
+          >
+            {skills.map((skill) => (
+              <motion.div
+                key={skill.name}
+                variants={fadeInUp}
+                className="group relative p-5 rounded-2xl flex flex-col items-center justify-center text-center transition-all duration-200 cursor-default hover:-translate-y-1 hover:border-teal-600 hover:shadow-[4px_4px_0px_#0D9488]"
+                style={{
+                  background: C.bgRaised,
+                  border: "2px solid #24352C",
+                  boxShadow: "4px 4px 0px #24352C",
+                }}
+              >
+                {/* Skill Icon */}
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center p-2 mb-2 sm:mb-3 transition-transform duration-300 group-hover:scale-110">
+                  <Image
+                    src={skill.src}
+                    alt={skill.name}
+                    width={52}
+                    height={52}
+                    sizes="100px"
+                    className="w-full h-full object-contain"
+                    unoptimized={skill.src.startsWith("http")}
+                  />
                 </div>
-              ))}
-            </div>
+
+                {/* Skill Name */}
+                <h3
+                  className="text-xs sm:text-sm font-black transition-colors duration-200"
+                  style={{ fontFamily: "var(--font-space-grotesk)", color: "#F1F5F9" }}
+                >
+                  {skill.name}
+                </h3>
+              </motion.div>
+            ))}
           </motion.div>
 
         </motion.div>
