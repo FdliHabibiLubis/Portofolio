@@ -51,7 +51,7 @@ export const projects = [
       { icon: "palette", label: "Kustomisasi Desain" },
     ],
     mockup: "/assets/images/projek/senandika.avif",
-    gitUrl: "https://github.com/FdliHabibiLubis/senandika",
+    gitUrl: "https://github.com/FdliHabibiLubis/lyricart-nextjs",
     linkText: "senandika.app",
     gradient: "from-[#200914] via-[#3b1225] to-[#260b18]",
     radialGlow: "rgba(244,63,94,0.2)",
