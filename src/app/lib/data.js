@@ -40,6 +40,25 @@ export const projects = [
     pillBg: "bg-blue-400",
   },
   {
+    id: "senandika",
+    title: "Senandika",
+    category: "FEATURED WEB APP",
+    description:
+      "Platform web pengubah lirik lagu menjadi poster estetik secara instan dengan kustomisasi tata letak dan gaya visual yang unik.",
+    tags: ["Next.js", "JavaScript", "Lyric Poster"],
+    features: [
+      { icon: "music_note", label: "Lirik ke Poster" },
+      { icon: "palette", label: "Kustomisasi Desain" },
+    ],
+    mockup: "/assets/images/projek/senandika.avif",
+    gitUrl: "https://github.com/FdliHabibiLubis/senandika",
+    linkText: "senandika.app",
+    gradient: "from-[#200914] via-[#3b1225] to-[#260b18]",
+    radialGlow: "rgba(244,63,94,0.2)",
+    tagColor: "text-rose-300",
+    pillBg: "bg-rose-500",
+  },
+  {
     id: "bukukita",
     title: "Buku Kita",
     category: "WEB APP",

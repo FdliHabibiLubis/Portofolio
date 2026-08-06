@@ -215,6 +215,7 @@ export default function ProyekPage() {
                 const activeColorMap = {
                   saku: "#34d399",
                   ciakad: "#60a5fa",
+                  senandika: "#f43f5e",
                   bukukita: "#f59e0b",
                   password: "#f97316",
                   anikaze: "#c084fc",
